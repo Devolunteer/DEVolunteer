@@ -1,0 +1,6 @@
+<div>
+  <ul>
+      <gallery-up ng-repeat="item in homeCtrl.galleries | gallerySearch: homeCtrl.gallerySearchName | orderBy: 'name' | limitTo: 10 | date : medium" gallery="item" pic="item" ng-click="homeCtrl.currentGallery = item">
+      </gallery-up>
+  </ul>
+</div>
