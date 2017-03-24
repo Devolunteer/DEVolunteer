@@ -15,7 +15,7 @@ module.exports = function(req, res, next) {
     username: authArray[0], //first split
     password: authArray[1], //after colon
   }
-  //should this be as specific?
+  //should this be more/less specific?
   if(!req.auth.username) return next(createError(401, 'username required'))
   if(!req.auth.password) return next(createError(401, 'password required'))
   next()
