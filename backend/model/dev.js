@@ -1,0 +1,23 @@
+'use strict'
+
+let mongoose = require('mongoose')
+let bcrypt = require('bcryptjs');
+let createError = require('http-errors');
+
+//Dev user model
+let devSchema = mongoose.Schema({
+  username: {type: String, required: true, unique: true},
+  password: {type: String, required: true},
+  city: {type: String},
+  state: {type: String},
+  phone: {type: String},
+  email: {type: String},
+  picture: {type: String},
+  website: {type: String},
+  languages: [{type: String}],
+  services: [{type: String}],
+  available: {type: Boolean},
+  reviews: [{type: mongoose.schema.types.ObjectId, ref: 'reviews'}],
+})
+
+module.exports = mongoose.model('devs', devSchema)
