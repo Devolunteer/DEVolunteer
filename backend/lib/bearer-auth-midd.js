@@ -1,27 +1,29 @@
-'use strict'
+'use strict';
 
-const jwt = require('jsonwebtoken')
-const User = require('../model/user')
-const createError = require('http-errors')
+const jwt = require('jsonwebtoken');
+const createError = require('http-errors');
 
-//findHash prop is on dev schema
+const User = require('../model/user.js');
 
 module.exports = (req, res, next) => {
-  let authHeader = req.headers.authorization
-  if(!authHeader) return next(createError(401, 'requires header'))
-  if(!token) return next(createError(401, 'requires token'))
+  const auth = req.headers.authorization;
+  if(!auth) return next(createError(401, 'authorization headers required'));
 
-  let token = authHeader.split('Bearer')[1]
+  let [method, token] = req.headers.authorization.split(' ');
+  if(!token) return next(createError(401, 'token required'));
 
-  jwt.verify(token, process.env.SECRET || 'DEV', (err, decodedToken) => {
-    if(err) return next(createError(500, 'server error'))
-    User.findOne({findHash: decodedToken})
-    .then(User => {
-      req.user = User
-      next()
-    })
-    .catch(() => {
-      next(() => createError(401, 'token creation failed'))
-    })
-  })
-}
+  if(method.toLowerCase() !== 'bearer') return next(createError(401, 'bearer authentication required'));
+
+  jwt.verify(token, process.env.SECRET || 'DEV', (err, decoded) => {
+    if(err) return next(err);
+
+    User.findById(decoded.id)
+      .then(user => {
+        req.user = user;
+        next();
+      })
+      .catch(err => {
+        next(createError(401, err.message));
+      });
+  });
+};
