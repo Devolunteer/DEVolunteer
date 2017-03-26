@@ -1,6 +1,6 @@
 'use strict'
 
-const createError = require('https-errors')
+const createError = require('http-errors')
 
 module.exports = function(req, res, next) {
   var authHeader = req.headers.authorization
