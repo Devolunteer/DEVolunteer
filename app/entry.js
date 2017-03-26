@@ -40,9 +40,9 @@ context.keys().forEach( key => {
   DEVolunteer.component(name, module);
 });
 
-context = require.context('./filter/', true, /\.js$/)
+context = require.context('./filter/', true, /\.js$/);
 context.keys().forEach(key => {
-  let name = camelcase(path.basename(key, '.js'))
-  let module = context(key)
-  DEVolunteer.filter(name, module)
-})
+  let name = camelcase(path.basename(key, '.js'));
+  let module = context(key);
+  DEVolunteer.filter(name, module);
+});

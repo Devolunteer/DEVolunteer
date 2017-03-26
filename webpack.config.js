@@ -30,37 +30,43 @@ if (production) {
 
 module.exports = {
   entry: `${__dirname}/app/entry.js`,
-  devtool: production ? false : 'eval',
-  plugins,
+  devtool: production ? false : 'source-map',
   output: {
-    path: 'build',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: `${__dirname}/build`
   },
-  sassLoader: {
-    includePaths: [`${__dirname}/app/scss/`]
-  },
+  plugins,
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        use: ['babel-loader']
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        use: ['html-loader']
       },
       {
-        test: /\.(woff|tt|svg|eot).*/,
-        loader: 'url?limit=10000&name=image/[hash].[ext]'
-      },
-      {
-        test: /\.(jpg|jpeg|svg|bmp|tiff|gif|png)$/,
-        loader: 'url?limit=10000&name=image/[hash].[ext]'
+        test: /\.(woff|ttf|svg|eot).*/,
+        use: 'url-loader?limit=10000&name=image/[hash].[ext]'
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('style', 'css!resolve-url!sass?sourceMap')
+        use: ExtractTextPlugin.extract(
+          {
+            use: [
+              { loader: 'css-loader',  options: { sourceMap: true } },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                  includePaths: [`${__dirname}/app/scss/`]
+                }
+              },
+            ]
+          }
+        )
       }
     ]
   }
