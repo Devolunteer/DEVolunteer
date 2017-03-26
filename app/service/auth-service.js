@@ -48,8 +48,9 @@ function authService($q, $log, $http, $window){
 
 //SIGNUP LOGIC
   service.signup = function(user) {
+    console.log('user', user);
     $log.debug('authService.signup()');
-    let url = `${__API_URL__}/api/signup`;
+    let url = `http://localhost:3000/api/signup`;
     let config = {
       headers: {
         'Content-Type': 'application/json',
@@ -63,10 +64,10 @@ function authService($q, $log, $http, $window){
       return setToken(res.data);
     })
     .catch(err => {
+      console.log('in the .catch');
       console.error(err);
-      $log.error('failure', err.message);
+      // $log.error('failure', err.message);
       return $q.reject(err);
-
     });
   };
 

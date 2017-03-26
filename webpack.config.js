@@ -11,7 +11,7 @@ let plugins = [
   new ExtractTextPlugin('bundle.css'),
   new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
   new webpack.DefinePlugin({
-    __API_URL__: JSON.stringify(process.env.API_URL),
+    __API_URL__: JSON.stringify(process.env.API_URL || 'http://localhost:3000'),
     __DEBUG__: JSON.stringify(!production)
   })
 ];
