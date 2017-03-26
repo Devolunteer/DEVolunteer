@@ -66,7 +66,6 @@ function authService($q, $log, $http, $window){
     .catch(err => {
       console.log('in the .catch');
       console.error(err);
-      $log.error('failure', err.message);
       return $q.reject(err);
     });
   };

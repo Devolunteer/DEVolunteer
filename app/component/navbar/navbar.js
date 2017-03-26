@@ -33,7 +33,11 @@ function NavBarController($log, $location, $rootScope, authService){
     }
   };
 
+<<<<<<< HEAD
+  this.checkPath();
+=======
   // this.checkPath();
+>>>>>>> 7584c3b79d7b75eb9c3edd682d63b547775fac08
 
   $rootScope.$on('$locationChangeSuccess', () => {
     this.checkPath();
