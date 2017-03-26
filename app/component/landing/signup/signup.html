@@ -1,3 +1,30 @@
-<section class="signup-form">
-  
+<section class="signup">
+  <form class="signup-form"
+    ng-submit="signupCtrl.signup(signupCtrl.user)"
+    no-validate>
+
+      <input class="input-std field"
+        type="text"
+        placeholder="name"
+        ng-minlength="4"
+        ng-model="signupCtrl.user.username" required>
+
+      <input class="input-std field"
+        type="email"
+        placeholder="email"
+        ng-model="signupCtrl.user.email">
+
+      <input class="input-std field"
+        type="password"
+        placeholder="password"
+        ng-minlength="3"
+        ng-model="signupCtrl.user.password" required>
+
+      <h4>Are You A...</h4>
+      <input type="radio" ng-model="signupCtrl.user.isNPO" value="true" name="radioGroup" required><label for="NPO"> Non Profit Organization</label>
+      <input type="radio" ng-model="signupCtrl.user.isDev" value="true" name="radioGroup"><label for="DEV"> Developer</label>
+
+
+      <input type="submit" class="btn-std" value="SIGN UP">
+  </form>
 </section>

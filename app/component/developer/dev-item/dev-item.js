@@ -2,18 +2,20 @@ require('./_dev-item.scss');
 
 module.exports = {
   template: require('./dev-item.html'),
-  controller: ['$log', 'developerService', DevItemController],
+  controller: ['$log', 'developerService', devItemController],
   controllerAs: 'devItemCtrl',
   bindings: {
     dev: '<',
   },
 };
 
-function DevItemController($log, developerService){
-  $log.debug('running galleryUpCtrl');
 
-  // this.showEditGallery = false;
+//IT IS IN HERE THAT I PUT THE LOGIC FROM THE CLICK OF THE 'VIEW MORE' ON THE LIST ITEM, THAT THE DETAIL VIEW SHOWS.
 
-  // this.deleteGallery = function(){
-  //   developerService.deleteGallery(this.gallery._id);
+function devItemController($log, devService){
+  $log.debug('running devItemCtrl');
+
+  this.showDetailView = function() {
+    devService.showDetail(this.dev._id);
+  };
 }

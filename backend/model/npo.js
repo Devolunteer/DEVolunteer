@@ -11,7 +11,7 @@ let npoSchema = mongoose.Schema({
   email: {type: String},
   projects: [{type: String}],
   developers: [{type: mongoose.Schema.Types.ObjectId, ref: 'devs'}],
-  reviews: [{type:mongoose.Schema.Types.ObjectId, ref: 'reviews'}],
+  reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'reviews'}],
 })
 
 

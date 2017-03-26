@@ -1,6 +1,5 @@
 <section class="landing">
-  <div class="join-container"
-    ng-if="landingCtrl.showSignup">
+  <div class="join-container" ng-if="landingCtrl.showSignup">
     <div class="join-inner">
       <signup></signup>
       <h3>Already Have an Account?</h3>
@@ -11,22 +10,15 @@
     </div>
   </div>
 
-  <div class="join-container"
-    ng-if="!landingCtrl.showSignup">
-    <h1>Are You A...</h1>
+  <div class="join-container" ng-if="!landingCtrl.showSignup">
     <div class="join-inner npo-join">
       <login></login>
-      <h3>Non Profit</h3>
+      <h3>Don't Have an Account?</h3>
       <a href="/#/join#signup"
         ng-click="landingCtrl.showSignup=true">
-        Click Here.
+        Create an Account.
       </a>
     </div>
-
-    <div class="join-inner dev-join">
-      <login></login>
-      <h3>Developer</h3>
-      <a href="#/join#signup" ng-click="landingCtrl.showSignup=true">Click Here</a>
-    </div>
   </div>
+
 </section>

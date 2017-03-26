@@ -23,6 +23,8 @@ context = require.context('./view/', true, /\.js$/);
 context.keys().forEach( key => {
   let name = pascalcase(path.basename(key, '.js'));
   let module = context(key);
+  console.log('module', module);
+  console.log('name', name);
   DEVolunteer.controller(name, module);
 });
 
@@ -40,9 +42,9 @@ context.keys().forEach( key => {
   DEVolunteer.component(name, module);
 });
 
-context = require.context('./filter/', true, /\.js$/)
-context.keys().forEach(key => {
-  let name = camelcase(path.basename(key, '.js'))
-  let module = context(key)
-  DEVolunteer.filter(name, module)
-})
+// context = require.context('./filter/', true, /\.js$/);
+// context.keys().forEach(key => {
+//   let name = camelcase(path.basename(key, '.js'));
+//   let module = context(key);
+//   DEVolunteer.filter(name, module);
+// });

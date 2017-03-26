@@ -1,1 +1,8 @@
-// Needs CSS
+@import "../../scss/lib/theme/vars";
+
+.nav-container {
+  display: flex;
+  // flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}

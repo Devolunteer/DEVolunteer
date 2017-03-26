@@ -13,7 +13,6 @@ const userSchema = Schema({
   username: { type: String, required: true, unique: true },
   email: {type: String, required: true, unique: true },
   password: {type: String},
-  findHash: {type: String, unique: true},
   isDev: {type: Boolean, default: false},
   isNPO: {type: Boolean, default: false},
 })
@@ -48,10 +47,12 @@ userSchema.methods.comparePasswordHash = function(password) {
 }
 
 userSchema.methods.generateToken = function() {
-  return new Promise((resolve, reject) => {
-    this.generateFindHash()
-    .then( findHash => resolve(jwt.sign({token: findHash}, process.env.APP_SECRET)))
-    .catch(err => reject(err))
+  return new Promise ((resolve, reject) => {
+    let token = jwt.sign({id: this._id}, process.env.SECRET || 'DEV')
+    if(!token) {
+      reject('could not generate token')
+    }
+    resolve(token)
   })
 }
 

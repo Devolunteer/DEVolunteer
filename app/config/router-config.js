@@ -28,4 +28,5 @@ function routerConfig($stateProvider, $urlRouterProvider) {
   states.forEach( state => {
     $stateProvider.state(state);
   });
-};
+}
+
