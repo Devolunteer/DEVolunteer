@@ -9,6 +9,7 @@ let jsonParser = require('body-parser').json()
 let router = module.exports = new Router()
 
 //posts a new user with their information
+
 router.post('/api/signup', jsonParser, (req, res, next) => {
   let user = new User(req.body)
 
