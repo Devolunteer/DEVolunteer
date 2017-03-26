@@ -29,3 +29,4 @@ function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider.state(state);
   });
 }
+

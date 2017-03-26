@@ -1,0 +1,74 @@
+<!-- this is the developer profile view. this page will allow edits  -->
+
+
+<div class="devDetails">
+  <section class='edit'>
+
+    <form class="edit-profile" name="editProfile" ng-submit="editProfileCtrl.updateProfile()" no-validate>
+      
+      <fieldset>
+        <img ng-src="{{ devItemCtrl.picture }}">
+        <p class="grab-img" ngf-select ng-model="uploadPicCtrl.pic.file">Choose some random ass pic to upload.</p>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Name</span>
+        <input type="text" name="Name" ng-model="editProfileCtrl.dev.name">
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Description</span>
+        <input type="text" name="Description" ng-model='editProfileCtrl.dev.desc'>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>City</span>
+        <input type="text" name="Description" ng-model='editProfileCtrl.dev.city'>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>State</span>
+        <input type="text" name="Description" ng-model='editProfileCtrl.dev.state'>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Zip</span>
+        <input type="text" name="Description" ng-model='editProfileCtrl.dev.zip'>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Reviews</span>
+        <input type="text" name="Description" ng-model='editProfileCtrl.dev.reviews'>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Languages</span>
+        <input type="text" name="Description" ng-model='editProfileCtrl.dev.languages'>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Services</span>
+        <input type="text" name="Description" ng-model='editProfileCtrl.dev.services'>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Websites</span>
+        <input type="text" name="Description" ng-model='editProfileCtrl.dev.desc'>
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Available</span>
+        <input type="checkbox" name="Available" ng-model='editProfileCtrl.dev.available'>
+      </fieldset>
+
+      <button type="submit" class='btn-std'>Save Changes</button>
+    </form>
+  </section> -->
+  <button class="btn-std" ng-click="devItemCtrl.showEditGallery=!galleryItemCtrl.showEditGallery" type="button" name="edit">Edit</button>
+
+  <button class="btn-std" ng-click="galleryItemCtrl.deleteGallery()" type="button" name="delete">Delete</button>
+
+</div>
+
+
+<!-- edit gallery:
