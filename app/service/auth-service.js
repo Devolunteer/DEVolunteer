@@ -76,7 +76,7 @@ function authService($q, $log, $http, $window){
   service.login = function(user){
     $log.debug('authService.login()');
 
-    let url = `http/api/login`;
+    let url = `http://localhost:3000/api/login`;
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {
       headers: {
