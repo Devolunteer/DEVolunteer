@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const authRouter = require('./route/auth-router.js')
+const devRouter = require('./route/dev-router')
+const npoRouter = require('./route/npo-router.js')
 const errorMiddleware = require('./lib/error-midd.js')
 
 const app = express()
@@ -23,6 +25,8 @@ mongoose.Promise = Promise
 app.use(cors())
 app.use(morgan('dev'))
 app.use(authRouter)
+app.use(devRouter)
+app.use(npoRouter)
 app.use(errorMiddleware)
 
 module.exports = app
