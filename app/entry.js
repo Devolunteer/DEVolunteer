@@ -12,7 +12,7 @@ const ngAnimate = require('angular-animate');
 const uiBootstrap = require('angular-ui-bootstrap');
 const ngFileUpload = require('ng-file-upload');
 
-const DEVolunteer = angular.module('cfgram', [ngTouch, ngAnimate, uiRouter, uiBootstrap, ngFileUpload]);
+const DEVolunteer = angular.module('DEVolunteer', [ngTouch, ngAnimate, uiRouter, uiBootstrap, ngFileUpload]);
 
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( path => {
