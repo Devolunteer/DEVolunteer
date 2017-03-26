@@ -1,7 +1,7 @@
 'use strict'
 
 //just for auth process
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const Promise = require('bluebird')
 const mongoose = require('mongoose')
@@ -55,4 +55,4 @@ userSchema.methods.generateToken = function() {
   })
 }
 
-module.exports = mongoose.model('user', userSchema)
+module.exports = mongoose.model('users', userSchema)
