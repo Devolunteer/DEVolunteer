@@ -4,11 +4,11 @@
   "description": "backend to devolunteer angular app",
   "main": "server.js",
   "engines": {
-  "node": "6.9.1"
-},
-"scripts": {
-  "start": "node server.js"
-},
+    "node": "6.9.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
   "author": "Jacob Isenberg, JR Iriarte, Jonathan Daniel, Michael Bishop",
   "license": "MIT",
   "dependencies": {
@@ -18,7 +18,8 @@
     "http-errors": "^1.6.1",
     "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.9.1",
-    "morgan": "^1.8.1"
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
