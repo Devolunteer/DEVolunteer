@@ -1,20 +1,8 @@
-// Needs CSS
-.nav-bar {
-  .btn-logout {
-    display: none;
-    @media (min-width: 500px){
-      display: inline-block;
-    }
-  }
+@import "../../scss/lib/theme/vars";
 
-  .btn-dropdown  {
-    padding: 10%;
-    span{
-      font-size: 1.5em;
-
-      @media (min-width: 500px){
-        display: none;
-      }
-    }
-  }
+.nav-container {
+  display: flex;
+  // flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }

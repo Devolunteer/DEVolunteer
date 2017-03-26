@@ -1,19 +1,21 @@
-// :::: BOOTSTRAP COMPONENTS :::: //
-@import "lib/bootstrap/_custom-bootstrap";
+// BOOTSTRAP COMPONENT
+@import "lib/bootstrap/custom-bootstrap";
 
-// :::: BASE & THEME :::: //
-@import "lib/base/reset";
+// CSS THEME
 @import "lib/theme/vars";
+
+// CSS BASE
+@import "lib/base/reset";
 @import "lib/base/base";
 
-// :::: LAYOUT :::: //
+// CSS LAYOUT
 @import "lib/layout/header";
 @import "lib/layout/footer";
 @import "lib/layout/layout";
 
-// :::: VIEW :::: //
-@import "../view/landing/landing";
-
-// :::: COMPONENT :::: //
+// CSS COMPONENT
 @import "../component/landing/login/login";
 @import "../component/landing/signup/signup";
+
+// CSS VIEW
+@import "../view/landing/landing"
