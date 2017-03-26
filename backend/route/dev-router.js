@@ -17,3 +17,5 @@ router.post('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
   .then(dev => res.json(dev))
   .catch(next)
 })
+
+// router.get('/api')

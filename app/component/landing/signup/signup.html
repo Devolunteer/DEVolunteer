@@ -21,8 +21,8 @@
         ng-model="signupCtrl.user.password" required>
 
       <h4>Are You A...</h4>
-      <input type="radio" name="chooseone" value="NPO"><label for="NPO"> Non Profit Organization</label>
-      <input type="radio" name="chooseone" value="DEV"><label for="DEV"> Developer</label>
+      <input type="radio" ng-model="signupCtrl.user.isNPO" value="true" name="radioGroup" required><label for="NPO"> Non Profit Organization</label>
+      <input type="radio" ng-model="signupCtrl.user.isDev" value="true" name="radioGroup"><label for="DEV"> Developer</label>
 
 
       <input type="submit" class="btn-std" value="SIGN UP">

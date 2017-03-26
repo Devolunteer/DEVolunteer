@@ -1,0 +1,19 @@
+@import "../../scss/lib/theme/vars";
+
+.drop-down-menu {
+  margin-top: $gutter-std;
+
+  * {
+    font-size: 2.5vw;
+  }
+
+  div {
+    &:not(.panel-group) {
+      padding: $gutter-sm;
+    }
+  }
+
+  p {
+    line-height: 4vw;
+  }
+}

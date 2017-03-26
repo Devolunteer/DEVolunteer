@@ -71,12 +71,11 @@ function authService($q, $log, $http, $window){
   };
 
 
-
 //LOGIN LOGIC
   service.login = function(user){
     $log.debug('authService.login()');
 
-    let url = `${__API_URL__}/api/login`;
+    let url = `http://localhost:3000/api/login`;
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {
       headers: {

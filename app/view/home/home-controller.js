@@ -2,6 +2,7 @@
 
 require('./_home.scss');
 
+
 module.exports = ['$log', '$rootScope', 'devService', 'questService', HomeController];
 
 function HomeController($log, $rootScope, devService, questService) {
@@ -25,4 +26,5 @@ function HomeController($log, $rootScope, devService, questService) {
   // $rootScope.$on('$locationChangeSuccess', () =>{
   //   this.fetchGalleries();
   // })
+
 }
