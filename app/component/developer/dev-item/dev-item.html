@@ -1,19 +1,20 @@
+<!-- this is supposed to be each "teaser" that will display on the dev list view -->
+
+
 <div class="devDiv">
-  <!-- <uib-accordion> -->
-    <!-- <li uib-accordion-group class="gallery-up panel-default" heading="{{galleryUpCtrl.gallery.name | uppercase}}"> -->
 
-      <div class="" ng-if="!galleryItemCtrl.showEditGallery">
-
+      <div class="devItem">
+        <img ng-src="{{ devItemCtrl.picture }}" alt="No picture yet">
         <h3>{{ devItemCtrl.dev.name }}</h3>
         <span> {{ devItemCtrl.dev.desc }}</span>
+        <p>Reviews:</p>
         <span> {{ devItemCtrl.dev.reviews }}</span>
+        <p>Languages:</p>
         <span> {{ devItemCtrl.dev.languages | limitTo: 4}}</span>
 
-        <!-- <button class="btn-std" ng-click="ON CLICK IT NEEDS TO SHOW THE DEV DETAIL VIEW" type="button" name="edit">View More</button> -->
+        <button class="btn-std" ng-click="devItemCtrl.showDetailView()" type="button" name="ViewMore">View More</button>
 
 
 
       </div>
-    </li>
-  <!-- </uib-accordion> -->
 </div>

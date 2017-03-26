@@ -9,11 +9,13 @@ module.exports = {
   },
 };
 
+
+//IT IS IN HERE THAT I PUT THE LOGIC FROM THE CLICK OF THE 'VIEW MORE' ON THE LIST ITEM, THAT THE DETAIL VIEW SHOWS.
+
 function DevItemController($log, developerService){
-  $log.debug('running galleryUpCtrl');
+  $log.debug('running devItemCtrl');
 
-  // this.showEditGallery = false;
-
-  // this.deleteGallery = function(){
-  //   developerService.deleteGallery(this.gallery._id);
+  this.showDetailView = function() {
+    developerService.showDetail(this.dev._id);
+  };
 }
