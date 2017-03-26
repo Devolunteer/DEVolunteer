@@ -2,7 +2,7 @@
 
 let Router = require('express').Router
 let basicAuth = require('../lib/basic-auth-midd.js')
-let User = require('../models/user.js')
+let User = require('../model/user.js')
 let createError = require('http-errors')
 let jsonParser = require('body-parser').json()
 
