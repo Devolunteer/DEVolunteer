@@ -25,4 +25,3 @@ function LoginController($log, $location, authService) {
     });
   };
 }
-'use strict';
