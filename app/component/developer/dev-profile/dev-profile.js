@@ -14,11 +14,11 @@ function editProfileController($log, devService) {
     devService.updateProfile(this.dev._id);
   };
 
-  this.deleteProfile = function(this.dev._id){
-    devService.deleteProfile();
+  this.deleteProfile = function(param){
+    devService.deleteProfile(this.dev._id);
   }
 
-  this.uploadPic = function(this.dev._id){
-    devService.uploadPic();
+  this.uploadPic = function(param){
+    devService.uploadPic(this.dev._id);
   }
 };
