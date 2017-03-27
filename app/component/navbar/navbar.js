@@ -35,6 +35,7 @@ function NavBarController($log, $location, $rootScope, authService){
 
   // this.checkPath();
 
+
   $rootScope.$on('$locationChangeSuccess', () => {
     this.checkPath();
   });
