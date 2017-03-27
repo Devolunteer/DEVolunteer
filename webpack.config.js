@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').load();
+
 const webpack = require('webpack');
 const HTMLPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
@@ -8,21 +10,19 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const production = process.env.NODE_ENV === 'production';
 
 let plugins = [
-  new ExtractTextPlugin('bundle.css'),
-  new HTMLPlugin({ template: `${__dirname}/app/index.html` }),
+  new ExtractTextPlugin({ filename: 'bundle.css' }),
+  new HTMLPlugin({template: `${__dirname}/app/index.html`}),
   new webpack.DefinePlugin({
-    __API_URL__: JSON.stringify(process.env.API_URL || 'http://localhost:3000'),
+    __API_URL__: JSON.stringify(process.env.API_URL),
     __DEBUG__: JSON.stringify(!production)
   })
 ];
 
-if (production) {
+if(production) {
   plugins = plugins.concat([
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
-      compress: {
-        warnings: false
-      }
+      compress: { warnings: false }
     }),
     new CleanPlugin()
   ]);
@@ -63,7 +63,7 @@ module.exports = {
                   sourceMap: true,
                   includePaths: [`${__dirname}/app/scss/`]
                 }
-              },
+              }
             ]
           }
         )
