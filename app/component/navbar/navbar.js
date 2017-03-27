@@ -33,6 +33,7 @@ function NavBarController($log, $location, $rootScope, authService){
     }
   };
 
+
   // this.checkPath();
 
 
