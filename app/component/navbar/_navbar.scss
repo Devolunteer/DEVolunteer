@@ -1,8 +1,8 @@
 @import "../../scss/lib/theme/vars";
 
-.nav-container {
-  display: flex;
-  // flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+
+button {
+  float: right;
+  padding: 2em;
+  margin: 1%;
 }
