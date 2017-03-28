@@ -1,29 +1,4 @@
-<section class="landing">
-  <div class="join-container" ng-if="landingCtrl.showSignup">
-    <div class="join-inner">
-      <signup></signup>
-      <h3>Already Have an Account?</h3>
-      <button class = "btn">
-      <a href="/#/login"
-        ng-click="landingCtrl.showSignup=false">
-        Sign In Here.
-      </a>
-    </button>
-    </div>
-  </div>
-  <!-- <c1 ng-if></c1>
-  <c2></c2>
-  <c3></c3> -->
-
-  <div class="join-container" ng-if="!landingCtrl.showSignup">
-    <div class="join-inner npo-join">
-      <login></login>
-      <h3>Don't Have an Account?</h3>
-      <a href="/#/signup"
-        ng-click="landingCtrl.showSignup=true">
-        Create an Account.
-      </a>
-    </div>
-  </div>
-
+<section class = "landing">
+<button class = "btn-lg" id="landing-button"><a ui-sref="devlist">FIND A DEV</a></button>
+<!--the link above takes us to the dev list view. clicking it will fire a backend route-->
 </section>
