@@ -48,10 +48,6 @@ function routerConfig($stateProvider, $urlRouterProvider) {
   ];
 
   states.forEach( state => {
-<<<<<<< HEAD
-    console.log('STATE', state);
-=======
->>>>>>> 5d2a7796bd2f43197db4f332da73efd1fab70fab
     $stateProvider.state(state);
   });
 }
