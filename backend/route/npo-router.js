@@ -18,3 +18,22 @@ router.post('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
   .then(npo => res.json(npo))
   .catch(next)
 })
+
+router.get('/api/npo', bearerAuth, (req, res, next) => {
+  if(!req.user.isNPO) return next(createError(401, 'please log in as an NPO'))
+
+  Npo.find()
+  .then( npo => {
+    return res.json(npo)
+  })
+  .catch(next)
+})
+
+router.delete('/api/npo', bearerAuth, (req, res) => {
+  Npo.findByIdAndRemove(req.user.id)
+  .then(npo => res.json(npo))
+  .catch(e => {
+    console.log(e)
+    res.json({}) //or err.message?
+  })
+})
