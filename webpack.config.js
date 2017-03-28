@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').load();
+// require('dotenv').load();
 
 const webpack = require('webpack');
 const HTMLPlugin = require('html-webpack-plugin');

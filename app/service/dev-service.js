@@ -7,26 +7,50 @@ function devService($q, $log, $http, Upload, authService) {
   $log.debug('devService');
 
   let service = {};
+  service.devList = [];
 
-
-  service.showDetail = function(devData){
-    let url = `${__API_URL__}/api/dev/${dev._id}`;
-    let config = {
-      headers: {
-        Accept: 'application/json',
-      }
-    };
-    return $http.get(url, config)
-    .then(res => {
-      $log.log('here is a dev, yo');
-      service.developer = res.data;
-      return service.developer;
+  service.fetchDevs = function(){
+    return authService.getToken() //use auth service to get token for authed NPO
+    .then( token => {
+      let url =`${__API_URL__}/api/dev`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.get(url, config);
     })
-    .catch(err => {
+    .then( res => {
+      $log.log('response = you have dev objects from server to work with');
+      service.devList = res.data;
+      $log.log(service.devList, ' = devService.devList');
+      return service.devList;
+    })
+    .catch( err => {
       $log.error(err.message);
-      return $q.reject.err;
+      return $q.reject(err);
     });
   };
+
+  // service.showDetail = function(devData){
+  //   let url = `${__API_URL__}/api/dev/${dev._id}`;
+  //   let config = {
+  //     headers: {
+  //       Accept: 'application/json',
+  //     }
+  //   };
+  //   return $http.get(url, config)
+  //   .then(res => {
+  //     $log.log('here is a dev, yo');
+  //     service.developer = res.data;
+  //     return service.developer;
+  //   })
+  //   .catch(err => {
+  //     $log.error(err.message);
+  //     return $q.reject.err;
+  //   });
+  // };
 
   // service.updateGallery = function(galleryID, galleryData) {
   //   $log.debug('running galleryService.updateGallery()');
