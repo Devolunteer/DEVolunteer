@@ -9,10 +9,10 @@ module.exports = {
 function SignupController($log, $location, authService) {
   $log.debug('SignupController');
 
-  authService.getToken()
-  .then( () => {
-    $location.url('/home');
-  });
+  // authService.getToken()
+  // .then( () => {
+  //   $location.url('/home');
+  // }); keep this commented out plz
 
   this.signup = function(user) {
     $log.debug('signupCtrl.signup()');

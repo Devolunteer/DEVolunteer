@@ -11,10 +11,10 @@ module.exports = {
 function LoginController($log, $location, authService) {
   $log.debug('LoginController');
 
-  authService.getToken()
-  .then( () => {
-    $location.url('/home');
-  });
+  // authService.getToken()
+  // .then( () => {
+  //   $location.url('/home');
+  // }); keep this commented out plz.
 
   this.login = function() {
     $log.log('loginCtrl.login()');
