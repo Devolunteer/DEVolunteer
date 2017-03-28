@@ -29,9 +29,6 @@ router.post('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
   .catch(next)
 })
 
-<<<<<<< HEAD
-// router.get('/api')
-=======
 router.get('/api/dev', bearerAuth, (req, res, next) => {
   if(!req.user.isDev) return next(createError(401, 'please log in as a developr'))
 
@@ -50,4 +47,3 @@ router.delete('/api/dev', bearerAuth, (req, res) => {
     res.json({}) //or err.message?
   })
 })
->>>>>>> backend
