@@ -13,7 +13,7 @@ module.exports = {
 
 function NavBarController($log, $location, $rootScope, authService){
   $log.debug('NavBarController');
-
+  /*
   this.checkPath = function(){
     let path = $location.path();
     if (path === '/join'){
@@ -28,7 +28,7 @@ function NavBarController($log, $location, $rootScope, authService){
       this.hideButtons = false;
       authService.getToken()
       .catch(() => {
-        $location.url('/join#login');
+        //$location.url('/join#login');
       });
     }
   };
@@ -49,4 +49,5 @@ function NavBarController($log, $location, $rootScope, authService){
       $location.url('/');
     });
   };
+  */
 }

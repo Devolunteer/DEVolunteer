@@ -1,1 +1,10 @@
-// Needs CSS
+a:visited, a:focus, a:hover {
+  text-decoration: none;
+}
+
+.signup-form {
+  display: block;
+  border: 2vw solid black;
+  border-radius: 1vw 1vw 1vw 1vw;
+  // justify-content: around;
+}
