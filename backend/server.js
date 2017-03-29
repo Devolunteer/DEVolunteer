@@ -19,8 +19,8 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/devolunteer'
 
 
 
-mongoose.connect(MONGODB_URI)
 mongoose.Promise = Promise
+mongoose.connect(MONGODB_URI)
 
 app.use(cors())
 app.use(morgan('dev'))
@@ -31,9 +31,9 @@ app.use(errorMiddleware)
 
 module.exports = app
 
-if(require.main === module) {
-  const server = module.exports = app.listen(PORT, () => {
-    console.log(`listening on PORT ${PORT}`)
-  })
-  server.isRunning = true //setup for testing ability to toggle on/off in before block
-}
+// if(require.main === module) {
+const server = module.exports = app.listen(PORT, () => {
+  console.log(`listening on PORT ${PORT}`)
+})
+server.isRunning = true //setup for testing ability to toggle on/off in before block
+// }
