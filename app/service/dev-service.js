@@ -3,24 +3,21 @@
 
 module.exports = ['$q', '$log', '$http', 'Upload', 'authService', devService];
 
-function devService($q, $log, $http, Upload, authService) {
+function devService($q, $log, $http) {
   $log.debug('devService');
 
   let service = {};
   service.devList = [];
 
   service.fetchDevs = function(){
-    return authService.getToken() //use auth service to get token for authed NPO
-    .then( token => {
-      let url =`${__API_URL__}/api/dev`;
-      let config = {
-        headers: {
-          Accept: 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      };
-      return $http.get(url, config);
-    })
+    let url =`${__API_URL__}/api/dev`;
+      // let config = {
+      //   headers: {
+      //     Accept: 'application/json',
+      //     Authorization: `Bearer ${token}`
+      //   }
+      // };
+    return $http.get(url)
     .then( res => {
       $log.log('response = you have dev objects from server to work with');
       service.devList = res.data;
