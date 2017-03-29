@@ -1,9 +1,10 @@
 <!-- this is the primary view AFTER a search/questionnaire showing a list of matching developer "teasers" -->
 
-
+<h2> test test test </h2>
 <div>
   <ul>
-    <dev-item ng-repeat="item in devListCtrl.dev" dev="item"></dev-item>
-
+    <!-- make this into an ng-repeat so each instance of "dev" inside devlist will be it's own object" -->
+    <li ng-model="devListCtrl"> List of all devs that needs to be trimmed : {{devListCtrl.dev}}
+    </li>
   </ul>
 </div>
