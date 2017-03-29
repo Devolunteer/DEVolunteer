@@ -45,6 +45,13 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'SignupviewController',
       controllerAs: 'signupViewCtrl'
     },
+    {
+      name: 'edit',
+      url: '/edit',
+      template: require('../view/editview/editview.html'),
+      controller: 'EditviewController',
+      controllerAs: 'editViewCtrl'
+    }
     // {
     //   name: 'contactDev',
     //   url: '/contact',

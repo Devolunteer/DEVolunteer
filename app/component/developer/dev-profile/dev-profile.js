@@ -1,14 +1,24 @@
 module.exports = {
   template: require('./dev-profile.html'),
-  controller: ['$log', 'devService', editProfileController],
+  controller: ['$log', 'devService', 'userService', EditProfileController],
   controllerAs: 'editProfileCtrl',
   bindings: {
-    gallery: '<'
+    user: '='
   }
 };
 
-function editProfileController($log, devService) {
+function EditProfileController($log, devService, userService) {
   $log.debug('running editProfileController');
+
+  this.username = '';
+
+  userService.fetchUser()
+  .then(user => {
+    this.username = user.username;
+  })
+  .catch(console.log);
+
+
 
   this.updateProfile = function() {
     devService.updateProfile(this.dev._id);

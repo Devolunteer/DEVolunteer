@@ -6,9 +6,12 @@
 
     <form class="edit-profile" name="editProfile" ng-submit="editProfileCtrl.updateProfile()" no-validate>
 
+      <button ng-click="editProfileCtrl.getUsername()">Get Username</button>
+      <h2>Username: {{ editProfileCtrl.username }} </h2>
+
       <fieldset>
-        <img ng-src="{{ devItemCtrl.picture }}">
-        <p class="grab-img" ngf-select ng-model="uploadPicCtrl.pic.file">Choose some random ass pic to upload.</p>
+        <img ng-src="{{ editProfileCtrl.picture }}">
+        <p class="grab-img" ngf-select ng-model="editProfileCtrl.pic.file">Choose some random ass pic to upload.</p>
       </fieldset>
 
       <fieldset>

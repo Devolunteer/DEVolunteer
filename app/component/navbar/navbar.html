@@ -10,16 +10,16 @@
         Button dropdown <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-        <li role="menuitem" ng-click="navBarCtrl.logout()"><a ui-sref="landing">Log Out</a></li>
-        <li class="divider"></li>
+        
         <li role="menuitem"><a ui-sref="landing">Home</a></li>
-        <!-- <li role="menuitem"><a href="#">Action</a></li>
-        <li role="menuitem"><a ui-sref="landing">landing</a></li>
-        <li role="menuitem"><a href="#">Another action</a></li>
-        <li role="menuitem"><a href="#">Something else here</a></li>
-        <li role="menuitem"><a href="#">Separated link</a></li> -->
+        <li class="divider"></li>
+
+        <li role="menuitem"><a ui-sref="edit" ng-click="navBarCtrl.editUser()">Edit Profile</a></li>
+        <li class="divider"></li>
+
+        <li role="menuitem" ng-click="navBarCtrl.logout()"><a ui-sref="landing">Log Out</a></li>
       </ul>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 </nav>
