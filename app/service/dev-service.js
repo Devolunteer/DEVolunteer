@@ -49,8 +49,11 @@ function devService($q, $log, $http) {
   //   });
   // };
 
-  // service.updateGallery = function(galleryID, galleryData) {
-  //   $log.debug('running galleryService.updateGallery()');
+
+//BELOW HERE IS THE EDIT DEVELOPER PROFILE FUNCTIONALITY. DO WE EVEN NEED THIS, IF WE'RE LETTING A DEV EDIT HIS PROFILE FROM THE PROFILE PAGE?  
+
+  // service.updateDev = function(devID, devData) {
+  //   $log.debug('running devService.updateDev()');
   //
   //   return authService.getToken()
   //   .then(token => {
@@ -65,6 +68,8 @@ function devService($q, $log, $http) {
   //     return $http.put(url, galleryData, config);
   //   })
   //   .then(res => {
+
+    //NEED TO LOOK INTO THIS, WE'RE NOT MODIFYING AN ARRAY, SO CHECK PREVIOUS LABS ON HOW TO EDIT THIS.
   //     for(let i=0; i<service.galleries.length; i++) {
   //       let current = service.galleries[i];
   //       if(current._id === galleryID) {
@@ -80,11 +85,14 @@ function devService($q, $log, $http) {
   //   });
   // };
 
-  // service.deleteGallery = function(galleryID){
-  //   $log.debug('running galleryService.updateGallery()/delete')
+
+//BELOW HERE IS THE DELETE A DEV FROM THE DB FUNCTION.  THIS WILL ALLOW A DEVELOPER TO REMOVE THEIR PROFILE FROM THE APP.
+
+  // service.deleteDev = function(devID){
+  //   $log.debug('running devService.deleteDev')
   //     return authService.getToken()
   //     .then(token => {
-  //       let url = `${__API_URL__}/api/gallery/${galleryID}`;
+  //       let url = `${__API_URL__}/api/devs/${dev._ID}`;
   //       let config = {
   //         headers: {
   //           Authorization: `Bearer ${token}`
@@ -93,6 +101,9 @@ function devService($q, $log, $http) {
   //       return $http.delete(url, config);
   //     })
   //     .then(res => {
+
+        //THIS IS GOING TO BE TRICKY...WE'RE NOT DELETING FROM AN ARRAY, BUT FROM THE DB.  NEED TO LOOK UP HOW TO DO THAT FROM A PREVIOUS LAB.
+
   //       for(let i = 0; i < service.galleries.length; i++) {
   //         let current = service.galleries[i];
   //         if(current._id === galleryID) {
@@ -107,6 +118,9 @@ function devService($q, $log, $http) {
   //     });
   //   };
 
+
+//BELOW WILL BE THE LOGIC TO SUBMIT THE CONTACT DEVELOPER FORM
+  // service.contactDev = function(){}
 
 
   return service;
