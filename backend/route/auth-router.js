@@ -2,6 +2,7 @@
 
 let Router = require('express').Router
 let basicAuth = require('../lib/basic-auth-midd.js')
+let bearerAuth = require('../lib/bearer-auth-midd.js')
 let User = require('../model/user.js')
 let createError = require('http-errors')
 let jsonParser = require('body-parser').json()
@@ -31,4 +32,15 @@ router.get('/api/login', basicAuth, (req, res, next) => {
   .then(user => user.generateToken())
   .then(token => res.send(token))
   .catch(next)
+})
+
+//tested route below on curl and it works.
+router.get('/api/user', bearerAuth, (req, res, next) => {
+  User.findOne({username: req.user.username})
+  .then(user => {
+    if(!user) return Promise.reject(next(createError(401)))
+    delete user.password
+    res.send(user)
+  })
+    .catch(next)
 })
