@@ -5,7 +5,7 @@ module.exports = function(){
     console.log(value);
     if(!value) return /.*/;
     developers.dev.forEach(item, function(){
-      if(developers.dev.available == value) {
+      if(developers.dev.reviews == value) {
         return developers.dev;
       }
     });

@@ -12,7 +12,7 @@ let devSchema = mongoose.Schema({
   picture: {type: String},
   website: {type: String},
   languages: [{type: String}],
-  services: [{type: String}],
+  services: [{type: Boolean}],
   available: {type: Boolean},
   reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'reviews'}],
 })

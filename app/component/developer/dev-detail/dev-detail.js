@@ -11,10 +11,4 @@ module.exports = {
 
 function DevDetailController($log, developerService){
   $log.debug('running galleryUpCtrl');
-
-  // this.showEditGallery = false;
-  //
-  // this.deleteGallery = function(){
-  //   galleryService.deleteGallery(this.gallery._id);
-  // };
-};
+}

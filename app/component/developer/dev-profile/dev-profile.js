@@ -21,4 +21,4 @@ function editProfileController($log, devService) {
   this.uploadPic = function(param){
     devService.uploadPic(this.dev._id);
   }
-};
+}
