@@ -12,6 +12,7 @@ function EditProfileController($log, devService, userService) {
 
   this.username = '';
 
+  //this will run automatically every time this controller is brought in
   userService.fetchUser()
   .then(user => {
     this.username = user.username;
