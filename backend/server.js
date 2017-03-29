@@ -3,7 +3,7 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
+// const dotenv = require('dotenv')
 const morgan = require('morgan')
 const authRouter = require('./route/auth-router.js')
 const devRouter = require('./route/dev-router')
@@ -11,7 +11,7 @@ const npoRouter = require('./route/npo-router.js')
 const errorMiddleware = require('./lib/error-midd.js')
 
 const app = express()
-dotenv.load()
+// dotenv.load()
 
 //local mongo db will be called 'devolunteer'
 const PORT = process.env.PORT || 3000
