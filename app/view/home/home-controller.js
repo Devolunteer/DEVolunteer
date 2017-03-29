@@ -3,9 +3,9 @@
 require('./_home.scss');
 
 
-module.exports = ['$log', '$rootScope', 'devService', 'questService', HomeController];
+module.exports = ['$log', '$rootScope', 'devService', 'npoService', 'questService', HomeController];
 
-function HomeController($log, $rootScope, devService, questService) {
+function HomeController($log, $rootScope, devService, npoService, questService) {
   $log.debug('In the HomeController');
 
   // THIS WILL NEED TO PULL IN OR HAVE THE INFORMATION FOR THE QUESTIONAIRE TO DISPLAY.

@@ -1,0 +1,17 @@
+<div class="npoDiv">
+
+      <div class="npoItem">
+        <img ng-src="{{ npoItemCtrl.picture }}" alt="No picture yet">
+        <h3>{{ npoItemCtrl.npo.name }}</h3>
+        <span> {{ npoItemCtrl.npo.desc }}</span>
+        <p>Reviews:</p>
+        <span> {{ npoItemCtrl.npo.reviews }}</span>
+        <p>Languages:</p>
+        <span> {{ npoItemCtrl.npo.languages | limitTo: 4}}</span>
+
+        <button class="btn-std" ng-click="npoItemCtrl.showDetailView()" type="button" name="ViewMore">View More</button>
+
+
+
+      </div>
+</div>
