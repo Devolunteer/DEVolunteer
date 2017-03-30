@@ -11,12 +11,7 @@ function devService($q, $log, $http) {
 
   service.fetchDevs = function(){
     let url =`${__API_URL__}/api/dev`;
-      // let config = {
-      //   headers: {
-      //     Accept: 'application/json',
-      //     Authorization: `Bearer ${token}`
-      //   }
-      // };
+
     return $http.get(url)
     .then( res => {
       $log.log('response = you have dev objects from server to work with');
@@ -29,6 +24,10 @@ function devService($q, $log, $http) {
       return $q.reject(err);
     });
   };
+
+  
+
+
 
   // service.showDetail = function(devData){
   //   let url = `${__API_URL__}/api/dev/${dev._id}`;
@@ -50,7 +49,7 @@ function devService($q, $log, $http) {
   // };
 
 
-//BELOW HERE IS THE EDIT DEVELOPER PROFILE FUNCTIONALITY. DO WE EVEN NEED THIS, IF WE'RE LETTING A DEV EDIT HIS PROFILE FROM THE PROFILE PAGE?  
+//BELOW HERE IS THE EDIT DEVELOPER PROFILE FUNCTIONALITY. DO WE EVEN NEED THIS, IF WE'RE LETTING A DEV EDIT HIS PROFILE FROM THE PROFILE PAGE?
 
   // service.updateDev = function(devID, devData) {
   //   $log.debug('running devService.updateDev()');
