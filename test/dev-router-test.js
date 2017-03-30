@@ -50,17 +50,22 @@ describe('should start and kill server before unit test', function(){
     let testUser;
     let testToken;
     let testDev;
-//depending on how you guys want this to work, we may not need to pass anything through basicAuth if anyone can search this without creating an account.
-    before(done => {
-      User.remove().exec();
-      Dev.remove().exec();
-      new User(mockUser).save()
+    beforeEach(done => {
+      Promise.all([
+        User.remove({}),
+        Dev.remove({}),
+      ])
+      .then(() => {
+        return new User(mockUser).save();
+      })
       .then(user => {
         testUser = user;
         return testUser.generateToken();
       })
     .then(token => {
+      console.log(token);
       testToken = token;
+      console.log(testToken);
       return new Dev(mockDev).save();
     })
     .then(dev => {
@@ -69,6 +74,18 @@ describe('should start and kill server before unit test', function(){
     .then(() => done())
     .catch(done);
     });
+
+    //req.user should be a individual user which the bearer auth will identify
+    // router.post('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
+    //   if(!req.user.isDev) return next(createError(401, 'Please log in as a Developer'))
+    //
+    //   //req.body will be values from the form they fill out on angular front-end
+    //   const dev = new Dev(req.body)
+    //   dev.save()
+    //   .then(dev => res.json(dev))
+    //   .catch(next)
+    // })
+
     it('will return an array with devs', (done) => {
       request.get(`${url}/api/devList`)
       .end((err, res) => {
@@ -76,7 +93,15 @@ describe('should start and kill server before unit test', function(){
         expect(Array.isArray(res.body)).to.equal(true);
         expect(res.body[0].username).to.equal('mockUser');
         expect(res.body[0].city).to.equal('mockCity');
-        expect(res.body[0].password).to.equal(undefined);
+        done();
+      });
+    });
+    it('will post a new dev', (done) => {
+      request.post(`${url}/api/dev`)
+      .set({'Authorization' : `Bearer ${testToken}`})
+      .end((err, res) => {
+        console.log(testToken);
+        expect(true).to.equal(true);
         done();
       });
     });
