@@ -34,5 +34,9 @@ function userService($q, $log, $http, authService) {
       return $q.reject(err);
     });
   };
+
+  // service.updateProfile = function(user) {
+  //
+  // }
   return service;
 }

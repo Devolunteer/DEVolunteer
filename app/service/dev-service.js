@@ -20,6 +20,7 @@ function devService($q, $log, $http) {
       //     Authorization: `Bearer ${token}`
       //   }
       // };
+
     return $http.get(url)
     .then( res => {
       $log.log('response = you have dev objects from server to work with');
@@ -33,6 +34,10 @@ function devService($q, $log, $http) {
       return $q.reject(err);
     });
   };
+
+  
+
+
 
   // service.showDetail = function(devData){
   //   let url = `${__API_URL__}/api/dev/${dev._id}`;
