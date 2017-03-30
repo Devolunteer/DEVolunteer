@@ -39,6 +39,11 @@
       </fieldset>
 
       <fieldset>
+        <span class='item-label'>Phone</span>
+        <input type="tel" name="Phone" ng-model="editProfileCtrl.dev.phone">
+      </fieldset>
+
+      <fieldset>
         <span class='item-label'>Reviews</span>
         <input type="text" name="Description" ng-model='editProfileCtrl.dev.reviews'>
       </fieldset>
@@ -50,7 +55,7 @@
 
       <fieldset>
         <span class='item-label'>Services</span>
-        <input type="checkbox" name="website" ng-model='editProfileCtrl.dev.services'><label for="website"> Website</label>
+        <input type="checkbox" name="website" ng-model="editProfileCtrl.dev.services"><label for="website"> Website</label>
         <input type="checkbox" name="mobileApp" ng-model='editProfileCtrl.dev.services'><label for="mobileApp"> Mobile Apps</label>
         <input type="checkbox" name="weApp" ng-model='editProfileCtrl.dev.services'><label for="webApp"> Web App</label>
         <input type="checkbox" name="other" ng-model='editProfileCtrl.dev.services'><label for="other"> Other</label>
