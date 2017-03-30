@@ -3,8 +3,8 @@
 require('./_devlist.scss');
 
 
-module.exports = ['$log', DevlistController];
+module.exports = ['$log', devListController];
 
-function DevlistController($log) {
-  $log.debug('In the devlist view controller');
+function devListController($log) {
+  $log.debug('In the devlist view controller666');
 }

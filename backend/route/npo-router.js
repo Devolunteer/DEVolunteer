@@ -37,3 +37,22 @@ router.delete('/api/npo', bearerAuth, (req, res) => {
     res.json({}) //or err.message?
   })
 })
+
+// submit form via email logic here:
+// heroku addons:create postmark:10k
+ // npm install postmark
+// var postmark = require("postmark")(process.env.POSTMARK_API_TOKEN)
+//
+// postmark.send({
+//     "From": "leonard@bigbangtheory.com",
+//     "To": "sheldon@bigbangtheory.com",
+//     "Subject": "Hello from Postmark",
+//     "TextBody": "Hello!",
+//     "Tag": "big-bang"
+// }, function(error, success) {
+//     if(error) {
+//         console.error("Unable to send via postmark: " + error.message);
+//        return;
+//     }
+//     console.info("Sent to postmark for delivery")
+// });

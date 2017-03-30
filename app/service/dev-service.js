@@ -10,7 +10,10 @@ function devService($q, $log, $http) {
   service.devList = [];
 
   service.fetchDevs = function(){
-    let url =`${__API_URL__}/api/dev`;
+    console.log('in the fetchDevs, yo');
+    let url =`http://localhost:3000/api/devList`;
+    // let url =`${__API_URL__}/api/dev`;
+    console.log('url', url);
       // let config = {
       //   headers: {
       //     Accept: 'application/json',
@@ -25,6 +28,7 @@ function devService($q, $log, $http) {
       return service.devList;
     })
     .catch( err => {
+      console.log('in the fetchDevs catch');
       $log.error(err.message);
       return $q.reject(err);
     });
@@ -50,7 +54,7 @@ function devService($q, $log, $http) {
   // };
 
 
-//BELOW HERE IS THE EDIT DEVELOPER PROFILE FUNCTIONALITY. DO WE EVEN NEED THIS, IF WE'RE LETTING A DEV EDIT HIS PROFILE FROM THE PROFILE PAGE?  
+//BELOW HERE IS THE EDIT DEVELOPER PROFILE FUNCTIONALITY. DO WE EVEN NEED THIS, IF WE'RE LETTING A DEV EDIT HIS PROFILE FROM THE PROFILE PAGE?
 
   // service.updateDev = function(devID, devData) {
   //   $log.debug('running devService.updateDev()');
