@@ -10,7 +10,7 @@ let router = module.exports = new Router()
 
 //unauthed get all devs to pass to filtered dev list
 
-router.get('/api/devList', basicAuth, (req, res, next) => {
+router.get('/api/devList', (req, res, next) => {
   Dev.find()
   .then(allDevsObj => {
     res.send(allDevsObj)
