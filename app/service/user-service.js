@@ -30,7 +30,7 @@ function userService($q, $log, $http, authService) {
       return res.data;
     })
     .catch(err => {
-      $log.error(err.message);
+      // $log.error(err.message);
       return $q.reject(err);
     });
   };

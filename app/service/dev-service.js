@@ -10,7 +10,16 @@ function devService($q, $log, $http) {
   service.devList = [];
 
   service.fetchDevs = function(){
-    let url =`${__API_URL__}/api/dev`;
+    console.log('in the fetchDevs, yo');
+    let url =`http://localhost:3000/api/devList`;
+    // let url =`${__API_URL__}/api/dev`;
+    console.log('url', url);
+      // let config = {
+      //   headers: {
+      //     Accept: 'application/json',
+      //     Authorization: `Bearer ${token}`
+      //   }
+      // };
 
     return $http.get(url)
     .then( res => {
@@ -20,6 +29,7 @@ function devService($q, $log, $http) {
       return service.devList;
     })
     .catch( err => {
+      console.log('in the fetchDevs catch');
       $log.error(err.message);
       return $q.reject(err);
     });

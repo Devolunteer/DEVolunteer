@@ -1,0 +1,49 @@
+<!-- this is the NPO profile view. this page will allow edits  -->
+
+
+<div class="npoDetails">
+  <section class='edit'>
+
+    <form class="edit-profile" name="editProfile" ng-submit="npoProfileCtrl.updateProfile()" no-validate>
+
+      <h2>Username: {{ npoProfileCtrl.username }} </h2>
+
+      <fieldset>
+        <span class='item-label'>Organization Name</span>
+        <input type="text" name="Name" ng-model="npoProfileCtrl.npo.org">
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>City</span>
+        <input type="text" name="City" ng-model="npoProfileCtrl.npo.city">
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>State</span>
+        <input type="text" name="State" ng-model="npoProfileCtrl.npo.state">
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Phone</span>
+        <input type="tel" name="Phone" ng-model="npoProfileCtrl.npo.phone">
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Email</span>
+        <input type="text" name="Email" ng-model="npoProfileCtrl.npo.email">
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Projects</span>
+        <input type="text" name="Projects" ng-model="npoProfileCtrl.npo.projects">
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Reviews</span>
+        <input type="text" name="Reviews" ng-model="npoProfileCtrl.npo.reviews">
+      </fieldset>
+
+      <fieldset>
+        <span class='item-label'>Developers</span>
+        <input type="text" name="Developers" ng-model="npoProfileCtrl.npo.developers">
+      </fieldset>
