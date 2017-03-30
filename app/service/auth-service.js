@@ -93,7 +93,7 @@ function authService($q, $log, $http, $window){
       return setToken(res.data);
     })
     .catch( err => {
-      $log.error(err.message);
+      // $log.error(err.message);
       return $q.reject(err);
     });
   };
