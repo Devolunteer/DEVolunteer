@@ -1,14 +1,25 @@
 module.exports = {
   template: require('./dev-profile.html'),
-  controller: ['$log', 'devService', editProfileController],
+  controller: ['$log', 'devService', 'userService', EditProfileController],
   controllerAs: 'editProfileCtrl',
   bindings: {
-    gallery: '<'
+    user: '='
   }
 };
 
-function editProfileController($log, devService) {
+function EditProfileController($log, devService, userService) {
   $log.debug('running editProfileController');
+
+  this.username = '';
+
+  //this will run automatically every time this controller is brought in
+  userService.fetchUser()
+  .then(user => {
+    this.username = user.username;
+  })
+  .catch(console.log);
+
+
 
   this.updateProfile = function() {
     devService.updateProfile(this.dev._id);
@@ -21,4 +32,4 @@ function editProfileController($log, devService) {
   this.uploadPic = function(param){
     devService.uploadPic(this.dev._id);
   }
-};
+}

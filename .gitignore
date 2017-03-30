@@ -1,8 +1,5 @@
 yarn.lock
 node_modules
 /build
-<<<<<<< HEAD
 db/
-=======
 npm-debug.log
->>>>>>> backend

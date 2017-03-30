@@ -44,7 +44,21 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       template: require('../view/signupview/signupview.html'),
       controller: 'SignupviewController',
       controllerAs: 'signupViewCtrl'
+    },
+    {
+      name: 'edit',
+      url: '/edit',
+      template: require('../view/editview/editview.html'),
+      controller: 'EditviewController',
+      controllerAs: 'editViewCtrl'
     }
+    // {
+    //   name: 'contactDev',
+    //   url: '/contact',
+    //   template: require('../view/devDetails.html'),
+    //   controller: 'DevDetailsController',   i'm not sure if i need this to be it's own separate thing or if i can put it in on the dev details view and then use that controller...
+    //   controllerAs: 'contactDeveloperCtrl'
+    // }
   ];
 
   states.forEach( state => {

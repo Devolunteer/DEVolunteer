@@ -4,42 +4,29 @@ require('./_navbar.scss');
 
 module.exports = {
   template: require('./navbar.html'),
-  controller: ['$log', '$location', '$rootScope', 'authService', NavBarController],
+  controller: ['$log', '$location', '$rootScope', 'authService', 'userService', NavBarController],
   controllerAs: 'navBarCtrl',
   bindings: {
-    appName: '@'
+    user: '='
   }
 };
 
-function NavBarController($log, $location, $rootScope, authService){
+function NavBarController($log, $location, $rootScope, authService, userService){
   $log.debug('NavBarController');
 
-  // this.checkPath = function(){
-  //   let path = $location.path();
-  //   if (path === '/join'){
-  //     this.hideButtons = true;
-  //     authService.getToken()
-  //     .then(() => {
-  //       $location.url('/home');
-  //     });
-  //   }
-  //
-  //   if (path !== '/join'){
-  //     this.hideButtons = false;
-  //     authService.getToken()
-  //     .catch(() => {
-  //       //$location.url('/join#login');
-  //     });
-  //   }
-  // };
-  //
-  //
-  // // this.checkPath();
-  //
-  //
-  // $rootScope.$on('$locationChangeSuccess', () => {
-  //   this.checkPath();
-  // });
+  this.editUser = function() {
+    userService.fetchUser()
+    .then(user => {
+      if(!user) return false;
+      if (user.isDev) {
+        userService.showDevEdits = true; //connects to service --> connects to new controller
+        userService.showNpoEdits = false;
+      } else {
+        userService.showDevEdits = false;
+        userService.showNpoEdits = true;
+      }
+    });
+  };
 
   this.logout = function(){
     $log.log('navBarCtrl.logout()');
@@ -49,5 +36,13 @@ function NavBarController($log, $location, $rootScope, authService){
       $location.url('/');
     });
   };
+
+  //
+  // // this.checkPath();
+  //
+  //
+  // $rootScope.$on('$locationChangeSuccess', () => {
+  //   this.checkPath();
+  // });
 
 }

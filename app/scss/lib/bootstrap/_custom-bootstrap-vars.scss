@@ -169,7 +169,7 @@ $btn-info-bg:                    $brand-info !default;
 $btn-info-border:                darken($btn-info-bg, 5%) !default;
 
 $btn-warning-color:              #fff !default;
-$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-bg:                 darken($brand-warning, 5%) !default;
 $btn-warning-border:             darken($btn-warning-bg, 5%) !default;
 
 $btn-danger-color:               #fff !default;
@@ -240,7 +240,7 @@ $cursor-disabled:                not-allowed !default;
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-$dropdown-bg:                    #fff !default;
+$dropdown-bg:                    lighten(orange, 5%) !default;
 //** Dropdown menu `border-color`.
 $dropdown-border:                rgba(0,0,0,.15) !default;
 //** Dropdown menu `border-color` **for IE8**.

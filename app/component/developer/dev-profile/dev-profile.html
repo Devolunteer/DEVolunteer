@@ -5,10 +5,12 @@
   <section class='edit'>
 
     <form class="edit-profile" name="editProfile" ng-submit="editProfileCtrl.updateProfile()" no-validate>
-      
+
+      <h2>Username: {{ editProfileCtrl.username }} </h2>
+
       <fieldset>
-        <img ng-src="{{ devItemCtrl.picture }}">
-        <p class="grab-img" ngf-select ng-model="uploadPicCtrl.pic.file">Choose some random ass pic to upload.</p>
+        <img ng-src="{{ editProfileCtrl.picture }}">
+        <p class="grab-img" ngf-select ng-model="editProfileCtrl.pic.file">Choose some random ass pic to upload.</p>
       </fieldset>
 
       <fieldset>
@@ -48,7 +50,10 @@
 
       <fieldset>
         <span class='item-label'>Services</span>
-        <input type="text" name="Description" ng-model='editProfileCtrl.dev.services'>
+        <input type="checkbox" name="website" ng-model='editProfileCtrl.dev.services'><label for="website"> Website</label>
+        <input type="checkbox" name="mobileApp" ng-model='editProfileCtrl.dev.services'><label for="mobileApp"> Mobile Apps</label>
+        <input type="checkbox" name="weApp" ng-model='editProfileCtrl.dev.services'><label for="webApp"> Web App</label>
+        <input type="checkbox" name="other" ng-model='editProfileCtrl.dev.services'><label for="other"> Other</label>
       </fieldset>
 
       <fieldset>

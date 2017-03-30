@@ -1,0 +1,16 @@
+<!-- this is the contact form that will allow an NPO to contact a dev -->
+
+<div class="contactDev">
+  <section>
+    <form class="contact-form" name="contactDeveloper" ng-submit="" no-validate>
+      <h2>Your Organization</h2>
+      <input type="text" name="organization" value="">{{ npoItemCtrl.npo.org }}
+      <input type="text" name="email" value="">
+      <textarea rows="4" cols="50" name="comment" form="usrform">
+Tell me about you and your project...</textarea>
+
+      <input type="submit" class="btn-warning btn-border-radius-small" value="Send">
+    </form>
+  </section>
+
+</div>
