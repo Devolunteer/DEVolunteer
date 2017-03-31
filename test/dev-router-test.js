@@ -13,6 +13,7 @@ const mockUser = {
   username: 'mockUser',
   email: 'mockEmail',
   password: 'mockPassword',
+  isDev: true,
 };
 
 const mockDev = {
@@ -20,7 +21,7 @@ const mockDev = {
   city: 'mockCity',
   state: 'mockState',
   languages: [],
-  available: true,
+  available: true
 };
 
 //start test server
@@ -50,7 +51,7 @@ describe('should start and kill server before unit test', function(){
     let testUser;
     let testToken;
     let testDev;
-    beforeEach(done => {
+    before(done => {
       Promise.all([
         User.remove({}),
         Dev.remove({}),
@@ -63,9 +64,7 @@ describe('should start and kill server before unit test', function(){
         return testUser.generateToken();
       })
     .then(token => {
-      console.log(token);
       testToken = token;
-      console.log(testToken);
       return new Dev(mockDev).save();
     })
     .then(dev => {
@@ -96,12 +95,17 @@ describe('should start and kill server before unit test', function(){
         done();
       });
     });
+    //probably have to test this separately since it involves being logged in...even if it has access to a token
     it('will post a new dev', (done) => {
+      // console.log(testToken);
+      // console.log(testDev);
       request.post(`${url}/api/dev`)
-      .set({'Authorization' : `Bearer ${testToken}`})
+      .set('Authorization', `Bearer ${testToken}`)
       .end((err, res) => {
-        console.log(testToken);
-        expect(true).to.equal(true);
+        expect(typeof res.body._id).to.equal(String);
+        //res.body[0].available is undefined
+        // expect(res.body).to.equal(true);
+        // expect(true).to.equal(true);
         done();
       });
     });
