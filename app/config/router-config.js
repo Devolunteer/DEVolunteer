@@ -29,7 +29,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/devlist',
       template: require('../view/devlist/devlist.html'),
       controller: 'DevlistController',
-      controllerAs: 'devlistCtrl'
+      controllerAs: 'devListCtrl'
     },
     {
       name: 'login',

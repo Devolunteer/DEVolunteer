@@ -5,12 +5,14 @@
 
       <div class="devItem">
         <img ng-src="{{ devItemCtrl.picture }}" alt="No picture yet">
-        <h3>{{ devItemCtrl.dev.name }}</h3>
+        <h3>{{ devItemCtrl.dev.username }}</h3>
+        <h3>Name: {{ devItemCtrl.dev.name }}</h2>
         <span> {{ devItemCtrl.dev.desc }}</span>
         <p>Reviews:</p>
         <span> {{ devItemCtrl.dev.reviews }}</span>
         <p>Languages:</p>
         <span> {{ devItemCtrl.dev.languages | limitTo: 4}}</span>
+        <span> Available: {{ devItemCtrl.dev.available }}</span>
 
         <button class="btn-std" ng-click="devItemCtrl.showDetailView()" type="button" name="ViewMore">View More</button>
 
