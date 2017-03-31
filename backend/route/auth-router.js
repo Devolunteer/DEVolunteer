@@ -30,7 +30,7 @@ authRouter.get('/api/login', basicAuth, (req, res, next) => {
     if(!user) return Promise.reject(next(createError(401)))
     return user.comparePasswordHash(req.auth.password)
   })
-  // .then(user => user.generateToken())
+  .then(user => user.generateToken())
   .then(token => res.send(token))
   .catch(next)
 });
