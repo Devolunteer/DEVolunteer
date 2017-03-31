@@ -27,21 +27,21 @@ authRouter.get('/api/login', basicAuth, (req, res, next) => {
 
   User.findOne({username: req.auth.username})
   .then(user => {
-    if(!user) return Promise.reject(next(createError(401)))
-    return user.comparePasswordHash(req.auth.password)
+    if(!user) return Promise.reject(next(createError(401)));
+    return user.comparePasswordHash(req.auth.password);
   })
   .then(user => user.generateToken())
   .then(token => res.send(token))
-  .catch(next)
+  .catch(next);
 });
 
 //tested route below on curl and it works.
 authRouter.get('/api/user', bearerAuth, (req, res, next) => {
   User.findOne({username: req.user.username})
   .then(user => {
-    if(!user) return Promise.reject(next(createError(401)))
-    delete user.password
-    res.send(user)
+    if(!user) return Promise.reject(next(createError(401)));
+    delete user.password;
+    res.send(user);
   })
-    .catch(next)
-})
+    .catch(next);
+});

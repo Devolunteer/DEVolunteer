@@ -3,23 +3,18 @@
 
 module.exports = ['$q', '$log', '$http', 'Upload', 'authService', devService];
 
-function devService($q, $log, $http) {
+function devService($q, $log, $http, Upload, authService) {
   $log.debug('devService');
 
   let service = {};
   service.devList = [];
 
-  service.fetchDevs = function(){
+  service.fetchDevs = function() {
     console.log('in the fetchDevs, yo');
     let url =`http://localhost:3000/api/devList`;
     // let url =`${__API_URL__}/api/dev`;
     console.log('url', url);
-      // let config = {
-      //   headers: {
-      //     Accept: 'application/json',
-      //     Authorization: `Bearer ${token}`
-      //   }
-      // };
+
     return $http.get(url)
     .then( res => {
       $log.log('response = you have dev objects from server to work with');
@@ -33,6 +28,40 @@ function devService($q, $log, $http) {
       return $q.reject(err);
     });
   };
+
+  service.updateDev = function(dev) {
+    console.log('MADE IT INTO UPDATE DEV');
+    console.log(dev);
+    $log.debug('devService.updateDev()');
+
+    return authService.getToken()
+      .then(token => {
+        let url = `http://localhost:3000/api/dev/`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        };
+        return $http.post(url, dev, config);
+      })
+    .then(res => {
+      $log.log('dev created');
+      let dev = res.data;
+      service.devList.unshift(dev);
+      return dev;
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  return service;
+}
+
+
 
   // service.showDetail = function(devData){
   //   let url = `${__API_URL__}/api/dev/${dev._id}`;
@@ -125,7 +154,3 @@ function devService($q, $log, $http) {
 
 //BELOW WILL BE THE LOGIC TO SUBMIT THE CONTACT DEVELOPER FORM
   // service.contactDev = function(){}
-
-
-  return service;
-}

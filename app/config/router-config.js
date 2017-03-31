@@ -53,6 +53,13 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       controllerAs: 'editViewCtrl'
     }
     // {
+    //   name: 'newprofile',
+    //   url: '/newprofile',
+    //   template: require('../view/newprofile/newprofile.html'),
+    //   controller: 'NewprofileController',
+    //   controllerAs: 'newProfileCtrl'
+    // }
+    // {
     //   name: 'contactDev',
     //   url: '/contact',
     //   template: require('../view/devDetails.html'),
