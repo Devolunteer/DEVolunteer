@@ -50,7 +50,7 @@ describe('The Auth Route', function(){
         if(err) return done(err);
         expect(res.status).to.equal(200);
         // console.log(res);
-        expect(!!res.text).to.equal(true);
+        expect(!!res.body).to.equal(true);
         done();
       });
     });
@@ -72,7 +72,7 @@ describe('The Auth Route', function(){
         .end((err, res) => {
           // console.log(res);
           expect(res.status).to.equal(200);
-          expect(res.text.password).to.equal(token);
+          expect(res.body.password).to.equal(token);
           done();
         });
     });
@@ -103,6 +103,8 @@ describe('The Auth Route', function(){
 
   });
 
+
+
 });
 //
 // describe('Un-Auth /GET for users', function() {
@@ -122,21 +124,21 @@ describe('The Auth Route', function(){
 //     .catch(done);
 //   });
 //
-//   it('will return an array of ONLY USER IDs', function(done){
-//     request.get(`${url}/api/users`)
-//     .end((err, res) => {
-//       expect(res.status).to.equal(200);
-//       expect(Array.isArray(res.body)).to.equal(true);
-//       expect(res.body[0].id).to.equal(this.id);
-//       done();
-//     });
-//   });
-//   it('will Error if invalid url given', function(done) {
-//     request.get(`${url}/games`)
-//     .end((err, res) => {
-//       expect(res.status).to.equal(404);
-//       done();
-//     });
+  // it('will return an array of ONLY USER IDs', function(done){
+  //   request.get(`${url}/api/users`)
+  //   .end((err, res) => {
+  //     expect(res.status).to.equal(200);
+  //     expect(Array.isArray(res.body)).to.equal(true);
+  //     expect(res.body[0].id).to.equal(this.id);
+  //     done();
+  //   });
+  // });
+  // it('will Error if invalid url given', function(done) {
+  //   request.get(`${url}/games`)
+  //   .end((err, res) => {
+  //     expect(res.status).to.equal(404);
+  //     done();
+  //   });
 //   });
 //   it('Will Give Additional USER INFO', function(done) {
 //     request.get(`${url}/users/${userTest._id}`)
