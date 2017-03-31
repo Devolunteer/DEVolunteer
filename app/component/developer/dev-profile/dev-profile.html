@@ -4,9 +4,9 @@
 <div class="devProfile">
   <section class="devProfileEdit">
 
-    <form class="dev-profile" name="devProfile" ng-submit="devProfileCtrl.updateProfile()" no-validate>
+    <form class="dev-profile" name="devProfile" ng-submit="devProfileCtrl.updateProfile(devProfileCtrl.dev)" no-validate>
 
-      <h2>Username: {{ devProfileCtrl.username }} </h2>
+      <h2>Username: {{ devProfileCtrl.dev.username }} </h2>
 
       <fieldset>
         <img ng-src="{{ devProfileCtrl.picture }}">

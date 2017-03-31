@@ -10,18 +10,18 @@ module.exports = {
 function DevProfileController($log, devService, userService) {
   $log.debug('running DevProfileController');
 
-  this.username = '';
+  this.dev = {};
+
+  this.dev.username = '';
 
   //this will run automatically every time this controller is brought in
   userService.fetchUser()
   .then(user => {
-    this.username = user.username;
+    this.dev.username = user.username;
   })
   .catch(console.log);
 
-
-
   this.updateProfile = function() {
-    devService.updateDev(this.username);
+    devService.updateDev(this.dev);
   };
 }
