@@ -1,13 +1,13 @@
 module.exports = {
   template: require('./dev-profile.html'),
-  controller: ['$log', 'devService', 'userService', DevProfileController],
+  controller: ['$log', '$location', 'devService', 'userService', DevProfileController],
   controllerAs: 'devProfileCtrl',
   bindings: {
     user: '='
   }
 };
 
-function DevProfileController($log, devService, userService) {
+function DevProfileController($log, $location, devService, userService) {
   $log.debug('running DevProfileController');
 
   this.dev = {};
@@ -22,6 +22,9 @@ function DevProfileController($log, devService, userService) {
   .catch(console.log);
 
   this.updateProfile = function() {
-    devService.updateDev(this.dev);
+    devService.updateDev(this.dev)
+    .then( () => {
+      $location.url('/');
+    });
   };
 }
