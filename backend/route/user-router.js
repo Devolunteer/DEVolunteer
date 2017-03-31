@@ -11,7 +11,7 @@ let router = module.exports = new Router()
 
 
 //  Unauth Route
-router.get('/api/users',(req, res) => {
+router.get('/api/user',(req, res) => {
   User.find({})
   .then(user => {
     console.log(user);

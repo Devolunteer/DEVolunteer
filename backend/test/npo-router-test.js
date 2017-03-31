@@ -43,7 +43,7 @@ describe('should start and kill server before unit test', function(){
     server.close((err) => {
       server.isRunning = false;
       if(err){
-        done(err);  
+        done(err);
       } else {
         done();
       }
@@ -81,7 +81,7 @@ describe('should start and kill server before unit test', function(){
       request.get(`${url}/api/npoList`)
       .end((err, res) => {
         expect(res.status).to.equal(200);
-        // console.log(res.body);
+        console.log(res.body.isNPO);
         expect(Array.isArray(res.body)).to.equal(true);
         expect(res.body[0].username).to.equal('NeedyPeeps');
         expect(res.body[0].org).to.equal('Chair Disability')
@@ -100,4 +100,42 @@ describe('should start and kill server before unit test', function(){
       })
     })
   });
+  describe('Testing NPO user', function() {
+    let testUser;
+    let testToken;
+    let testNpo;
+    before(done => {
+      new User(mockUser).save()
+      .then(user => {
+        testUser = user;
+        return testUser.generateToken();
+      })
+    .then(token => {
+      testToken = token;
+      return new Npo(mockNPO).save();
+    })
+    .then(npo => {
+      testNpo = npo;
+    })
+    .then(() => done())
+    .catch(done);
+    });
+    after(done => {
+      User.remove().exec()
+      Npo.remove().exec()
+      .then(() => done())
+      .catch(done);
+    })
+
+    it('will display correct properties of NPO', (done) => {
+      request.post(`${url}/api/npo/${testNpo._id}`)
+      .end((err, res) => {
+        console.log(res);
+        expect(res.status).to.equal(200)
+        done()
+      })
+    })
+  })
+
+
 });
