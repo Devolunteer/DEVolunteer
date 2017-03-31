@@ -2,7 +2,7 @@ require('./_dev-item.scss');
 
 module.exports = {
   template: require('./dev-item.html'),
-  controller: ['$log', 'developerService', devItemController],
+  controller: ['$log', 'devService', devItemController],
   controllerAs: 'devItemCtrl',
   bindings: {
     dev: '<',
