@@ -5,7 +5,7 @@ const request = require('superagent');
 const expect = require('chai').expect;
 const Npo = require('../model/npo.js');
 const User = require('../model/user.js');
-const createError = require('http-errors')
+// const createError = require('http-errors')
 
 const PORT = process.env.PORT || 3000;
 const url = 'http://localhost:3000';
@@ -54,7 +54,7 @@ describe('should start and kill server before unit test', function(){
     let testToken;
     let testNpo;
 //depending on how you guys want this to work, we may not need to pass anything through basicAuth if anyone can search this without creating an account.
-    before(done => {
+    beforeEach(done => {
       new User(mockUser).save()
       .then(user => {
         testUser = user;
@@ -71,17 +71,19 @@ describe('should start and kill server before unit test', function(){
     .catch(done);
     });
 
-    after(done => {
-      User.remove().exec()
-      Npo.remove().exec()
+    afterEach(done => {
+      User.remove({}).exec()
+      Npo.remove({}).exec()
       .then(() => done())
       .catch(done);
     })
+
     it('will return an array with nPOs', (done) => {
       request.get(`${url}/api/npoList`)
       .end((err, res) => {
+        // console.log(res.body)
         expect(res.status).to.equal(200);
-        console.log(res.body.isNPO);
+        // console.log(res.body.isNPO);
         expect(Array.isArray(res.body)).to.equal(true);
         expect(res.body[0].username).to.equal('NeedyPeeps');
         expect(res.body[0].org).to.equal('Chair Disability')
@@ -95,7 +97,7 @@ describe('should start and kill server before unit test', function(){
       .end((err, res) => {
         expect(res.status).to.equal(404);
         // expect(res.error).to.equal('[Error: cannot GET /npoList (404)]')
-        console.log('Error: ', res.status);
+        // console.log('Error: ', res.status);
         done()
       })
     })
@@ -104,7 +106,7 @@ describe('should start and kill server before unit test', function(){
     let testUser;
     let testToken;
     let testNpo;
-    before(done => {
+    beforeEach(done => {
       new User(mockUser).save()
       .then(user => {
         testUser = user;
@@ -112,26 +114,25 @@ describe('should start and kill server before unit test', function(){
       })
     .then(token => {
       testToken = token;
-      return new Npo(mockNPO).save();
-    })
-    .then(npo => {
-      testNpo = npo;
+      // return new Npo(mockNPO).save();
     })
     .then(() => done())
     .catch(done);
     });
-    after(done => {
-      User.remove().exec()
-      Npo.remove().exec()
+    afterEach(done => {
+      User.remove({}).exec()
+      Npo.remove({}).exec()
       .then(() => done())
       .catch(done);
     })
 
     it('will display correct properties of NPO', (done) => {
-      request.post(`${url}/api/npo/${testNpo._id}`)
+      request.post(`${url}/api/npo/${testUser._id}`)
+      .set('Authorization', 'Bearer ' + testToken)
+      .send(mockNPO)
       .end((err, res) => {
-        console.log(res);
-        expect(res.status).to.equal(200)
+        // console.log(res.body);
+        expect(res.status).to.equal(200);
         done()
       })
     })
