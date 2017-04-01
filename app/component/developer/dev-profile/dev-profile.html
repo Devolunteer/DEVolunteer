@@ -41,12 +41,12 @@
       <fieldset>
 
         <span class="item-label">Phone</span>
-        <input type="tel" name="Phone" ng-model="editProfileCtrl.dev.phone">
+        <input type="tel" name="Phone" ng-model="devProfileCtrl.dev.phone">
       </fieldset>
 
       <fieldset>
         <span class="item-label">Reviews</span>
-        <input type="text" name="Description" ng-model='editProfileCtrl.dev.reviews'>
+        <input type="text" name="Description" ng-model="devProfileCtrl.dev.reviews">
 
       </fieldset>
 
@@ -74,7 +74,11 @@
         <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">
       </fieldset>
 
-      <button type="submit" class="btn-std">Save Changes</button>
+      <!-- This is for a brand new Dev -->
+      <button type="submit" class="btn-std" ng-hide="devProfileCtrl.isNewUser">Update Profile</button>
+
+      <!-- This is for a Dev who does not exist yet   -->
+      <button type="submit" class="btn-std" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
     </form>
   </section>
 
