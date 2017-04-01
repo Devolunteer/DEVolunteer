@@ -31,13 +31,17 @@ router.post('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
 })
 
 router.get('/api/dev', bearerAuth, (req, res, next) => {
-  if(!req.user.isDev) return next(createError(401, 'please log in as a developr'))
+  if(!req.user.isDev) return next(createError(401, 'please log in as a developer'))
 
-  Dev.find()
+  Dev.findOne({username: req.user.username})
   .then( dev => {
+    //if dev is null, return a 404 error. This is important for edit profile functionality
+    if(!dev) return next(createError(404, 'Not found'))
     return res.json(dev)
   })
-  .catch(next)
+  .catch(err => {
+    console.error(err)
+  })
 })
 
 router.delete('/api/dev', bearerAuth, (req, res) => {

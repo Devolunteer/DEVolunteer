@@ -12,16 +12,30 @@ function DevProfileController($log, $location, devService, userService) {
 
   this.dev = {};
 
+  // this.isNewUser = true;
+
   this.dev.username = '';
+  this.isNewUser = true;
 
   //this will run automatically every time this controller is brought in
   userService.fetchUser()
   .then(user => {
     this.dev.username = user.username;
-  })
-  .catch(console.log);
+  });
+
+  //this will run every time 
+  devService.fetchDev()
+  .then(res => {
+    if (res) {
+      this.isNewUser = false;
+    }
+    else {
+      this.isNewUser = true;
+    }
+  });
 
   this.updateProfile = function() {
+    //This is where I will put the is new user logic
     devService.updateDev(this.dev)
     .then( () => {
       $location.url('/');

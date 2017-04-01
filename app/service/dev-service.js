@@ -58,6 +58,27 @@ function devService($q, $log, $http, Upload, authService) {
     });
   };
 
+  service.fetchDev = function() {
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/dev`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.get(url, config) //try to get the user from the dev database
+      .then(user => { //if you succeed, the the user exists in the dev database
+        console.log(user);
+        return true;
+      })
+      .catch(() => { //if there is no user in the dev database, you should hit the catch
+        return false;
+      });
+    });
+  };
+
+
   return service;
 }
 
