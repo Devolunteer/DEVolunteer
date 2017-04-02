@@ -29,7 +29,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/devlist',
       template: require('../view/devlist/devlist.html'),
       controller: 'DevlistController',
-      controllerAs: 'devlistCtrl'
+      controllerAs: 'devListCtrl'
     },
     {
       name: 'login',
@@ -52,6 +52,13 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       controller: 'EditviewController',
       controllerAs: 'editViewCtrl'
     }
+    // {
+    //   name: 'newprofile',
+    //   url: '/newprofile',
+    //   template: require('../view/newprofile/newprofile.html'),
+    //   controller: 'NewprofileController',
+    //   controllerAs: 'newProfileCtrl'
+    // }
     // {
     //   name: 'contactDev',
     //   url: '/contact',

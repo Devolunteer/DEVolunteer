@@ -13,6 +13,7 @@ const userSchema = Schema({
   username: { type: String, required: true, unique: true },
   email: {type: String, required: true, unique: true },
   password: {type: String},
+  addDate: {type: Date},
   isDev: {type: Boolean, default: false},
   isNPO: {type: Boolean, default: false},
 })
@@ -40,6 +41,7 @@ userSchema.methods.comparePasswordHash = function(password) {
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, this.password, (err, valid) => {
       if(err) return reject(err)
+      // console.log('PARAM',password,'THIS', this.password);
       if(!valid) return reject(createError(401, 'wrong password'))
       resolve(this)
     })

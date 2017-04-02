@@ -4,7 +4,10 @@ let mongoose = require('mongoose')
 
 //Dev user model
 let devSchema = mongoose.Schema({
-  username: {type: String, ref: 'users'},
+
+  username: {type: String, ref: 'users', unique: true},
+  name: {type: String},
+
   city: {type: String},
   state: {type: String},
   phone: {type: String},

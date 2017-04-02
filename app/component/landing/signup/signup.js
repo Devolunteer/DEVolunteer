@@ -2,11 +2,11 @@
 
 module.exports = {
   template: require('./signup.html'),
-  controller: ['$log', '$location', 'authService', SignupController],
+  controller: ['$log', '$location', 'authService', 'userService', SignupController],
   controllerAs: 'signupCtrl'
 };
 
-function SignupController($log, $location, authService) {
+function SignupController($log, $location, authService, userService) {
   $log.debug('SignupController');
 
   // authService.getToken()
@@ -19,7 +19,17 @@ function SignupController($log, $location, authService) {
 
     authService.signup(user)
     .then( () => {
-      $location.url('/home');
+      $location.url('/');
     });
   };
+
+  // this.editUser = function(user) {
+  //   if (user.isDev) {
+  //     userService.showDevEdits = true; //connects to service --> connects to new controller
+  //     userService.showNpoEdits = false;
+  //   } else {
+  //     userService.showDevEdits = false;
+  //     userService.showNpoEdits = true;
+  //   }
+  // };
 }
