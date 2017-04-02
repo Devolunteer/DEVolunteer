@@ -51,13 +51,14 @@ function DevProfileController($log, $location, authService, devService, userServ
     //This is where I will put the is new user logic
   };
 
-  this.deleteProfile = function() {
-    userService.deleteProfile()
-    .then(() => {
-      authService.logout();
-    })
+  this.deleteUser= function() {
+    userService.deleteUser()
+    .then(() => authService.logout())
     .then(()=> {
       $location.url('/');
+      delete this.dev;
+    })
+    .then(() => {
     })
     .catch(err => {
       console.error(err);
