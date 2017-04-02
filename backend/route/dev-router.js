@@ -1,6 +1,6 @@
 let Router = require('express').Router
 let bearerAuth = require('../lib/bearer-auth-midd.js')
-let basicAuth = require('../lib/basic-auth-midd.js')
+// let basicAuth = require('../lib/basic-auth-midd.js')
 let createError = require('http-errors')
 let Dev = require('../model/dev')
 let jsonParser = require('body-parser').json()
@@ -11,7 +11,6 @@ let router = module.exports = new Router()
 //unauthed get all devs to pass to filtered dev list
 
 router.get('/api/devList', (req, res, next) => {
-  console.log('in the dev router get for finding devs')
   Dev.find()
   .then(allDevsObj => {
     res.send(allDevsObj)
@@ -31,14 +30,37 @@ router.post('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
 })
 
 router.get('/api/dev', bearerAuth, (req, res, next) => {
-  if(!req.user.isDev) return next(createError(401, 'please log in as a developr'))
+  if(!req.user.isDev) return next(createError(401, 'please log in as a developer'))
 
-  Dev.find()
+  Dev.findOne({username: req.user.username})
   .then( dev => {
-    return res.json(dev)
+    //if dev is null, return a 404 error. This is important for edit profile functionality
+    if(!dev) return next(createError(404, 'Not found'))
+    res.json(dev)
   })
-  .catch(next)
+  .catch(err => {
+    console.error(err)
+  })
 })
+
+router.put('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
+  Dev.findOneAndUpdate({username: req.user.username}, req.body).exec()
+    .then(docs => {
+      res.json(docs)
+    })
+    .catch(err => {
+      console.error(err)
+    })
+})
+
+  // .then(dev => {
+  //   if(!dev) return next(createError(404, 'Not found'))
+  //   res.json(dev)
+  // })
+//   .catch(err => {
+//     console.log(err)
+//   })
+// })
 
 router.delete('/api/dev', bearerAuth, (req, res) => {
   Dev.findByIdAndRemove(req.user.id)

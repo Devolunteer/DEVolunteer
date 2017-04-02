@@ -8,12 +8,21 @@ let jsonParser = require('body-parser').json()
 let router = module.exports = new Router()
 
 
+router.get('/api/npoList', (req, res, next) => {
+  console.log('in the NPO router get for finding NPOs')
+  Npo.find()
+  .then(allNpoObj => {
+    res.send(allNpoObj)
+  })
+  .catch(next)
+})
 //req.user should be a individual user which the bearer auth will identify
-router.post('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
+router.post('/api/npo/:id', bearerAuth, jsonParser, (req, res, next) => {
   if(!req.user.isNPO) return next(createError(401, 'Please log in as a Non Profit Organization'))
 
   //req.body will be values from the form they fill out on angular front-end
   const npo = new Npo(req.body)
+  // console.log('THIS IS THE NPO', npo);
   npo.save()
   .then(npo => res.json(npo))
   .catch(next)
@@ -22,11 +31,15 @@ router.post('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
 router.get('/api/npo', bearerAuth, (req, res, next) => {
   if(!req.user.isNPO) return next(createError(401, 'please log in as an NPO'))
 
-  Npo.find()
+  Npo.findOne({username: req.user.username})
   .then( npo => {
-    return res.json(npo)
+    //if dev is null, return a 404 error. This is important for edit profile functionality
+    if(!npo) return next(createError(404, 'Not found'))
+    res.json(npo)
   })
-  .catch(next)
+  .catch(err => {
+    console.error(err)
+  })
 })
 
 router.delete('/api/npo', bearerAuth, (req, res) => {
@@ -36,6 +49,16 @@ router.delete('/api/npo', bearerAuth, (req, res) => {
     console.log(e)
     res.json({}) //or err.message?
   })
+})
+
+router.put('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
+  Npo.findOneAndUpdate({username: req.user.username}, req.body).exec()
+    .then(docs => {
+      res.json(docs)
+    })
+    .catch(err => {
+      console.error(err)
+    })
 })
 
 // submit form via email logic here:
