@@ -27,6 +27,7 @@ function userService($q, $log, $http, authService) {
       $log.log('user retrieved');
       console.log('HERE IS THE RESPONSE DATA');
       console.log(res.data);
+      service.isLoggedIn = true;
       return res.data;
     })
     .catch(err => {
@@ -35,8 +36,5 @@ function userService($q, $log, $http, authService) {
     });
   };
 
-  // service.updateProfile = function(user) {
-  //
-  // }
   return service;
 }

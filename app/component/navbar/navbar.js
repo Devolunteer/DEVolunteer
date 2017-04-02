@@ -14,6 +14,22 @@ module.exports = {
 function NavBarController($log, $location, $rootScope, authService, userService){
   $log.debug('NavBarController');
 
+  this.isUser = false;
+  this.username = '';
+
+  this.checkUser = function() {
+    userService.fetchUser()
+    .then(user => {
+      if(!user) {
+        this.isUser = false;
+      } else {
+        this.isUser = true;
+        this.username = user.username;
+      }
+    });
+  };
+
+
   this.editUser = function() {
     userService.fetchUser()
     .then(user => {
@@ -31,18 +47,15 @@ function NavBarController($log, $location, $rootScope, authService, userService)
   this.logout = function(){
     $log.log('navBarCtrl.logout()');
     this.hideButtons = true;
+    this.isUser = false;
     authService.logout()
     .then(() => {
       $location.url('/');
     });
   };
 
-  //
-  // // this.checkPath();
-  //
-  //
-  // $rootScope.$on('$locationChangeSuccess', () => {
-  //   this.checkPath();
-  // });
+  $rootScope.$on('$locationChangeSuccess', () => {
+    this.checkUser();
+  });
 
 }
