@@ -1,4 +1,4 @@
-//need a service for pulling in the developer details.
+//need a service for pulling in the npoeloper details.
 'use strict';
 
 module.exports = ['$q', '$log', '$http', 'Upload', 'authService', npoService];
@@ -10,7 +10,7 @@ function npoService($q, $log, $http, Upload, authService) {
 
 
   service.showDetail = function(npoData){
-    let url = `${__API_URL__}/api/npo/${npo._id}`;
+    // let url = `${__API_URL__}/api/npo/${npo._id}`;
     let config = {
       headers: {
         Accept: 'application/json',
@@ -26,6 +26,82 @@ function npoService($q, $log, $http, Upload, authService) {
       $log.error(err.message);
       return $q.reject.err;
     });
+  };
+
+  service.createNpo = function(npo) {
+    console.log('trying to create an npo');
+    $log.debug('npoService.createNpo()');
+
+    return authService.getToken()
+      .then(token => {
+        let url = `http://localhost:3000/api/npo/`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        };
+        return $http.post(url, npo, config);
+      })
+    .then(res => {
+      $log.log('npo created');
+      let npo = res.data;
+      console.log('LOGGING THE npo AFTER A POST');
+      console.log(npo);
+      return npo;
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.fetchNpo = function() {
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/npo`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.get(url, config) //try to get the user from the npo database
+      .then(user => { //if you succeed, the the user exists in the npo database
+        return user;
+      })
+      .catch(() => { //if there is no user in the npo database, you should hit the catch
+        return false;
+      });
+    });
+  };
+
+  service.updateNpo = function(npo) {
+    console.log('trying to UPDATE a npo');
+    $log.debug('npoService.updatenpo()');
+
+    return authService.getToken()
+      .then(token => {
+        let url = `http://localhost:3000/api/npo/`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        };
+        return $http.put(url, npo, config)
+        .then(res => {
+          let npo = res.data;
+          console.log('HERE IS THE npo AFTER A PUT');
+          console.log(npo);
+          return npo;
+        })
+        .catch(err => {
+          console.log(err);
+          return $q.reject(err);
+        });
+      });
   };
 
   // service.updateGallery = function(galleryID, galleryData) {

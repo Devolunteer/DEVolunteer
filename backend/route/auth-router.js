@@ -18,7 +18,7 @@ authRouter.post('/api/signup', jsonParser, (req, res, next) => {
   user.generatePasswordHash(user.password)
   .then(user  => user.save())
   .then(user => user.generateToken())
-  .then(token => res.send(token))
+  .then(token => res.json(token))
   .catch(next);
 });
 
@@ -31,7 +31,7 @@ authRouter.get('/api/login', basicAuth, (req, res, next) => {
     return user.comparePasswordHash(req.auth.password);
   })
   .then(user => user.generateToken())
-  .then(token => res.send(token))
+  .then(token => res.json(token))
   .catch(next);
 });
 
@@ -41,7 +41,7 @@ authRouter.get('/api/user', bearerAuth, (req, res, next) => {
   .then(user => {
     if(!user) return Promise.reject(next(createError(401)));
     delete user.password;
-    res.send(user);
+    res.json(user);
   })
     .catch(next);
 });
