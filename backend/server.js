@@ -9,9 +9,16 @@ const authRouter = require('./route/auth-router.js');
 const devRouter = require('./route/dev-router');
 const npoRouter = require('./route/npo-router.js');
 const errorMiddleware = require('./lib/error-midd.js');
+const cloudinary = require('./cloudinary');
 
 const app = express();
 dotenv.load();
+
+cloudinary.config({
+  cloud_name: process.env.cloudinaryName, 
+  api_key: process.env.cloudinaryApiKey,
+  api_secret: process.env.cloudinaryApiSecret,
+});
 
 //local mongo db will be called 'devolunteer'
 const PORT = process.env.PORT || 3000;
