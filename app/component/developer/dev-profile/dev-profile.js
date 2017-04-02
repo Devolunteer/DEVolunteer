@@ -23,7 +23,7 @@ function DevProfileController($log, $location, devService, userService) {
     this.dev.username = user.username;
   });
 
-  //this will run every time 
+  //this will run every time
   devService.fetchDev()
   .then(res => {
     if (res) {
@@ -35,10 +35,20 @@ function DevProfileController($log, $location, devService, userService) {
   });
 
   this.updateProfile = function() {
+    if(this.isNewUser) {
+      //createDev goes to a POST route. only for new dev profiles
+      devService.createDev(this.dev)
+      .then( () => {
+        $location.url('/');
+      });
+    } else {
+      devService.updateDev(this.dev)
+      //updateDev goes to a PUT route. for existing dev profiles.
+      .then( () => {
+        console.log('in the update dev stuff');
+        $location.url('/');
+      });
+    }
     //This is where I will put the is new user logic
-    devService.updateDev(this.dev)
-    .then( () => {
-      $location.url('/');
-    });
   };
 }

@@ -1,35 +1,55 @@
 module.exports = {
   template: require('./npo-profile.html'),
-  controller: ['$log', 'npoService', 'userService', NpoProfileController],
+  controller: ['$log', '$location', 'npoService', 'userService', NpoProfileController],
   controllerAs: 'npoProfileCtrl',
   bindings: {
     user: '='
   }
 };
 
-function NpoProfileController($log, npoService, userService) {
+function NpoProfileController($log, $location, npoService, userService) {
   $log.debug('running npoProfileController');
 
-  this.username = '';
+
+
+  this.npo = {};
+  this.npo.username = '';
+  
+  this.isNewUser = true;
 
   //this will run automatically every time this controller is brought in
   userService.fetchUser()
   .then(user => {
-    this.username = user.username;
+    this.npo.username = user.username;
   })
   .catch(console.log);
 
 
+  npoService.fetchNpo()
+  .then(res => {
+    if (res) {
+      this.isNewUser = false;
+    }
+    else {
+      this.isNewUser = true;
+    }
+  });
 
   this.updateProfile = function() {
-    npoService.updateProfile(this.npo._id);
+    if(this.isNewUser) {
+      //createDev goes to a POST route. only for new dev profiles
+      npoService.createNpo(this.npo)
+      .then( () => {
+        $location.url('/');
+      });
+    } else {
+      npoService.updateNpo(this.npo)
+      //updateDev goes to a PUT route. for existing dev profiles.
+      .then( () => {
+        console.log('in the update npo stuff');
+        $location.url('/');
+      });
+    }
+    //This is where I will put the is new user logic
   };
-
-  this.deleteProfile = function(param){
-    npoService.deleteProfile(this.npo._id);
-  }
-
-  this.uploadPic = function(param){
-    npoService.uploadPic(this.npo._id);
-  }
 }

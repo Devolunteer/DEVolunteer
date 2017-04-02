@@ -1,6 +1,6 @@
 let Router = require('express').Router
 let bearerAuth = require('../lib/bearer-auth-midd.js')
-let basicAuth = require('../lib/basic-auth-midd.js')
+// let basicAuth = require('../lib/basic-auth-midd.js')
 let createError = require('http-errors')
 let Dev = require('../model/dev')
 let jsonParser = require('body-parser').json()
@@ -37,12 +37,31 @@ router.get('/api/dev', bearerAuth, (req, res, next) => {
   .then( dev => {
     //if dev is null, return a 404 error. This is important for edit profile functionality
     if(!dev) return next(createError(404, 'Not found'))
-    return res.json(dev)
+    res.json(dev)
   })
   .catch(err => {
     console.error(err)
   })
 })
+
+router.put('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
+  Dev.findOneAndUpdate({username: req.user.username}, req.body).exec()
+    .then(docs => {
+      res.json(docs)
+    })
+    .catch(err => {
+      console.error(err)
+    })
+})
+
+  // .then(dev => {
+  //   if(!dev) return next(createError(404, 'Not found'))
+  //   res.json(dev)
+  // })
+//   .catch(err => {
+//     console.log(err)
+//   })
+// })
 
 router.delete('/api/dev', bearerAuth, (req, res) => {
   Dev.findByIdAndRemove(req.user.id)
