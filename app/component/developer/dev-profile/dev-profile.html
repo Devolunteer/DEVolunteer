@@ -52,7 +52,17 @@
 
       <fieldset>
         <span class="item-label">Languages</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.languages">
+        <input type="checkbox" name="JavaScript" ng-model="devProfileCtrl.dev.javascript"><label for="JavaScript">JavaScript</label>
+
+        <input type="checkbox" name="html" ng-model="devProfileCtrl.dev.html"><label for="html"> HTML/CSS</label>
+
+        <input type="checkbox" name="Angular" ng-model="devProfileCtrl.dev.angular"><label for="Angular"> Angular</label>
+
+        <input type="checkbox" name="React" ng-model="devProfileCtrl.dev.react"><label for="React"> React</label>
+
+        <input type="checkbox" name="Python" ng-model="devProfileCtrl.dev.python"><label for="Python"> Python</label>
+
+        <input type="checkbox" name="other" ng-model="devProfileCtrl.dev.otherlang"><label for="other"> Other</label>
       </fieldset>
 
       <fieldset>
@@ -66,7 +76,7 @@
 
       <fieldset>
         <span class="item-label">Websites</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.desc">
+        <input type="text" name="Websites" ng-model="devProfileCtrl.dev.website">
       </fieldset>
 
       <fieldset>

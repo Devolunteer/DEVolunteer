@@ -10,8 +10,8 @@
         <span> {{ devItemCtrl.dev.desc }}</span>
         <p>Reviews:</p>
         <span> {{ devItemCtrl.dev.reviews }}</span>
-        <p>Languages:</p>
-        <span> {{ devItemCtrl.dev.languages | limitTo: 4}}</span>
+        <!-- <p>Languages:</p> -->
+        <span>Languages: {{ devItemCtrl.dev.languages | limitTo: 4}}</span>
         <span> Available: {{ devItemCtrl.dev.available }}</span>
 
         <button class="btn-std" ng-click="devItemCtrl.showDetailView()" type="button" name="ViewMore">View More</button>
