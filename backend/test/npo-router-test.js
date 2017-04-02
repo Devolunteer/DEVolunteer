@@ -16,15 +16,34 @@ const mockUser = {
   password: 'mockPassword',
   isNPO: true,
 };
+const mockUser1 = {
+  username: 'mockUser',
+  email: 'mockEmail',
+  password: 'mockPassword',
+  isDev: true,
+};
 
 const mockNPO = {
   username: 'NeedyPeeps',
-  org: 'Chair Disability',
+  org: 'ChairDisability',
   city: 'NeedyCity',
   state: 'NeedyState',
+  phone: '555-555-5555',
+  email: 'needy@email.com',
   projects: [],
   reviews: [],
+  developers: [],
 };
+
+const mockDev = {
+  username: 'NeedyDev',
+  name: 'Clarence',
+  city: 'Seattle',
+  state: 'WA',
+  phone: '222-222-2222',
+  picture:'*.png',
+  website: ''
+}
 
 //start test server
 
@@ -49,7 +68,7 @@ describe('should start and kill server before unit test', function(){
       }
     });
   });
-  describe('testing unauthed GET for all NPOs', function(){
+  describe('Testing unauthed #GET for all NPOs', function(){
     let testUser;
     let testToken;
     let testNpo;
@@ -86,7 +105,7 @@ describe('should start and kill server before unit test', function(){
         // console.log(res.body.isNPO);
         expect(Array.isArray(res.body)).to.equal(true);
         expect(res.body[0].username).to.equal('NeedyPeeps');
-        expect(res.body[0].org).to.equal('Chair Disability')
+        expect(res.body[0].org).to.equal('ChairDisability')
         expect(res.body[0].city).to.equal('NeedyCity');
         expect(res.body[0].password).to.equal(undefined);
         done();
@@ -102,10 +121,10 @@ describe('should start and kill server before unit test', function(){
       })
     })
   });
-  describe('Testing NPO user', function() {
+  describe('#POST -- Testing NPO user', function() {
     let testUser;
     let testToken;
-    let testNpo;
+
     beforeEach(done => {
       new User(mockUser).save()
       .then(user => {
@@ -127,15 +146,61 @@ describe('should start and kill server before unit test', function(){
     })
 
     it('will display correct properties of NPO', (done) => {
-      request.post(`${url}/api/npo/${testUser._id}`)
+      request.post(`${url}/api/npo`)
       .set('Authorization', 'Bearer ' + testToken)
       .send(mockNPO)
       .end((err, res) => {
         // console.log(res.body);
         expect(res.status).to.equal(200);
+        expect(res.body.username).to.equal('NeedyPeeps')
+        expect(res.body.org).to.equal('ChairDisability')
+        expect(res.body.phone).to.equal('555-555-5555')
+        expect(res.body.email).to.equal('needy@email.com')
+        expect(Array.isArray(res.body.projects)).to.equal(true);
+        expect(Array.isArray(res.body.developers)).to.equal(true);
+        expect(Array.isArray(res.body.reviews)).to.equal(true);
         done()
       })
     })
+  })
+  describe('#POST -- Testing NPO user', function() {
+    let testUser;
+    let testToken;
+
+    beforeEach(done => {
+      new User(mockUser1).save()
+      .then(user => {
+        testUser = user;
+        return testUser.generateToken();
+      })
+    .then(token => {
+      testToken = token;
+      // return new Npo(mockNPO).save();
+    })
+    .then(() => done())
+    .catch(done);
+    });
+    afterEach(done => {
+      User.remove({}).exec()
+      // Npo.remove({}).exec()
+      .then(() => done())
+      .catch(done);
+    })
+
+    it('will not allow a dev to POST to NPO', (done) => {
+      request.post(`${url}/api/npo`)
+      .set('Authorization', 'Bearer ' + testToken)
+      .send(mockDev)
+      .end((err, res) => {
+        // console.log(res.body);
+        expect(res.status).to.equal(401);
+        // console.log(res);
+        done()
+      })
+    })
+  })
+  describe('#PUT for an NPO', (done) => {
+    request.put(`${url}/api/npo`)
   })
 
 

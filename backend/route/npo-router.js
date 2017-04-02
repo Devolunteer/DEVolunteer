@@ -9,7 +9,7 @@ let router = module.exports = new Router()
 
 
 router.get('/api/npoList', (req, res, next) => {
-  console.log('in the NPO router get for finding NPOs')
+  // console.log('in the NPO router get for finding NPOs')
   Npo.find()
   .then(allNpoObj => {
     res.send(allNpoObj)
@@ -17,8 +17,8 @@ router.get('/api/npoList', (req, res, next) => {
   .catch(next)
 })
 //req.user should be a individual user which the bearer auth will identify
-router.post('/api/npo/:id', bearerAuth, jsonParser, (req, res, next) => {
-  if(!req.user.isNPO) return next(createError(401, 'Please log in as a Non Profit Organization'))
+router.post('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
+  if(req.user.isNPO === false) return next(createError(401, 'Please log in as a Non Profit Organization'))
 
   //req.body will be values from the form they fill out on angular front-end
   const npo = new Npo(req.body)
