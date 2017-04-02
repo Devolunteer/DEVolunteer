@@ -23,13 +23,13 @@ function SignupController($log, $location, authService, userService) {
     });
   };
 
-  // this.editUser = function(user) {
-  //   if (user.isDev) {
-  //     userService.showDevEdits = true; //connects to service --> connects to new controller
-  //     userService.showNpoEdits = false;
-  //   } else {
-  //     userService.showDevEdits = false;
-  //     userService.showNpoEdits = true;
-  //   }
-  // };
+  this.editUser = function(user) {
+    if (user.isDev) {
+      userService.showDevEdits = true; //connects to service --> connects to new controller
+      userService.showNpoEdits = false;
+    } else {
+      userService.showDevEdits = false;
+      userService.showNpoEdits = true;
+    }
+  };
 }

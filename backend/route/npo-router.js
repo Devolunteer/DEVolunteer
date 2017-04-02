@@ -22,11 +22,15 @@ router.post('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
 router.get('/api/npo', bearerAuth, (req, res, next) => {
   if(!req.user.isNPO) return next(createError(401, 'please log in as an NPO'))
 
-  Npo.find()
+  Npo.findOne({username: req.user.username})
   .then( npo => {
-    return res.json(npo)
+    //if dev is null, return a 404 error. This is important for edit profile functionality
+    if(!npo) return next(createError(404, 'Not found'))
+    res.json(npo)
   })
-  .catch(next)
+  .catch(err => {
+    console.error(err)
+  })
 })
 
 router.delete('/api/npo', bearerAuth, (req, res) => {
@@ -36,6 +40,16 @@ router.delete('/api/npo', bearerAuth, (req, res) => {
     console.log(e)
     res.json({}) //or err.message?
   })
+})
+
+router.put('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
+  Npo.findOneAndUpdate({username: req.user.username}, req.body).exec()
+    .then(docs => {
+      res.json(docs)
+    })
+    .catch(err => {
+      console.error(err)
+    })
 })
 
 // submit form via email logic here:
