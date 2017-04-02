@@ -12,6 +12,7 @@ let router = module.exports = new Router();
 
 router.get('/api/devList', (req, res, next) => {
   console.log('in the dev router get for finding devs');
+
   Dev.find()
   .then(allDevsObj => {
     res.send(allDevsObj);
