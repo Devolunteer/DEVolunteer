@@ -29,10 +29,9 @@ function devService($q, $log, $http, Upload, authService) {
     });
   };
 
-  service.updateDev = function(dev) {
-    console.log('MADE IT INTO UPDATE DEV');
-    console.log(dev);
-    $log.debug('devService.updateDev()');
+  service.createDev = function(dev) {
+    console.log('trying to create a dev');
+    $log.debug('devService.createDev()');
 
     return authService.getToken()
       .then(token => {
@@ -49,6 +48,8 @@ function devService($q, $log, $http, Upload, authService) {
     .then(res => {
       $log.log('dev created');
       let dev = res.data;
+      console.log('LOGGING THE DEV AFTER A POST');
+      console.log(dev);
       service.devList.unshift(dev);
       return dev;
     })
@@ -58,6 +59,53 @@ function devService($q, $log, $http, Upload, authService) {
     });
   };
 
+  service.fetchDev = function() {
+    //T
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/dev`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.get(url, config) //try to get the user from the dev database
+      .then(user => { //if you succeed, the the user exists in the dev database
+        return user;
+      })
+      .catch(() => { //if there is no user in the dev database, you should hit the catch
+        return false;
+      });
+    });
+  };
+
+  service.updateDev = function(dev) {
+    console.log('trying to UPDATE a dev');
+    $log.debug('devService.updateDev()');
+
+    return authService.getToken()
+      .then(token => {
+        let url = `http://localhost:3000/api/dev/`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        };
+        return $http.put(url, dev, config)
+        .then(res => {
+          let dev = res.data;
+          console.log('HERE IS THE DEV AFTER A PUT');
+          console.log(dev);
+          return dev;
+        })
+        .catch(err => {
+          console.log(err);
+          return $q.reject(err);
+        });
+      });
+  };
   return service;
 }
 

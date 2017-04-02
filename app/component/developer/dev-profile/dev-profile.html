@@ -41,18 +41,28 @@
       <fieldset>
 
         <span class="item-label">Phone</span>
-        <input type="tel" name="Phone" ng-model="editProfileCtrl.dev.phone">
+        <input type="tel" name="Phone" ng-model="devProfileCtrl.dev.phone">
       </fieldset>
 
       <fieldset>
         <span class="item-label">Reviews</span>
-        <input type="text" name="Description" ng-model='editProfileCtrl.dev.reviews'>
+        <input type="text" name="Description" ng-model="devProfileCtrl.dev.reviews">
 
       </fieldset>
 
       <fieldset>
         <span class="item-label">Languages</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.languages">
+        <input type="checkbox" name="JavaScript" ng-model="devProfileCtrl.dev.javascript"><label for="JavaScript">JavaScript</label>
+
+        <input type="checkbox" name="html" ng-model="devProfileCtrl.dev.html"><label for="html"> HTML/CSS</label>
+
+        <input type="checkbox" name="Angular" ng-model="devProfileCtrl.dev.angular"><label for="Angular"> Angular</label>
+
+        <input type="checkbox" name="React" ng-model="devProfileCtrl.dev.react"><label for="React"> React</label>
+
+        <input type="checkbox" name="Python" ng-model="devProfileCtrl.dev.python"><label for="Python"> Python</label>
+
+        <input type="checkbox" name="other" ng-model="devProfileCtrl.dev.otherlang"><label for="other"> Other</label>
       </fieldset>
 
       <fieldset>
@@ -66,7 +76,7 @@
 
       <fieldset>
         <span class="item-label">Websites</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.desc">
+        <input type="text" name="Websites" ng-model="devProfileCtrl.dev.website">
       </fieldset>
 
       <fieldset>
@@ -74,7 +84,11 @@
         <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">
       </fieldset>
 
-      <button type="submit" class="btn-std">Save Changes</button>
+      <!-- This is for a brand new Dev -->
+      <button type="submit" class="btn-std" ng-hide="devProfileCtrl.isNewUser">Update Profile</button>
+
+      <!-- This is for a Dev who does not exist yet   -->
+      <button type="submit" class="btn-std" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
     </form>
   </section>
 
