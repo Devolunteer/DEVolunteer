@@ -14,8 +14,14 @@ let devSchema = mongoose.Schema({
   email: {type: String},
   picture: {type: String},
   website: {type: String},
-  languages: [{type: String}],
-  services: [{type: Boolean}],
+  // languages: [{type: String}],
+  javascript: {type: String},
+  html: {type: String},
+  angular: {type: String},
+  react: {type: String},
+  python: {type: String},
+  otherlang: {type: String},
+  services: [{type: String}],  //i changed this to string from boolean to match languages.
   available: {type: Boolean},
   reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'reviews'}],
 })

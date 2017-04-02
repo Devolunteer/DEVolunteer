@@ -7,64 +7,59 @@
     <dev-item ng-repeat="item in devListCtrl.dev" dev="item"></dev-item>
 
 
-
-    <!-- | jsLangFilter: devlistCtrl.jsCheck | htmlLangFilter: devlistCtrl.htmlCheck | angLangFilter: devlistCtrl.angularCheck | reactLangFilter: devlistCtrl.reactCheck | pythonLangFilter: devlistCtrl.pythonCheck | unknownLangFilter: devlistCtrl.unknownCheck | fiveRatFilter: devlistCtrl.fiveCheck | fourRatFilter: devlistCtrl.fourCheck | threeRatFilter: devlistCtrl.threeCheck | twoRatFilter: devlistCtrl.twoCheck | oneRatFilter: devlistCtrl.oneCheck | websiteFilter: devlistCtrl.websiteCheck | mobileAppFilter: devlistCtrl.mobileCheck | webAppFilter: devlistCtrl.webAppCheck | otherWorkFilter: devlistCtrl.otherWorkCheck ></dev-item> -->
-
   </ul>
   <div class="devFilters">
-    <h3>Filter By:</h3>
-    <!-- <fieldset>
+
+    <!-- <button type="button" name="reset" ng-model="devListCtrl" ng-click="devListCtrl.fetchDevs">Reset Filters</button> -->
+
+    <!-- <h3>Filter By:</h3>
+    <fieldset>
     <h4>Work Type</h4>
-    <input type="checkbox" ng-model="devlistCtrl.websiteCheck" name="website"><label for="website"> Website</label>
+    <input type="checkbox" ng-click="devlistCtrl.websiteCheck" name="website"><label for="website"> Website</label>
 
-    <input type="checkbox" ng-model="devlistCtrl.mobileCheck" name="mobile"><label for="mobile"> Mobile App</label>
+    <input type="checkbox" ng-click="devlistCtrl.mobileCheck" name="mobile"><label for="mobile"> Mobile App</label>
 
-    <input type="checkbox" ng-model="devlistCtrl.webAppCheck" name="webApp"><label for="webApp"> Web App</label>
+    <input type="checkbox" ng-click="devlistCtrl.webAppCheck" name="webApp"><label for="webApp"> Web App</label>
 
-    <input type="checkbox" ng-model="devlistCtrl.otherWorkCheck" name="other"><label for="other"> Other</label>
-  </fieldset>
+    <input type="checkbox" ng-click="devlistCtrl.otherWorkCheck" name="other"><label for="other"> Other</label>
+  </fieldset> -->
 
   <fieldset>
-  <h4>Languages</h4>
-  <input type="checkbox" ng-model="devlistCtrl.jsCheck" name="js" value="true"><label for="js" | filter: languages> JavaScript</label>
+    <h4>Languages</h4>
+    <input type="checkbox" ng-click="devlistCtrl.jsCheck" name="js" value="true"><label for="js"> JavaScript</label>
 
-  <input type="checkbox" ng-model="devlistCtrl.htmlCheck" name="html" value="true"><label for="html" | filter: languages> HTML/CSS</label>
+    <input type="checkbox" ng-click="devlistCtrl.htmlCheck" name="html" value="true"><label for="html"> HTML/CSS</label>
 
-  <input type="checkbox" ng-model="devlistCtrl.angularCheck" name="angular" value="true" | filter: languages><label for="angular"> Angular</label>
+    <input type="checkbox" ng-click="devlistCtrl.angularCheck" name="angular" value="true"><label for="angular"> Angular</label>
 
-  <input type="checkbox" ng-model="devlistCtrl.reactCheck" name="react" value="true" | filter: languages><label for="react"> React</label>
+    <input type="checkbox"ng-click="devlistCtrl.reactCheck" name="react" value="true"><label for="react"> React</label>
 
-  <input type="checkbox" ng-model="devlistCtrl.pythonCheck" name="python" value="true" | filter: languages><label for="python"> Python</label>
+    <input type="checkbox" ng-click="devlistCtrl.pythonCheck" name="python" value="true"><label for="python"> Python</label>
 
-  <input type="checkbox" ng-model="devlistCtrl.unknownCheck" name="unknown" value="true" | filter: languages><label for="unknown"> I don't know (it's ok to not know)</label>
-
+    <input type="checkbox" ng-click="devlistCtrl.unknownCheck" name="unknown" value="true"><label for="unknown"> I don't know (it's ok to not know)</label>
 </fieldset>
 
-<fieldset>
-<h4>Reviews</h4>
-<input type="checkbox" ng-model="devlistCtrl.fiveCheck" name="five" value="true" | filter: reviews><label for="five"> Five Stars</label>
+<!-- <fieldset>
+  <h4>Reviews</h4>
+  <input type="checkbox" ng-click="devlistCtrl.fiveCheck" name="five" value="true"><label for="five"> Five Stars</label>
 
-<input type="checkbox" ng-model="devlistCtrl.fourCheck" name="four" value="true" | filter: reviews><label for="four"> Four Stars</label>
+  <input type="checkbox" ng-click="devlistCtrl.fourCheck" name="four" value="true"><label for="four"> Four Stars</label>
 
-<input type="checkbox" ng-model="devlistCtrl.threeCheck" name="three" value="true" | filter: reviews><label for="three"> Three Stars</label>
+  <input type="checkbox" ng-click="devlistCtrl.threeCheck" name="three" value="true"><label for="three"> Three Stars</label>
 
-<input type="checkbox" ng-model="devlistCtrl.twoCheck" name="two" value="true"><label for="two" | filter: reviews> Two Stars</label>
+  <input type="checkbox" ng-click="devlistCtrl.twoCheck" name="two" value="true"><label for="two"> Two Stars</label>
 
-<input type="checkbox" ng-model="devlistCtrl.oneCheck" name="one" value="true"><label for="one" | filter: reviews> One Star</label>
+  <input type="checkbox" ng-click="devlistCtrl.oneCheck" name="one" value="true"><label for="one"> One Star</label>
 </fieldset> -->
 
-<!-- <fieldset> -->
-<h4>Available</h4>
-<!-- <button type="button" dev="item" ng-model="devListCtrl" ng-click="devListCtrl.availCheck()" name="button">Available Now</button> -->
+<!-- <fieldset>
+  <h4>Available</h4>
+  <input type="checkbox" ng-click="devListCtrl.availCheck()" dev="item" name="now" value="true"><label for="now" > Available Now</label>
+  </fieldset> -->
 
-
-
-<input type="checkbox" ng-click="devListCtrl.availCheck()" dev="item" name="now" value="true"><label for="now" > Available Now</label>
 
 </div>
-<!-- </fieldset> -->
 
-</div>
 </div>
 
 <!-- beware, filters be below -->

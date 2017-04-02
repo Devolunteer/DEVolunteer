@@ -31,24 +31,180 @@ function devListController($log, devService) {
 
   //filter stuff:
 
- this.availCheck = function(){
-   let devArr = this.dev;
-   for(var i=0; i < devArr.length; i++){
-     let devArridx = devArr[i];
-     console.log('avail', devArridx.available);
+//is the dev available
+// this.availCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(!devArr[i].available){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
 
-     devArr.reduce(function(devArr){
-       if(devArridx.available === false){
-         devArr.splice(i, 0)
-       }
-       console.log('dev3333', devArr);
-     });
-     return devArr;
-   }
- };
+//Type of Work the Dev Does:
+// this.websiteCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === website){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
 //
+// this.mobileCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === mobile){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
 //
-// this.devlist - this.devlist.reduce()
+// this.webAppCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === webapp){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
 //
-// ng-checked runs a function in the controller, and that function will reduce the dev list.
+// this.otherWorkCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === other){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
+
+
+//Languages the Dev Knows
+this.jsCheck = function(){
+  let devArr = this.dev;
+  for(var i=devArr.length - 1; i >= 0; i--){
+    if(devArr[i].javascript){
+      devArr.splice(i, 1);
+    }
+  }
+  return devArr;
+};
+
+this.htmlCheck = function(){
+  let devArr = this.dev;
+  for(var i=devArr.length - 1; i >= 0; i--){
+    if(devArr[i].html){
+      devArr.splice(i, 1);
+    }
+  }
+  return devArr;
+};
+
+this.angularCheck = function(){
+  let devArr = this.dev;
+  for(var i=devArr.length - 1; i >= 0; i--){
+    if(devArr[i].angular){
+      devArr.splice(i, 1);
+    }
+  }
+  return devArr;
+};
+
+this.reactCheck = function(){
+  let devArr = this.dev;
+  for(var i=devArr.length - 1; i >= 0; i--){
+    if(devArr[i].react == true){
+      devArr.splice(i, 1);
+    }
+  }
+  return devArr;
+};
+
+this.pythonCheck = function(){
+  let devArr = this.dev;
+  for(var i=devArr.length - 1; i >= 0; i--){
+    if(devArr[i].python){
+      devArr.splice(i, 1);
+    }
+  }
+  return devArr;
+};
+
+this.unknownCheck = function(){
+  let devArr = this.dev;
+  for(var i=devArr.length - 1; i >= 0; i--){
+    if(devArr[i].otherlang){
+      devArr.splice(i, 1);
+    }
+  }
+  return devArr;
+};
+//
+// //Reviews the Dev has received
+//
+// this.fiveCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === website){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
+//
+// this.fourCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === website){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
+//
+// this.threeCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === website){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
+//
+// this.twoCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === website){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
+//
+// this.oneCheck = function(){
+//   let devArr = this.dev;
+//   for(var i=devArr.length - 1; i >= 0; i--){
+//     if(devArr[i].services === website){
+//       devArr.splice(i, 1);
+//     }
+//   }
+//   return devArr;
+// };
+
+
+// this.resetFilters = function(){
+//
+// }
+
+
+
+
+
+//end of the controller
 }
