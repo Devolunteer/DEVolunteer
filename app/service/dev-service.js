@@ -1,4 +1,3 @@
-//need a service for pulling in the developer details.
 'use strict';
 
 module.exports = ['$q', '$log', '$http', 'Upload', 'authService', devService];
@@ -96,8 +95,6 @@ function devService($q, $log, $http, Upload, authService) {
         return $http.put(url, dev, config)
         .then(res => {
           let dev = res.data;
-          console.log('HERE IS THE DEV AFTER A PUT');
-          console.log(dev);
           return dev;
         })
         .catch(err => {
@@ -105,6 +102,25 @@ function devService($q, $log, $http, Upload, authService) {
           return $q.reject(err);
         });
       });
+  };
+  service.deleteDev = function() {
+    console.log('trying to DELETE a dev');
+    $log.debug('devService.deleteDev()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/dev/`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config);
+    })
+    .catch(err => {
+      console.log(err);
+      return $q.reject(err);
+    });
   };
   return service;
 }
