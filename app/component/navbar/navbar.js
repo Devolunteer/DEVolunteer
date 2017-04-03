@@ -51,11 +51,10 @@ function NavBarController($log, $location, $rootScope, authService, userService)
     authService.logout()
     .then(() => {
       $location.url('/');
-    });
-  };
+      })
+    };
 
   $rootScope.$on('$locationChangeSuccess', () => {
     this.checkUser();
   });
-
 }

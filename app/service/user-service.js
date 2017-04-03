@@ -27,11 +27,30 @@ function userService($q, $log, $http, authService) {
       $log.log('user retrieved');
       console.log('HERE IS THE RESPONSE DATA');
       console.log(res.data);
-      service.isLoggedIn = true;
       return res.data;
     })
     .catch(err => {
       // $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.deleteUser = function() {
+    console.log('trying to DELETE a user');
+    $log.debug('userService.deleteUser()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/user/`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config);
+    })
+    .catch(err => {
+      console.log(err);
       return $q.reject(err);
     });
   };
