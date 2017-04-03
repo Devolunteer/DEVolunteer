@@ -15,16 +15,16 @@ let devSchema = mongoose.Schema({
   picture: {type: String},
   website: {type: String},
   // languages: [{type: String}],
-  javascript: {type: String},
-  html: {type: String},
-  angular: {type: String},
-  react: {type: String},
-  python: {type: String},
-  otherlang: {type: String},
-  services: [{type: String}],  //i changed this to string from boolean to match languages.
+  javascript: {type: Boolean},
+  html: {type: Boolean},
+  angular: {type: Boolean},
+  react: {type: Boolean},
+  python: {type: Boolean},
+  otherlang: {type: Boolean},
+  services: [{type: String}],
   available: {type: Boolean},
   reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'reviews'}],
-})
+});
 
 
-module.exports = mongoose.model('devs', devSchema)
+module.exports = mongoose.model('devs', devSchema);
