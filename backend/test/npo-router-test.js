@@ -20,7 +20,7 @@ const mockUser1 = {
   username: 'mockUser',
   email: 'mockEmail',
   password: 'mockPassword',
-  isDev: true,
+  // isDev: true,
 };
 
 const mockNPO = {
@@ -33,6 +33,7 @@ const mockNPO = {
   projects: [],
   reviews: [],
   developers: [],
+
 };
 
 const mockDev = {
@@ -68,7 +69,7 @@ describe('should start and kill server before unit test', function(){
       }
     });
   });
-  describe('Testing unauthed #GET for all NPOs', function(){
+  describe('Testing unauthed GET for all NPOs', function(){
     let testUser;
     let testToken;
     let testNpo;
@@ -163,15 +164,72 @@ describe('should start and kill server before unit test', function(){
       })
     })
   })
-  describe('#POST -- Testing NPO user', function() {
+  describe.only('#POST -- Testing NPO user', function() {
     let testUser;
-    let testToken;
+    this.testToken;
 
     beforeEach(done => {
       new User(mockUser1).save()
       .then(user => {
         testUser = user;
         return testUser.generateToken();
+      })
+    .then(token => {
+      this.testToken = token;
+      // return new Npo(mockNPO).save();
+    })
+    .then(() => done())
+    .catch(done);
+    });
+    after(done => {
+      User.remove({}).exec()
+      // Npo.remove({}).exec()
+      .then(() => done())
+      .catch(done);
+    })
+
+    it('will not allow a dev to POST to NPO', (done) => {
+      request.post(`${url}/api/npo`)
+      .set('Authorization', 'Bearer ' + this.testToken)
+      .send(mockDev)
+      .end((err, res) => {
+        // console.log(res.body);
+        expect(res.status).to.equal(401);
+        // console.log(res);
+        done()
+      })
+    })
+  })
+
+  describe.only('#PUT for user updating info', () => {
+    let testNPO;
+    let testToken;
+
+    beforeEach(done => {
+      const mockUser = {
+        username: 'mockUser',
+        email: 'mockEmail',
+        password: 'mockPassword',
+        isNPO: true,
+      };
+      const mockNPO = {
+        username: 'NeedyPeeps',
+        org: 'ChairDisability',
+        city: 'NeedyCity',
+        state: 'NeedyState',
+        phone: '555-555-5555',
+        email: 'needy@email.com',
+        projects: [],
+        reviews: [],
+        developers: [],
+
+      };
+      new Npo(mockNPO).save()
+      .then(npo => {
+        console.log('THE USER-PUT beforeEach NPO ROUTER TEST', npo);
+
+        testNPO = npo;
+        // return testNPO.generateToken();
       })
     .then(token => {
       testToken = token;
@@ -182,25 +240,24 @@ describe('should start and kill server before unit test', function(){
     });
     afterEach(done => {
       User.remove({}).exec()
-      // Npo.remove({}).exec()
+      Npo.remove({}).exec()
       .then(() => done())
       .catch(done);
-    })
-
-    it('will not allow a dev to POST to NPO', (done) => {
-      request.post(`${url}/api/npo`)
-      .set('Authorization', 'Bearer ' + testToken)
-      .send(mockDev)
+    });
+    it('Should Update a NPO info', (done) => {
+      console.log('The test token!', this.testToken)
+      request.put(`${url}/api/npo/${testNPO._id}`)
+      .set('Authorization', 'Bearer ' + this.testToken)
+      .send({city: 'Sea', org: 'NewOrg'})
       .end((err, res) => {
-        // console.log(res.body);
-        expect(res.status).to.equal(401);
-        // console.log(res);
+        console.log('TEST-NPO IN PUT TEST AFTER RESPONSE', testNPO);
+        expect(res.status).to.equal(200)
+        // expect(res.body.username).to.equal('testName1')
         done()
       })
+
     })
-  })
-  describe('#PUT for an NPO', (done) => {
-    request.put(`${url}/api/npo`)
+
   })
 
 

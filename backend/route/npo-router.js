@@ -1,11 +1,12 @@
 //create a post to create profile for an NPO
-let Router = require('express').Router
-let bearerAuth = require('../lib/bearer-auth-midd.js')
-let createError = require('http-errors')
-let Npo = require('../model/npo')
-let jsonParser = require('body-parser').json()
+const Router = require('express').Router
+const bearerAuth = require('../lib/bearer-auth-midd.js')
+const createError = require('http-errors')
+const Npo = require('../model/npo')
+const jsonParser = require('body-parser').json()
+// const User = require('../model/user');
 
-let router = module.exports = new Router()
+const router = module.exports = new Router()
 
 
 router.get('/api/npoList', (req, res, next) => {
@@ -51,14 +52,37 @@ router.delete('/api/npo', bearerAuth, (req, res) => {
   })
 })
 
-router.put('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
-  Npo.findOneAndUpdate({username: req.user.username}, req.body).exec()
-    .then(docs => {
-      res.json(docs)
-    })
-    .catch(err => {
-      console.error(err)
-    })
+router.put('/api/npo/:id', bearerAuth, jsonParser, (req, res, next) => {
+  console.log('THIS IS REQ BEFORE PUT NPO ROUTER', req.body);
+  Npo.findById(req.params.id)
+  .catch(err => {
+    Promise.reject(createError(404, 'NPO does not exist'))
+
+  })
+  .then(npo => {
+    console.log(npo, 'THIS IS AFTER .THEN NPO ON PUT ROUTE');
+    return Npo.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  })
+  .then(npo => {
+    res.json(npo)
+  })
+  .catch(next)
+  // Npo.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  // .then(npo => {
+  //
+  //
+  // })
+  // .then(user => {
+  //   user.save();
+  //   delete req.body.password;
+  //   console.log(user);
+  //   res.json(user);
+  //   // console.log(user);
+  // })
+  // .catch(e => {
+  //   console.log(e);
+  //   res.json({});
+  // });
 })
 
 // submit form via email logic here:
