@@ -55,6 +55,7 @@ router.delete('/api/npo', bearerAuth, (req, res) => {
 })
 
 router.put('/api/npo/:id', bearerAuth, jsonParser, (req, res, next) => {
+  console.log(req.params)
   Npo.findById(req.params.id)
   .catch(err => {
     Promise.reject(createError(404, 'NPO does not exist'))
