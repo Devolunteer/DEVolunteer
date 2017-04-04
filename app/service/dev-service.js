@@ -103,6 +103,14 @@ function devService($q, $log, $http, Upload, authService) {
         });
       });
   };
+  // service.uploadDevPic = function(dev) {
+  //   return authService.getToken()
+  //   .then(token => {
+  //     let url = `http:`
+  //   })
+  // }
+  return service;
+}
 //   service.deleteDev = function() {
 //     console.log('trying to DELETE a dev');
 //     $log.debug('devService.deleteDev()');
