@@ -45,14 +45,19 @@ router.get('/api/dev', bearerAuth, (req, res, next) => {
   });
 });
 
-router.put('/api/dev', bearerAuth, jsonParser, (req, res) => {
-  Dev.findOneAndUpdate({username: req.user.username}, req.body).exec()
-    .then(docs => {
-      res.json(docs);
-    })
-    .catch(err => {
-      console.error(err);
-    });
+router.put('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
+  Dev.findById(req.user._id)
+  .catch(err => {
+    Promise.reject(createError(404, 'DEV does not exist'))
+
+  })
+  .then(dev => {
+    return Dev.findOneAndUpdate(req.user._id, req.body, {new: true})
+  })
+  .then(dev => {
+    res.json(dev)
+  })
+  .catch(next)
 });
 
   // .then(dev => {
@@ -64,8 +69,14 @@ router.put('/api/dev', bearerAuth, jsonParser, (req, res) => {
 //   })
 // })
 
-router.delete('/api/dev', bearerAuth, (req, res, next) => {
-  Dev.findOneAndRemove({username: req.user.username}).exec()
-  .then(() => res.status(204).end())
-  .catch(next);
+
+router.delete('/api/dev', bearerAuth, (req, res) => {
+  Dev.findByIdAndRemove(req.user.id)
+  .then(()=> {
+    res.sendStatus(204);
+  })
+  .catch(e => {
+    console.log(e);
+    res.json({}); //or err.message?
+  });
 });
