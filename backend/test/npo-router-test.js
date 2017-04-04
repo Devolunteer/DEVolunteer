@@ -136,7 +136,6 @@ describe('should start and kill server before unit test', function(){
       })
     .then(token => {
       testToken = token;
-      // return new Npo(mockNPO).save();
     })
     .then(() => done())
     .catch(done);
@@ -264,12 +263,10 @@ describe('should start and kill server before unit test', function(){
       .set('Authorization', 'Bearer ' + testToken)
       .send({city: 'Sea', org: 'NewOrg'})
       .end((err, res) => {
-        expect(res.status).to.equal(404)
-        // console.log(res.status);
-        done()
-      })
-
-    })
+        expect(res.status).to.equal(404);
+        done();
+      });
+    });
   });
   describe('# DELETE /API/NPO', function() {
     let testNPO;
