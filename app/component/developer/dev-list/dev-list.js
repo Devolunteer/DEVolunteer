@@ -7,7 +7,7 @@ module.exports = {
   controller: ['$log', 'devService', devListController],
   controllerAs: 'devListCtrl',
   bindings: {
-    dev: '<'
+    dev: '<',
   }
 };
 
@@ -15,6 +15,8 @@ function devListController($log, devService) {
   $log.debug('devServiceController()');
   this.dev = {};
   this.checked = true;
+
+
 
 
   //retrieve all items in the devService.devList array

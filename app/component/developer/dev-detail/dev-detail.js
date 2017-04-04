@@ -3,12 +3,17 @@ require('./_dev-detail.scss');
 module.exports = {
   template: require('./dev-detail.html'),
   controller: ['$log', 'devService', DevDetailController],
-  controllerAs: 'devItemCtrl',
+  controllerAs: 'devDetailCtrl',
   bindings: {
     dev: '<',
   },
 };
 
 function DevDetailController($log, devService){
-  $log.debug('running galleryUpCtrl');
+  $log.log('DevDetailController');
+  console.log(devService.dev, ' = devService.dev ');
+  // this.infoToView = function(){
+  //   devService.showDetailView();
+  //
+  // }
 }

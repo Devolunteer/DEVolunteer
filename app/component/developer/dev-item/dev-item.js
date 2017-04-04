@@ -2,17 +2,22 @@ require('./_dev-item.scss');
 
 module.exports = {
   template: require('./dev-item.html'),
-  controller: ['$log', 'devService', devItemController],
+  controller: ['$log', '$location', 'devService', devItemController],
   controllerAs: 'devItemCtrl',
   bindings: {
-    dev: '<',
+    dev: '<'
   },
 };
 
-function devItemController($log, devService){
+function devItemController($log, $location, devService){
   $log.debug('running devItemCtrl');
 
-  this.showDetailView = function() {
-    devService.showDetail(this.dev._id);
+  this.selectedDev = {};
+  this.showDetailView = function(dev) {
+    devService.getDevByID(dev)
+    .then(dev => {
+      $log.log('this is a dev ', dev);
+      this.selectedDev = dev;
+    });
   };
 }

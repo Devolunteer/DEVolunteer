@@ -2,17 +2,19 @@
 
 
 <div class="devDetails">
-  <img ng-src="{{ devItemCtrl.picture }}" alt="{{ }}">
-  <h3>{{ devItemCtrl.dev.name }}</h3>
-  <span> {{ devItemCtrl.dev.city }}</span>
-  <span> {{ devItemCtrl.dev.state }}</span>
-  <span> {{ devItemCtrl.dev.zip }}</span>
-  <span> {{ devItemCtrl.dev.desc }}</span>
-  <span> {{ devItemCtrl.dev.reviews }}</span>
-  <span> {{ devItemCtrl.dev.languages }}</span>
-  <span> {{ devItemCtrl.dev.services }}</span>
-  <span> {{ devItemCtrl.dev.website }}</span>
-  <span> I am currently {{ devItemCtrl.dev.available }}</span>
+  <h2> DEV-DETAIL.HTML COMPONENT</h2>
+  <p>{{devDetailCtrl}}</p>
+  <img ng-src="{{ devDetailCtrl.dev.picture }}" alt="{{ }}">
+  <h3>{{ devDetailCtrl.dev.name }} what is here</h3>
+  <span> {{ devDetailCtrl.dev.city }}</span>
+  <span> {{ devDetailCtrl.dev.state }}</span>
+  <span> {{ devDetailCtrl.dev.zip }}</span>
+  <span> {{ devDetailCtrl.dev.desc }}</span>
+  <span> {{ devDetailCtrl.dev.reviews }}</span>
+  <span> {{ devDetailCtrl.dev.languages }}</span>
+  <span> {{ devDetailCtrl.dev.services }}</span>
+  <span> {{ devDetailCtrl.dev.website }}</span>
+  <span> I am currently {{ devDetailCtrl.dev.available }}</span>
 
   <button type="button" name="button" ng-click="SOMETHING">Contact Me</button>
 
