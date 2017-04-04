@@ -5,7 +5,7 @@ const request = require('superagent');
 const expect = require('chai').expect;
 const Npo = require('../model/npo.js');
 const User = require('../model/user.js');
-const createError = require('http-errors')
+const createError = require('http-errors');
 
 const PORT = process.env.PORT || 3000;
 const url = 'http://localhost:3000';
@@ -43,8 +43,8 @@ const mockDev = {
   state: 'WA',
   phone: '222-222-2222',
   picture:'*.png',
-  website: ''
-}
+  website: '',
+};
 
 //start test server
 
@@ -127,7 +127,6 @@ describe('should start and kill server before unit test', function(){
   describe('#POST -- Testing NPO user', function() {
     let testUser;
     let testToken;
-    let fakeToken
 
     beforeEach(done => {
       new User(mockUser).save()
@@ -194,7 +193,7 @@ describe('should start and kill server before unit test', function(){
     .catch(done);
     });
     after(done => {
-      User.remove({}).exec()
+      User.remove({}).exec();
       Npo.remove({}).exec()
       .then(() => done())
       .catch(done);
@@ -243,10 +242,86 @@ describe('should start and kill server before unit test', function(){
       .set('Authorization', 'Bearer ' + testToken)
       .send({city: 'Sea', org: 'NewOrg'})
       .end((err, res) => {
-        console.log('RES DOT BODY STUFF',res.body);
+        // console.log('RES DOT BODY STUFF',res.body);
         expect(res.status).to.equal(200);
         expect(res.body.city).to.equal('Sea');
         expect(res.body.org).to.equal('NewOrg');
+        done();
+      });
+    });
+    it('Should Error if NPO has bad token', (done) => {
+      request.put(`${url}/api/npo/${testNPO._id}`)
+      .set('Authorization', 'Bearer ' + '')
+      .send({city: 'Sea', org: 'NewOrg'})
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        expect(res.text).to.equal('UnauthorizedError');
+        done();
+      });
+    });
+    it('should not update profile if wrong URL', (done) => {
+      request.put(`${url}/devs`)
+      .set('Authorization', 'Bearer ' + testToken)
+      .send({city: 'Sea', org: 'NewOrg'})
+      .end((err, res) => {
+        expect(res.status).to.equal(404)
+        // console.log(res.status);
+        done()
+      })
+
+    })
+  });
+  describe('# DELETE /API/NPO', function() {
+    let testNPO;
+    let testUser;
+    let testToken;
+
+    beforeEach(done => {
+      new User(mockUser).save()
+      .then(user => {
+        testUser = user;
+        return testUser.generateToken();
+      })
+    .then(token => {
+      testToken = token;
+      return new Npo(mockNPO).save();
+    })
+    .then(npo => {
+      testNPO = npo;
+    })
+    .then(() => done())
+    .catch(done);
+    });
+    afterEach(done => {
+      User.remove({}).exec();
+      Npo.remove({}).exec()
+      .then(() => done())
+      .catch(done);
+    });
+
+    it('should delete a user from the database', (done) => {
+      request.delete(`${url}/api/npo`)
+      .set('Authorization', 'Bearer ' + testToken)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        done();
+      });
+    });
+    it('should not delete a user if no token', (done) => {
+      request.delete(`${url}/api/npo`)
+      .set('Authorization', 'Bearer ' + '')
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        expect(res.text).to.equal('UnauthorizedError');
+        done();
+      });
+    });
+    it('should not delete a user from database with Invalid Token', (done) => {
+      request.delete(`${url}/api/npo`)
+      .auth('npoTest', 'npoPass')
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        expect(res.text).to.equal('UnauthorizedError');
         done();
       });
     });
