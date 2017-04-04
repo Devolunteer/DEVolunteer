@@ -14,6 +14,7 @@ module.exports = (req, res, next) => {
 
   if(method.toLowerCase() !== 'bearer') return next(createError(401, 'bearer authentication required'))
 
+
   jwt.verify(token, process.env.SECRET || 'DEV', (err, decoded) => {
     if(err) return next(err)
 

@@ -1,4 +1,5 @@
 //create a post to create profile for an NPO
+
 let Router = require('express').Router;
 let bearerAuth = require('../lib/bearer-auth-midd.js');
 let createError = require('http-errors');
@@ -10,6 +11,7 @@ let router = module.exports = new Router();
 
 router.get('/api/npoList', (req, res, next) => {
   console.log('in the NPO router get for finding NPOs');
+
   Npo.find()
   .then(allNpoObj => {
     res.send(allNpoObj);
@@ -17,6 +19,7 @@ router.get('/api/npoList', (req, res, next) => {
   .catch(next);
 });
 //req.user should be a individual user which the bearer auth will identify
+
 router.post('/api/npo/', bearerAuth, jsonParser, (req, res, next) => {
   if(!req.user.isNPO) return next(createError(401, 'Please log in as a Non Profit Organization'));
 
@@ -44,28 +47,46 @@ router.get('/api/npo', bearerAuth, (req, res, next) => {
 
 router.delete('/api/npo', bearerAuth, (req, res) => {
   Npo.findByIdAndRemove(req.user.id)
-  .then(npo => res.json(npo))
+  .then(()=> {
+    res.sendStatus(204)
+  })
   .catch(e => {
     console.log(e);
     res.json({}); //or err.message?
   });
 });
 
-router.put('/api/npo', bearerAuth, jsonParser, (req, res) => {
-  Npo.findOneAndUpdate({username: req.user.username}, req.body).exec()
-    .then(docs => {
-      res.json(docs);
-    })
-    .catch(err => {
-      console.error(err);
-    });
-});
 
-// router.delete('/api/npo', bearerAuth, (req, res, next) => {
-//   Dev.findOneAndRemove({username: req.user.username}).exec()
-//   .then(() => res.status(204).end())
-//   .catch(next);
-// });
+router.put('/api/npo/:id', bearerAuth, jsonParser, (req, res, next) => {
+  Npo.findById(req.params.id)
+  .catch(err => {
+    Promise.reject(createError(404, 'NPO does not exist'))
+
+  })
+  .then(npo => {
+    return Npo.findOneAndUpdate(req.params.id, req.body, {new: true})
+  })
+  .then(npo => {
+    res.json(npo)
+  })
+  .catch(next)
+  // Npo.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  // .then(npo => {
+  //
+  //
+  // })
+  // .then(user => {
+  //   user.save();
+  //   delete req.body.password;
+  //   console.log(user);
+  //   res.json(user);
+  //   // console.log(user);
+  // })
+  // .catch(e => {
+  //   console.log(e);
+  //   res.json({});
+  // });
+})
 
 // submit form via email logic here:
 // heroku addons:create postmark:10k
