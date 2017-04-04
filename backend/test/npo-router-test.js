@@ -300,7 +300,7 @@ describe('should start and kill server before unit test', function(){
       request.delete(`${url}/api/npo`)
       .set('Authorization', 'Bearer ' + testToken)
       .end((err, res) => {
-        expect(res.status).to.equal(200);
+        expect(res.status).to.equal(204);
         done();
       });
     });

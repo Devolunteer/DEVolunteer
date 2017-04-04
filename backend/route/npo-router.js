@@ -45,7 +45,9 @@ router.get('/api/npo', bearerAuth, (req, res, next) => {
 
 router.delete('/api/npo', bearerAuth, (req, res) => {
   Npo.findByIdAndRemove(req.user.id)
-  .then(npo => res.json(npo))
+  .then(()=> {
+    res.sendStatus(204)
+  })
   .catch(e => {
     console.log(e)
     res.json({}) //or err.message?
