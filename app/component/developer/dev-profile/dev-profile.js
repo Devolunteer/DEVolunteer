@@ -20,13 +20,36 @@ function DevProfileController($log, $location, authService, devService, userServ
   userService.fetchUser()
   .then(user => {
     this.dev.username = user.username;
+    this.dev.name = user.name;
+
   });
+
 
   //this will run every time
   devService.fetchDev()
   .then(res => {
     if (res) {
       this.isNewUser = false;
+      this.dev.name = res.data.name;
+      this.dev.desc = res.data.desc;
+      this.dev.city = res.data.city;
+      this.dev.state = res.data.state;
+      this.dev.phone = res.data.phone;
+      this.dev.email = res.data.email;
+      this.dev.picture = res.data.picture;
+      this.dev.website = res.data.website;
+      this.dev.javascript = res.data.javascript;
+      this.dev.html = res.data.html;
+      this.dev.angular = res.data.angular;
+      this.dev.react = res.data.react;
+      this.dev.python = res.data.python;
+      this.dev.otherlang = res.data.otherlang;
+      this.dev.websitework = res.data.websitework;
+      this.dev.webapp = res.data.webapp;
+      this.dev.mobileapp = res.data.mobileapp;
+      this.dev.otherwork = res.data.otherwork;
+      this.dev.available = res.data.available;
+      this.dev.reviews = res.data.reviews;
     }
     else {
       this.isNewUser = true;

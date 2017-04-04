@@ -14,6 +14,7 @@
       </fieldset>
 
       <fieldset>
+
         <span class="item-label">Name</span>
         <input type="text" name="Name" ng-model="devProfileCtrl.dev.name">
       </fieldset>
@@ -45,7 +46,8 @@
       </fieldset>
 
       <fieldset>
-        <span class="item-label">Reviews</span>
+        <!-- this needs to be the average of any ratings applied to the dev -->
+        <span class="item-label">My Rating</span>
         <input type="text" name="Description" ng-model="devProfileCtrl.dev.reviews">
 
       </fieldset>
@@ -67,16 +69,16 @@
 
       <fieldset>
         <span class="item-label">Services</span>
-        <input type="checkbox" name="website" ng-model="devProfileCtrl.dev.services"><label for="website"> Website</label>
-        <input type="checkbox" name="mobileApp" ng-model="devProfileCtrl.dev.services"><label for="mobileApp"> Mobile Apps</label>
-        <input type="checkbox" name="webApp" ng-model="devProfileCtrl.dev.services"><label for="webApp"> Web App</label>
-        <input type="checkbox" name="other" ng-model="devProfileCtrl.dev.services"><label for="other"> Other</label>
+        <input type="checkbox" name="website" ng-model="devProfileCtrl.dev.websitework"><label for="website"> Website</label>
+        <input type="checkbox" name="mobileApp" ng-model="devProfileCtrl.dev.mobileapp"><label for="mobileApp"> Mobile Apps</label>
+        <input type="checkbox" name="webApp" ng-model="devProfileCtrl.dev.webapp"><label for="webApp"> Web App</label>
+        <input type="checkbox" name="other" ng-model="devProfileCtrl.dev.otherwork"><label for="other"> Other</label>
 
       </fieldset>
 
       <fieldset>
-        <span class="item-label">Websites</span>
-        <input type="text" name="Websites" ng-model="devProfileCtrl.dev.website">
+        <span class="item-label">Website</span>
+        <input type="text" name="Website" ng-model="devProfileCtrl.dev.website">
       </fieldset>
 
       <fieldset>
