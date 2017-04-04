@@ -7,13 +7,14 @@ module.exports = {
   controller: ['$log', 'devService', devListController],
   controllerAs: 'devListCtrl',
   bindings: {
-    dev: '<'
+    dev: '<',
   }
 };
 
 function devListController($log, devService) {
   $log.debug('devServiceController()');
-  this.dev = {};
+  this.dev;
+  this.filtered = [];
   this.checked = true;
 
 
@@ -21,6 +22,19 @@ function devListController($log, devService) {
   devService.fetchDevs() //returns a Promise that i can filter by specific dev properties that are taken in by the form filter
   .then( devList => {
     this.dev = devList;
+    this.dev.forEach(function(dev){
+      dev.services = [];
+      for(let key in dev){
+        if(dev[key] === true){
+          dev.services.push(key)
+        }
+        // console.log('services array', dev.services);
+      }
+    })
+
+
+
+
     $log.log('response (developers) is saved on .dev property');
   })
   .catch(e => {
@@ -85,15 +99,21 @@ function devListController($log, devService) {
 
 
 //Languages the Dev Knows
-this.jsCheck = function(){
-  let devArr = this.dev;
-  for(var i=devArr.length - 1; i >= 0; i--){
-    if(devArr[i].javascript){
-      devArr.splice(i, 1);
-    }
-  }
-  return devArr;
-};
+// this.jsCheck = function(){
+//   console.log('in the jsCheck');
+//   for(var i = this.dev.length - 1; i >= 0; i--){
+//     console.log('index', this.dev[i].services);
+//     for(var k = this.dev[i].services.length - 1; k >=0; k--){
+//       if(this.dev[i].services[k] === 'javascript'){
+//         console.log('found js');
+//         this.filtered.push(this.dev[i]);
+//
+//       }
+//     }
+//   }
+//   console.log('Showfiltered', this.filtered);
+//   return this.filtered;
+// };
 
 this.htmlCheck = function(){
   let devArr = this.dev;
