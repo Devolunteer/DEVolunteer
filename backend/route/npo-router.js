@@ -53,15 +53,13 @@ router.delete('/api/npo', bearerAuth, (req, res) => {
 })
 
 router.put('/api/npo/:id', bearerAuth, jsonParser, (req, res, next) => {
-  console.log('THIS IS REQ BEFORE PUT NPO ROUTER', req.body);
   Npo.findById(req.params.id)
   .catch(err => {
     Promise.reject(createError(404, 'NPO does not exist'))
 
   })
   .then(npo => {
-    console.log(npo, 'THIS IS AFTER .THEN NPO ON PUT ROUTE');
-    return Npo.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    return Npo.findOneAndUpdate(req.params.id, req.body, {new: true})
   })
   .then(npo => {
     res.json(npo)
