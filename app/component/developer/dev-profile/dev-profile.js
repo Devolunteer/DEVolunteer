@@ -21,7 +21,6 @@ function DevProfileController($log, $location, authService, devService, userServ
   .then(user => {
     this.dev.username = user.username;
     this.dev.name = user.name;
-
   });
 
 
@@ -82,6 +81,16 @@ function DevProfileController($log, $location, authService, devService, userServ
       delete this.dev;
     })
     .then(() => {
+    })
+    .catch(err => {
+      console.error(err);
+    });
+  };
+
+  this.uploadPic = function(file) {
+    devService.uploadPic(file)
+    .then(picData => {
+      this.dev.picture = picData.public_id;
     })
     .catch(err => {
       console.error(err);
