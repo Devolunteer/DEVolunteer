@@ -103,27 +103,27 @@ function devService($q, $log, $http, Upload, authService) {
         });
       });
   };
-  service.deleteDev = function() {
-    console.log('trying to DELETE a dev');
-    $log.debug('devService.deleteDev()');
-
-    return authService.getToken()
-    .then(token => {
-      let url = `http://localhost:3000/api/dev/`;
-      let config = {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      };
-      return $http.delete(url, config);
-    })
-    .catch(err => {
-      console.log(err);
-      return $q.reject(err);
-    });
-  };
-  return service;
-}
+//   service.deleteDev = function() {
+//     console.log('trying to DELETE a dev');
+//     $log.debug('devService.deleteDev()');
+//
+//     return authService.getToken()
+//     .then(token => {
+//       let url = `http://localhost:3000/api/dev/`;
+//       let config = {
+//         headers: {
+//           Authorization: `Bearer ${token}`
+//         }
+//       };
+//       return $http.delete(url, config);
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       return $q.reject(err);
+//     });
+//   };
+//   return service;
+// }
 
 
 

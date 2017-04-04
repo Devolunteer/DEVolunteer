@@ -9,7 +9,7 @@
       <h2>Username: {{ devProfileCtrl.dev.username }} </h2>
 
       <fieldset>
-        <img ng-src="{{ devProfileCtrl.picture }}">
+        <img ng-src="{{ devProfileCtrl.dev.picture }}">
         <p class="grab-img" ngf-select ng-model="devProfileCtrl.pic.file">Choose some random ass pic to upload.</p>
       </fieldset>
 
@@ -90,7 +90,7 @@
       <!-- This is for a Dev who does not exist yet   -->
       <button type="submit" class="btn-std" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
     </form>
-    
+
     <button tye="button" class="btn-std" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button>
   </section>
 
