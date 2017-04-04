@@ -8,10 +8,15 @@
 
       <h2>Username: {{ devProfileCtrl.dev.username }} </h2>
 
+      <!-- <cl-image public-id="pjv6wpmgmklbzpgqzckb" format="jpg">
+          <cl-transformation height="250" width="250" crop="thumb" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
+      </cl-image> if you uncomment this, a picture of a grouper will appear -->
+
+      <br />
       <fieldset>
-        <img ng-src="{{ devProfileCtrl.picture }}">
-        <p class="grab-img" ngf-select ng-model="devProfileCtrl.pic.file">Choose some random ass pic to upload.</p>
+        <div class="btn btn-primary" ngf-select ng-model="devProfileCtrl.dev.pic">Upload New Picture</div>
       </fieldset>
+      <br />
 
       <fieldset>
 

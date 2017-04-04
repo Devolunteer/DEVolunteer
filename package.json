@@ -40,6 +40,8 @@
     "bootstrap-sass": "^3.3.7",
     "clean-webpack-plugin": "^0.1.16",
     "cloudinary": "^1.8.0",
+    "cloudinary-angular": "^1.0.1",
+
     "cors": "^2.8.1",
     "css-loader": "^0.27.3",
     "dotenv": "^4.0.0",

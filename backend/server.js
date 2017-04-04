@@ -14,16 +14,10 @@ const cloudinary = require('cloudinary');
 const app = express();
 dotenv.load();
 
-cloudinary.config({
-  cloud_name: process.env.cloudinaryName,
-  api_key: process.env.cloudinaryApiKey,
-  api_secret: process.env.cloudinaryApiSecret,
-});
-
 //local mongo db will be called 'devolunteer'
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/devolunteer';
-
+const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
 
 
 mongoose.Promise = Promise;

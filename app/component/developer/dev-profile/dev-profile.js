@@ -1,13 +1,13 @@
 module.exports = {
   template: require('./dev-profile.html'),
-  controller: ['$log', '$location', 'authService', 'devService', 'userService', DevProfileController],
+  controller: ['$log', '$location', 'authService', 'devService', 'userService', 'Cloudinary', DevProfileController],
   controllerAs: 'devProfileCtrl',
   bindings: {
     user: '='
   }
 };
 
-function DevProfileController($log, $location, authService, devService, userService) {
+function DevProfileController($log, $location, authService, devService, userService, Cloudinary) {
   $log.debug('running DevProfileController');
 
   this.dev = {};
