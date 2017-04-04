@@ -7,7 +7,7 @@ let devSchema = mongoose.Schema({
 
   username: {type: String, ref: 'users', unique: true},
   name: {type: String},
-
+  desc: {type: String},
   city: {type: String},
   state: {type: String},
   phone: {type: String},
@@ -21,7 +21,11 @@ let devSchema = mongoose.Schema({
   react: {type: Boolean},
   python: {type: Boolean},
   otherlang: {type: Boolean},
-  services: [{type: String}],
+  // services: [{type: String}],
+  websitework: {type: Boolean},
+  webapp: {type: Boolean},
+  mobileapp: {type: Boolean},
+  otherwork: {type: Boolean},
   available: {type: Boolean},
   reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'reviews'}],
 });
