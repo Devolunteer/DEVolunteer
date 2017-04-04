@@ -9,13 +9,13 @@ const authRouter = require('./route/auth-router.js');
 const devRouter = require('./route/dev-router');
 const npoRouter = require('./route/npo-router.js');
 const errorMiddleware = require('./lib/error-midd.js');
-const cloudinary = require('./cloudinary');
+const cloudinary = require('cloudinary');
 
 const app = express();
 dotenv.load();
 
 cloudinary.config({
-  cloud_name: process.env.cloudinaryName, 
+  cloud_name: process.env.cloudinaryName,
   api_key: process.env.cloudinaryApiKey,
   api_secret: process.env.cloudinaryApiSecret,
 });
