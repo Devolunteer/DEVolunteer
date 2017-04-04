@@ -45,3 +45,11 @@ authRouter.get('/api/user', bearerAuth, (req, res, next) => {
   })
     .catch(next);
 });
+
+authRouter.delete('/api/user', bearerAuth, (req, res, next) => {
+  User.findOneAndRemove({username: req.user.username}).exec()
+  .then(() => res.status(204).end())
+  .catch(err => {
+    console.error(err);
+  });
+});

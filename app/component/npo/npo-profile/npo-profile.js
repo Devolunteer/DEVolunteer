@@ -10,11 +10,9 @@ module.exports = {
 function NpoProfileController($log, $location, npoService, userService) {
   $log.debug('running npoProfileController');
 
-
-
   this.npo = {};
   this.npo.username = '';
-  
+
   this.isNewUser = true;
 
   //this will run automatically every time this controller is brought in
@@ -37,14 +35,14 @@ function NpoProfileController($log, $location, npoService, userService) {
 
   this.updateProfile = function() {
     if(this.isNewUser) {
-      //createDev goes to a POST route. only for new dev profiles
+      //createNpo goes to a POST route. only for new Npo profiles
       npoService.createNpo(this.npo)
       .then( () => {
         $location.url('/');
       });
     } else {
       npoService.updateNpo(this.npo)
-      //updateDev goes to a PUT route. for existing dev profiles.
+      //updateNpo goes to a PUT route. for existing Npo profiles.
       .then( () => {
         console.log('in the update npo stuff');
         $location.url('/');

@@ -56,7 +56,7 @@
 
         <input type="checkbox" name="html" ng-model="devProfileCtrl.dev.html"><label for="html"> HTML/CSS</label>
 
-        <input type="checkbox" name="Angular" ng-model="devProfileCtrl.dev.angular"><label for="Angular"> Angular</label>
+        <input type="checkbox" name="Angular" ng-model="devProfileCtrl.dev.angular" ><label for="Angular"> Angular</label>
 
         <input type="checkbox" name="React" ng-model="devProfileCtrl.dev.react"><label for="React"> React</label>
 
@@ -90,6 +90,8 @@
       <!-- This is for a Dev who does not exist yet   -->
       <button type="submit" class="btn-std" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
     </form>
+
+    <button tye="button" class="btn-std" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button>
   </section>
 
 </div>
