@@ -17,23 +17,13 @@ function DevDetailController($log, $q, devService, userService, Cloudinary){
   console.log('token', this.token);
 
 
-  // let ratings = [];
-  // this.userAuthenticated = false;
-  //
-  // this.setAuthenticated = function(){
-  //   userService.fetchUser()
-  //   .then(user => {
-  //     console.log('user is auth');
-  //     return user.userAuthenticated = true;
-  //   })
-  //   .catch(err);
-  //     return $q.reject(err);
-  // };
-  //
-  // this.addDevRatings = function(rating){
-  //   ratings.push(rating)
-  //   console.log('ratings', ratings);
-  // }
+  let ratings = [];
+
+  this.addDevRatings = function(rating){
+    console.log('in the add dev ratings');
+    ratings.push(rating)
+    console.log('ratings', ratings);
+  }
   //
   // this.averageReviews = function(){
   //   //math here for reviews
