@@ -9,9 +9,18 @@
         <span> {{ devItemCtrl.dev.desc }}</span>
         <p>Reviews:</p>
         <span> {{ devItemCtrl.dev.reviews }}</span>
-        <p>Languages:</p>
-        <span> {{ devItemCtrl.dev.languages | limitTo: 4}}</span>
-        <span> Available: {{ devItemCtrl.dev.available }}</span>
+        <h2>Languages/skills:</h2>
+        <div class="" ng-repeat="service in devItemCtrl.dev.services">
+          <p>{{ service }}</p>
+        </div>
+        <span ng-if>{{ devItemCtrl.dev.javascript}}</span>
+        <span>{{ devItemCtrl.dev.html}}</span>
+        <span>{{ devItemCtrl.dev.angular}}</span>
+        <span>{{ devItemCtrl.dev.react}}</span>
+        <span>{{ devItemCtrl.dev.python}}</span>
+        <span>{{ devItemCtrl.dev.otherlang}}</span>
+        <!-- <span> Available: {{ devItemCtrl.dev.available }}</span> -->
+        <span> Available: {{ devItemCtrl.dev.booleanKey }}</span>
 
         <button class="btn-std"
         ng-click="devItemCtrl.showDetailView(devItemCtrl.dev); devItemCtrl.showDev = !devItemCtrl.showDev"

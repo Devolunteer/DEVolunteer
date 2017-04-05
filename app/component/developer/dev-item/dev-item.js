@@ -5,7 +5,8 @@ module.exports = {
   controller: ['$log', '$location', 'devService', devItemController],
   controllerAs: 'devItemCtrl',
   bindings: {
-    dev: '<'
+    dev: '<',
+    booleanKey: '<'
   },
 };
 

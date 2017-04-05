@@ -2,6 +2,7 @@
 
 
 <div class="devDetails">
+
   <h2> DEV-DETAIL.HTML COMPONENT</h2>
   <p>{{devDetailCtrl}}</p>
   <img ng-src="{{ devDetailCtrl.dev.picture }}" alt="{{ }}">
@@ -16,6 +17,51 @@
   <span> {{ devDetailCtrl.dev.website }}</span>
   <span> I am currently {{ devDetailCtrl.dev.available }}</span>
 
-  <button type="button" name="button" ng-click="SOMETHING">Contact Me</button>
+  <h4>Rate Me!</h4>
+  <form ng-submit="devItemCtrl.addDevRating(devItemCtrl.rating)" class="" novalidate>
+    <input type="radio" ng-model="devItemCtrl.rating.one" value="true" name="radioGroup" required><label for="one"> One Star</label>
+    <input type="radio" ng-model="devItemCtrl.rating.two" value="true" name="radioGroup" required><label for="two"> Two Stars</label>
+    <input type="radio" ng-model="devItemCtrl.rating.three" value="true" name="radioGroup" required><label for="one"> Three Stars</label>
+    <input type="radio" ng-model="devItemCtrl.rating.four" value="true" name="radioGroup" required><label for="two"> Four Stars</label>
+    <input type="radio" ng-model="devItemCtrl.rating.five" value="true" name="radioGroup" required><label for="two"> Five Stars</label>
+
+    <input type="submit" class="btn-warning btn-border-radius-small" value="Add Your Rating">
+  </form>
+
+
+  <span class="item-label">Languages I Know</span>
+  <input type="checkbox" ng-disabled="true" name="JavaScript" ng-model="devProfileCtrl.dev.javascript"><label for="JavaScript">JavaScript</label>
+
+  <input type="checkbox" ng-disabled="true" name="html" ng-model="devProfileCtrl.dev.html"><label for="html"> HTML/CSS</label>
+
+  <input type="checkbox" ng-disabled="true" name="Angular" ng-model="devProfileCtrl.dev.angular" ><label for="Angular"> Angular</label>
+
+  <input type="checkbox" ng-disabled="true" name="React" ng-model="devProfileCtrl.dev.react"><label for="React"> React</label>
+
+  <input type="checkbox" ng-disabled="true" name="Python" ng-model="devProfileCtrl.dev.python"><label for="Python"> Python</label>
+
+  <input type="checkbox" ng-disabled="true" name="other" ng-model="devProfileCtrl.dev.otherlang"><label for="other"> Other</label>
+
+  <span class="item-label">Types of Programs I Build</span>
+  <input type="checkbox" ng-disabled="true" name="website" ng-model="devProfileCtrl.dev.websitework"><label for="website"> Website</label>
+  <input type="checkbox" ng-disabled="true" name="mobileApp" ng-model="devProfileCtrl.dev.mobileapp"><label for="mobileApp"> Mobile Apps</label>
+  <input type="checkbox" ng-disabled="true" name="webApp" ng-model="devProfileCtrl.dev.webapp"><label for="webApp"> Web App</label>
+  <input type="checkbox" ng-disabled="true" name="other" ng-model="devProfileCtrl.dev.otherwork"><label for="other"> Other</label>
+
+
+  <span class="item-label">Available</span>
+  <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">
+
+<!-- THE BELOW NEEDS THE SAME NG-IF THAT THE CONTACT ME BUTTON NEEDS -->
+  <h4>Where You Can Find Me On the Web</h4>
+  <a href="{{devProfileCtrl.dev.website}}">{{devProfileCtrl.dev.website}}</a>
+
+
+<!-- I'M NOT SURE IF THE CHECK WILL BE IF A TOKEN EXISTS OR IF THE USER HAS/LACKS A PASSWORD...I GUESS WE COULD EVEN CHECK IF THERE'S A USER PROFILE, SO IF !USER -->
+  <button ng-if="!devItemCtrl.token" OR NG-IF="!DEVITEMCTRL.DEV.PASSWORD" type="button" name="button" ng-click="SOMETHING">Contact Me</button>
+
+<!-- same ng-if goes here...so we show this instead of the contact me -->
+  <!-- <h3>To contact this developer, create an account now!  Click Sign Up at the top of the page.</h3> -->
+
 
 </div>

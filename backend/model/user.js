@@ -29,7 +29,7 @@ const userSchema = Schema({
 userSchema.methods.generatePasswordHash = function(password) {
   return new Promise((resolve, reject) => {
     bcrypt.hash(password, 10, (err, hash) => {
-      if(err) return reject(err)
+      if(err) return reject(createError(400, 'Check Username/Password'))
       this.password = hash
       resolve(this)
     })
@@ -42,7 +42,7 @@ userSchema.methods.comparePasswordHash = function(password) {
     bcrypt.compare(password, this.password, (err, valid) => {
       if(err) return reject(err)
       // console.log('PARAM',password,'THIS', this.password);
-      if(!valid) return reject(createError(401, 'wrong password'))
+      if(!valid) return reject(createError(401, 'Passwd MisMatch'))
       resolve(this)
     })
   })

@@ -35,8 +35,25 @@ function userService($q, $log, $http, authService) {
     });
   };
 
-  // service.updateProfile = function(user) {
-  //
-  // }
+  service.deleteUser = function() {
+    console.log('trying to DELETE a user');
+    $log.debug('userService.deleteUser()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/user/`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config);
+    })
+    .catch(err => {
+      console.log(err);
+      return $q.reject(err);
+    });
+  };
+
   return service;
 }
