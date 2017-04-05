@@ -1,18 +1,21 @@
 <!-- this is the full blown developer detail view. this will be read only  -->
 
 
-<div class="devDetails">
-  <img ng-src="{{ devItemCtrl.picture }}" alt="{{ }}">
-  <!-- this is going to be the average of all the reviews -->
-  <span> {{ devItemCtrl.dev.reviews }}</span>
+<div dev="item" class="devDetails">
 
-  <h3>{{ devItemCtrl.dev.name }}</h3>
-  <span> {{ devItemCtrl.dev.city }}</span>
-  <span> {{ devItemCtrl.dev.state }}</span>
-  <span> {{ devItemCtrl.dev.zip }}</span>
-
-  <h4>About Me</h4>
-  <span> {{ devItemCtrl.dev.desc }}</span>
+  <h2> DEV-DETAIL.HTML COMPONENT</h2>
+  <p>{{devDetailCtrl}}</p>
+  <img ng-src="{{ devDetailCtrl.dev.picture }}" alt="{{ }}">
+  <h3>{{ devDetailCtrl.dev.name }} what is here</h3>
+  <span> {{ devDetailCtrl.selectedDev.city }}</span>
+  <span> {{ devDetailCtrl.dev.state }}</span>
+  <span> {{ devDetailCtrl.dev.zip }}</span>
+  <span> {{ devDetailCtrl.dev.desc }}</span>
+  <span> {{ devDetailCtrl.dev.reviews }}</span>
+  <span> {{ devDetailCtrl.dev.languages }}</span>
+  <span> {{ devDetailCtrl.dev.services }}</span>
+  <span> {{ devDetailCtrl.dev.website }}</span>
+  <span> I am currently {{ devDetailCtrl.dev.available }}</span>
 
   <h4>Rate Me!</h4>
   <form ng-submit="devItemCtrl.addDevRating(devItemCtrl.rating)" class="" novalidate>
@@ -27,7 +30,7 @@
 
 
   <span class="item-label">Languages I Know</span>
-  <input type="checkbox" ng-disabled="true" name="JavaScript" ng-model="devProfileCtrl.dev.javascript"><label for="JavaScript">JavaScript</label>
+  <input type="checkbox" ng-disabled="true" name="JavaScript" ng-model="devItemCtrl.selectedDev.javascript"><label for="JavaScript">JavaScript</label>
 
   <input type="checkbox" ng-disabled="true" name="html" ng-model="devProfileCtrl.dev.html"><label for="html"> HTML/CSS</label>
 
@@ -54,8 +57,8 @@
   <a href="{{devProfileCtrl.dev.website}}">{{devProfileCtrl.dev.website}}</a>
 
 
-<!-- I'M NOT SURE IF THE CHECK WILL BE IF A TOKEN EXISTS OR IF THE USER HAS/LACKS A PASSWORD...I GUESS WE COULD EVEN CHECK IF THERE'S A USER PROFILE, SO IF !USER -->
-  <button ng-if="!devItemCtrl.token" OR NG-IF="!DEVITEMCTRL.DEV.PASSWORD" type="button" name="button" ng-click="SOMETHING">Contact Me</button>
+<!-- I'M NOT SURE IF THE CHECK WILL BE IF A TOKEN EXISTS OR IF THE USER HAS/LACKS A PASSWORD...I GUESS WE COULD EVEN CHECK IF THERE'S A USER PROFILE, SO IF USER -->
+  <button ng-if="devDetailCtrl.userAuthenticated" type="button" name="button" ng-click="SOMETHING">Contact Me</button>
 
 <!-- same ng-if goes here...so we show this instead of the contact me -->
   <!-- <h3>To contact this developer, create an account now!  Click Sign Up at the top of the page.</h3> -->
