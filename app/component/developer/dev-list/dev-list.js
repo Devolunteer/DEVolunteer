@@ -17,8 +17,6 @@ function devListController($log, devService) {
   this.filtered = [];
 
 
-
-
   //retrieve all items in the devService.devList array
   devService.fetchDevs() //returns a Promise that i can filter by specific dev properties that are taken in by the form filter
   .then( devList => {

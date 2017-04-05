@@ -2,9 +2,10 @@
 
 
 <div class="devDiv">
-  <h2> DEV-ITEM.HTML COMPONENT </h2>
+
       <div class="devItem">
-        <img ng-src="{{ devItemCtrl.dev.picture }}" alt="No picture yet">
+        <img ng-src="{{ devItemCtrl.picture }}" alt="No picture yet">
+        <h3>{{ devItemCtrl.dev.username }}</h3>
         <h3>Name: {{ devItemCtrl.dev.name }}</h2>
         <span> {{ devItemCtrl.dev.desc }}</span>
         <p>Reviews:</p>
@@ -22,17 +23,9 @@
         <!-- <span> Available: {{ devItemCtrl.dev.available }}</span> -->
         <span> Available: {{ devItemCtrl.dev.booleanKey }}</span>
 
-        <button class="btn-std"
-        ng-click="devItemCtrl.showDetailView(devItemCtrl.dev); devItemCtrl.showDev = !devItemCtrl.showDev"
-        type="button"
-        name="ViewMore">View More</button>
+        <button class="btn-std" ng-click="devItemCtrl.showDetailView()" type="button" name="ViewMore">View More</button>
 
 
 
       </div>
-      <dev-detail
-      dev="devItemCtrl.selectedDev"
-      ng-if="devItemCtrl.showDev"
-
-      ></dev-detail>
 </div>
