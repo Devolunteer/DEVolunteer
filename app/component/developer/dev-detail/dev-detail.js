@@ -4,12 +4,14 @@ module.exports = {
   template: require('./dev-detail.html'),
   controller: ['$log', 'devService','userService', DevDetailController],
   controllerAs: 'devDetailCtrl',
+
   bindings: {
     dev: '<',
   },
 };
 
 function DevDetailController($log, $q, devService, userService){
+
   $log.debug('running galleryUpCtrl');
   this.token = userService.token;
   console.log('token', this.token);
@@ -34,4 +36,5 @@ function DevDetailController($log, $q, devService, userService){
   this.averageReviews = function(){
     //math here for reviews
   }
+
 }
