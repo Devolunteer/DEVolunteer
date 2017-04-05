@@ -31,22 +31,6 @@ router.post('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
   .catch(next);
 });
 
-
-//get individual ID
-
-router.get('/api/dev/:id', bearerAuth, (req, res, next) => {
-  if(!req.user.isDev) return next(createError(401, 'please log in as a developer'));
-  Dev.findById(req.params.id)
-  .then(dev => {
-    if(!dev) return next(createError(404, 'not found'));
-    res.json(dev);
-  })
-  .catch(err => {
-    console.error(err);
-  });
-});
-
-
 router.get('/api/dev', bearerAuth, (req, res, next) => {
   if(!req.user.isDev) return next(createError(401, 'please log in as a developer'));
 
@@ -62,7 +46,6 @@ router.get('/api/dev', bearerAuth, (req, res, next) => {
 });
 
 router.put('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
-
   Dev.findById(req.user._id)
   .catch(err => {
     Promise.reject(createError(404, 'DEV does not exist'))
