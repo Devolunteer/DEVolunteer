@@ -49,7 +49,7 @@ module.exports = {
       },
       {
         test: /\.(woff|png|jpg|ttf|svg|eot).*/,
-        use: 'url-loader?limit=10000&name=app/assets/img/**/[hash].[ext]'
+        use: 'url-loader?limit=10000&name=images/[hash].[ext]'
       },
       {
         test: /\.scss$/,
