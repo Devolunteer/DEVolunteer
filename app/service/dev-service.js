@@ -152,6 +152,7 @@ function devService($q, $log, $http, Upload, authService) {
       .then(res => {
         $log.log('here is a dev, yo', res.data);
         service.currentDev = res.data;
+        console.log('res', res.data);
         return service.currentDev;
       });
     })
