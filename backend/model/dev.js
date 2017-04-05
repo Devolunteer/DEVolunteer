@@ -14,14 +14,14 @@ let devSchema = mongoose.Schema({
   email: {type: String},
   picture: {type: String},
   website: {type: String},
-  // Languages the Dev knows
+  // languages: [{type: String}],
   javascript: {type: Boolean},
   html: {type: Boolean},
   angular: {type: Boolean},
   react: {type: Boolean},
   python: {type: Boolean},
   otherlang: {type: Boolean},
-  // Services the Dev provides
+  // services: [{type: String}],
   websitework: {type: Boolean},
   webapp: {type: Boolean},
   mobileapp: {type: Boolean},

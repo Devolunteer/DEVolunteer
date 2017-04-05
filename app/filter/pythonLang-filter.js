@@ -6,8 +6,7 @@ module.exports = function() {
       devs = devs.filter(dev => {
         return dev.services.includes('python')
       })
-      console.log('devs length', devs.length);
-      return devs;
+      return devs
     }
     return devs;
   };
