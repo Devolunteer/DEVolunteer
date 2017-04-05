@@ -2,12 +2,15 @@ require('./_dev-detail.scss');
 
 module.exports = {
   template: require('./dev-detail.html'),
-  controller: ['$log', 'devService','userService', DevDetailController],
-  controllerAs: 'devItemCtrl',
+
+  controller: ['$log', 'devService', DevDetailController],
+  controllerAs: 'devDetailCtrl',
+
   bindings: {
     dev: '<',
   },
 };
+
 
 function DevDetailController($log, devService, userService){
   $log.debug('running galleryUpCtrl');
@@ -23,4 +26,5 @@ function DevDetailController($log, devService, userService){
   this.averageReviews = function(){
     //math here for reviews
   }
+
 }
