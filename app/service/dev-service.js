@@ -1,9 +1,10 @@
 'use strict';
 
-module.exports = ['$q', '$log', '$http', 'Upload', 'authService', devService];
+module.exports = ['$q', '$log', '$http', 'Upload', 'authService', 'Cloudinary', devService];
 
-function devService($q, $log, $http, Upload, authService) {
+function devService($q, $log, $http, Upload, authService, Cloudinary) {
   $log.debug('devService');
+  console.log(Cloudinary);
 
   let service = {};
   service.devList = [];
@@ -108,6 +109,26 @@ function devService($q, $log, $http, Upload, authService) {
       });
   };
 
+  service.uploadPic = function(file) {
+    return Upload.upload({
+      url: `https://api.cloudinary.com/v1_1/dy7kdxxqe/image/upload`,
+      data: {
+        upload_preset:'Devolunteer',
+        file: file
+      }
+    })
+    .then(response => {
+      console.log('LOGGING THE RESPONSE DATA');
+      console.log(response.data);
+      return response.data;
+    })
+    .catch(err => {
+      console.error(err);
+      return $q.reject(err);
+    });
+  };
+
+
 
 
   service.showDetail = function(){
@@ -162,9 +183,9 @@ function devService($q, $log, $http, Upload, authService) {
     });
   };
 
-
   return service;
 }
+
 //   service.deleteDev = function() {
 //     console.log('trying to DELETE a dev');
 //     $log.debug('devService.deleteDev()');
