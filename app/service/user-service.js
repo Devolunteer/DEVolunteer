@@ -35,6 +35,7 @@ function userService($q, $log, $http, authService) {
     });
   };
 
+
   service.deleteUser = function() {
     console.log('trying to DELETE a user');
     $log.debug('userService.deleteUser()');

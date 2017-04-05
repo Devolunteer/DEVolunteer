@@ -1,6 +1,6 @@
 'use strict';
 
-require('./_devDetails.scss');
+require('./_dev-details.scss');
 
 
 module.exports = ['$log', DevDetailsController];

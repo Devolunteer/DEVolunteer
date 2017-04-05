@@ -15,6 +15,7 @@ const cloudinary = require('cloudinary-angular');
 
 const DEVolunteer = angular.module('DEVolunteer', [ngTouch, ngAnimate, uiRouter, uiBootstrap, cloudinary, ngFileUpload]);
 
+
 let context = require.context('./config/', true, /\.js$/);
 context.keys().forEach( path => {
   DEVolunteer.config(context(path));
