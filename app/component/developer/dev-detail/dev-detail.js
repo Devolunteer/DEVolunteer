@@ -3,17 +3,28 @@ require('./_dev-detail.scss');
 module.exports = {
   template: require('./dev-detail.html'),
   controller: ['$log', 'devService','userService', DevDetailController],
-  controllerAs: 'devItemCtrl',
+  controllerAs: 'devDetailCtrl',
   bindings: {
     dev: '<',
   },
 };
 
-function DevDetailController($log, devService, userService){
+function DevDetailController($log, $q, devService, userService){
   $log.debug('running galleryUpCtrl');
   this.token = userService.token;
   console.log('token', this.token);
   let ratings = [];
+  this.userAuthenticated = false;
+
+  this.setAuthenticated = function(){
+    userService.fetchUser()
+    .then(user => {
+      console.log('user is auth');
+      return user.userAuthenticated = true;
+    })
+    .catch(err);
+      return $q.reject(err);
+  };
 
   this.addDevRatings = function(rating){
     ratings.push(rating)
