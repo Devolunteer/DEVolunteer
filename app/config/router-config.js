@@ -51,6 +51,11 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       template: require('../view/editview/editview.html'),
       controller: 'EditviewController',
       controllerAs: 'editViewCtrl'
+    },
+    {
+      name: 'about-us',
+      url: '/about-us',
+      template: require('../view/about-us/about-us.html')
     }
     // {
     //   name: 'newprofile',

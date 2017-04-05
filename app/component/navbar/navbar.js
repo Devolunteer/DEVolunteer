@@ -44,6 +44,11 @@ function NavBarController($log, $location, $rootScope, authService, userService)
     });
   };
 
+  this.aboutUs = function() {
+    $log.log('navBarCtrl.aboutUs()');
+    $location.url('/about-us');
+  };
+
   this.logout = function(){
     $log.log('navBarCtrl.logout()');
     this.hideButtons = true;
@@ -51,8 +56,8 @@ function NavBarController($log, $location, $rootScope, authService, userService)
     authService.logout()
     .then(() => {
       $location.url('/');
-      })
-    };
+    });
+  };
 
   $rootScope.$on('$locationChangeSuccess', () => {
     this.checkUser();
