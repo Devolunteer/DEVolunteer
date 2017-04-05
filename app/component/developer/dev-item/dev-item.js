@@ -13,7 +13,17 @@ module.exports = {
 function devItemController($log, devService){
   $log.debug('running devItemCtrl');
 
-  this.showDetailView = function() {
-    devService.showDetail(this.dev._id);
+
+  this.selectedDev = {};
+  
+  this.showDetailView = function(dev) {
+    devService.getDevByID(dev)
+    .then(dev => {
+      $log.log('this is a dev ', dev);
+      this.selectedDev = dev;
+      console.log('selectedDev', this.selectedDev);
+      console.log('selected Name', this.selectedDev.name);
+    });
+
   };
 }

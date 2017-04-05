@@ -103,12 +103,64 @@ function devService($q, $log, $http, Upload, authService) {
         });
       });
   };
-  // service.uploadDevPic = function(dev) {
-  //   return authService.getToken()
-  //   .then(token => {
-  //     let url = `http:`
-  //   })
-  // }
+
+
+
+
+  service.showDetail = function(){
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/dev`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.get(url, config)
+      .then(res => {
+        $log.log('here is a dev, yo', res.data);
+        service.dev = res.data;
+        return service.dev;
+      });
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject.err;
+    });
+  };
+
+  //grabbing individual dev by their ._id prop
+  service.getDevByID = function(dev){
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/dev/${dev._id}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.get(url, config)
+      .then(res => {
+        $log.log('here is a dev, yo', res.data);
+        service.currentDev = res.data;
+        console.log('res', res.data);
+        return service.currentDev;
+      });
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject.err;
+    });
+  };
+
+
+
   return service;
 }
 //   service.deleteDev = function() {
