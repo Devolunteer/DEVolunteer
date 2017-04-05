@@ -15,10 +15,11 @@
         <li class="divider" ng-if="navBarCtrl.isUser"></li>
         <li role="menuitem"><a ui-sref="edit" ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.editUser()">Edit Profile</a></li>
         <li class="divider" ng-if="navBarCtrl.isUser"></li>
-
+        <li clss="menuitem"><a ui-sref="about-us" ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.aboutUs()">About Us</a></li>
         <li role="menuitem" ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.logout()"><a ui-sref="landing">Log Out</a></li>
       </ul>
       </div>
       <span ng-if="navBarCtrl.isUser"><h3>Hello {{ navBarCtrl.username }} </h3></span>
     </div>
+
 </nav>

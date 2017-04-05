@@ -48,8 +48,8 @@ module.exports = {
         use: ['html-loader']
       },
       {
-        test: /\.(woff|ttf|svg|eot).*/,
-        use: 'url-loader?limit=10000&name=image/[hash].[ext]'
+        test: /\.(woff|png|jpg|ttf|svg|eot).*/,
+        use: 'url-loader?limit=10000&name=app/assets/img/**/[hash].[ext]'
       },
       {
         test: /\.scss$/,
