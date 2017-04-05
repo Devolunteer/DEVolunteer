@@ -7,10 +7,6 @@ function devService($q, $log, $http, Upload, authService) {
 
   let service = {};
   service.devList = [];
-  service.dev;
-  service.currentDev;
-
-  let __API_URL__ = 'http://localhost:3000';
 
   service.fetchDevs = function() {
     console.log('in the fetchDevs, yo');
@@ -110,6 +106,7 @@ function devService($q, $log, $http, Upload, authService) {
 
 
 
+
   service.showDetail = function(){
     return authService.getToken()
     .then(token => {
@@ -163,6 +160,7 @@ function devService($q, $log, $http, Upload, authService) {
   };
 
 
+
   return service;
 }
 //   service.deleteDev = function() {
@@ -189,6 +187,24 @@ function devService($q, $log, $http, Upload, authService) {
 
 
 
+  // service.showDetail = function(devData){
+  //   let url = `${__API_URL__}/api/dev/${dev._id}`;
+  //   let config = {
+  //     headers: {
+  //       Accept: 'application/json',
+  //     }
+  //   };
+  //   return $http.get(url, config)
+  //   .then(res => {
+  //     $log.log('here is a dev, yo');
+  //     service.developer = res.data;
+  //     return service.developer;
+  //   })
+  //   .catch(err => {
+  //     $log.error(err.message);
+  //     return $q.reject.err;
+  //   });
+  // };
 
 
 //BELOW HERE IS THE EDIT DEVELOPER PROFILE FUNCTIONALITY. DO WE EVEN NEED THIS, IF WE'RE LETTING A DEV EDIT HIS PROFILE FROM THE PROFILE PAGE?

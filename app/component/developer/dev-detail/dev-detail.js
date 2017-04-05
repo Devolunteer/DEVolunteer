@@ -2,19 +2,19 @@ require('./_dev-detail.scss');
 
 module.exports = {
   template: require('./dev-detail.html'),
+
   controller: ['$log', '$q', 'devService','userService', DevDetailController],
   controllerAs: 'devDetailCtrl',
-
   bindings: {
     dev: '<',
   },
 };
 
-function DevDetailController($log, $q, devService, userService){
-
+function DevDetailController($log, devService, userService){
   $log.debug('running galleryUpCtrl');
   this.token = userService.token;
   console.log('token', this.token);
+
 
 
   // let ratings = [];
@@ -38,5 +38,6 @@ function DevDetailController($log, $q, devService, userService){
   // this.averageReviews = function(){
   //   //math here for reviews
   // }
+
 
 }

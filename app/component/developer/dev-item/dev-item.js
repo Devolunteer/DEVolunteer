@@ -2,15 +2,17 @@ require('./_dev-item.scss');
 
 module.exports = {
   template: require('./dev-item.html'),
-  controller: ['$log', '$location', 'devService', devItemController],
+  controller: ['$log', 'devService', devItemController],
   controllerAs: 'devItemCtrl',
   bindings: {
     dev: '<',
+    booleanKey: '<'
   },
 };
 
-function devItemController($log, $location, devService){
+function devItemController($log, devService){
   $log.debug('running devItemCtrl');
+
 
   this.selectedDev = {};
   
@@ -22,5 +24,6 @@ function devItemController($log, $location, devService){
       console.log('selectedDev', this.selectedDev);
       console.log('selected Name', this.selectedDev.name);
     });
+
   };
 }

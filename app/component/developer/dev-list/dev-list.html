@@ -1,15 +1,23 @@
 <!-- this is the primary view AFTER a search/questionnaire showing a list of matching developer "teasers" -->
 
-<div class="clearfix">
+<h2>Here are all the devlopers</h2>
+<div>
   <ul>
+
     <!-- <h2>Your Search returned {{ devListCtrl.dev.length }} available developers.</h2>
     <h2>Your Search returned {{ (dev.length).length }} available developers.</h2> -->
 
 
     <dev-item ng-repeat="item in devListCtrl.dev | jsLangFilter: devListCtrl.jsCheck | availableFilter: devListCtrl.availCheck | htmlLangFilter: devListCtrl.htmlCheck | angLangFilter: devListCtrl.angularCheck | reactLangFilter: devListCtrl.reactCheck | pythonLangFilter: devListCtrl.pythonCheck | unknownLangFilter: devListCtrl.unknownCheck | fiveRatFilter: devListCtrl.fiveCheck | fourRatFilter: devListCtrl.fourCheck | threeRatFilter: devListCtrl.threeCheck | twoRatFilter: devListCtrl.twoCheck | oneRatFilter: devListCtrl.oneCheck | websiteFilter: devListCtrl.websiteCheck | mobileAppFilter: devListCtrl.mobileCheck | webAppFilter: devListCtrl.webAppCheck | otherWorkFilter: devListCtrl.otherWorkCheck" dev="item"></dev-item>
 
+
   </ul>
   <div class="devFilters">
+
+    <!-- <input type="checkbox" name="reset" ng-model="devListCtrl.resetFilters" ng-clicked="devListCtrl.resetFilters === true"></input><label for="reset">Reset Filters</label> -->
+
+    <!-- <input type="checkbox" ng-model="devListCtrl.resetFilters" ng-clicked="devListCtrl.resetFilter === true" name="reset"><label for="reset"> Reset Filters</label> -->
+
     <h3>Filter By:</h3>
     <fieldset>
     <h4>Work Type</h4>
