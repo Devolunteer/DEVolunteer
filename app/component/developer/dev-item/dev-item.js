@@ -6,7 +6,6 @@ module.exports = {
   controllerAs: 'devItemCtrl',
   bindings: {
     dev: '<',
-    booleanKey: '<'
   },
 };
 

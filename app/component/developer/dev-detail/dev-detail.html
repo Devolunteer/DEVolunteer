@@ -57,8 +57,8 @@
   <a href="{{devProfileCtrl.dev.website}}">{{devProfileCtrl.dev.website}}</a>
 
 
-<!-- I'M NOT SURE IF THE CHECK WILL BE IF A TOKEN EXISTS OR IF THE USER HAS/LACKS A PASSWORD...I GUESS WE COULD EVEN CHECK IF THERE'S A USER PROFILE, SO IF !USER -->
-  <button ng-if="!devItemCtrl.token" OR NG-IF="!DEVITEMCTRL.DEV.PASSWORD" type="button" name="button" ng-click="SOMETHING">Contact Me</button>
+<!-- I'M NOT SURE IF THE CHECK WILL BE IF A TOKEN EXISTS OR IF THE USER HAS/LACKS A PASSWORD...I GUESS WE COULD EVEN CHECK IF THERE'S A USER PROFILE, SO IF USER -->
+  <button ng-if="devDetailCtrl.userAuthenticated" type="button" name="button" ng-click="SOMETHING">Contact Me</button>
 
 <!-- same ng-if goes here...so we show this instead of the contact me -->
   <!-- <h3>To contact this developer, create an account now!  Click Sign Up at the top of the page.</h3> -->

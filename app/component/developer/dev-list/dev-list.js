@@ -33,6 +33,7 @@ function devListController($log, devService) {
     })
 
     $log.log('response (developers) is saved on .dev property');
+    console.log('length', this.dev.length);
   })
   .catch(e => {
     console.log(e);
