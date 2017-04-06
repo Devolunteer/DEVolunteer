@@ -17,12 +17,19 @@
 
 * Some cURL commands you can use:
 
-**SIGNUP**  
+**SIGNUP @ /api/signup**  
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"username":"test-username","password":"test-password","email":"test-email"}' http://localhost:3000/signup
 ```
 It will return a token back that looks like:
-``
+`"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZTZiZmE0YzQzNWRlMTc4ZDNkNDMwOCIsImlhdCI6MTQ5MTUxNzM0OX0.puW8L-9J_3VaAeaxG-RMnbt3ufIe-8kXAMygzXc1xrE"`
+
+**Login @ /api/login**
+
+Setup your token to a local variable with `export TOKEN=<string>` then
+```
+curl -H "Authorization: Bearer $TOKEN" -H "Content-type: application/json" http://localhost:3000/login
+```
 
 
 ### Front-End
@@ -31,18 +38,18 @@ It will return a token back that looks like:
 ### DEVolunteer User Stories:
 
 #### Developer Viewpoint:
-* Developer: As a Developer I want
-* Developer: As a Developer I want
+* Developer: As a Developer I want to be able to have an application that connects Non-Profit Orgs with Developers.
+* Developer: As a Developer I want to have NPO and Devs to have seperate and editable profile pages.
 * Developer: As a Developer I want
 * Developer: As a Developer I want
 #### User Viewpoint:
-* DEVolunteer User: As a user I want
-* DEVolunteer User: As a user I want
+* DEVolunteer User: As a user I want to be able to see DEVs that I can use to help better the organization.
+* DEVolunteer User: As a user I want to have an easy way to contact the NPO/DEV.
 * DEVolunteer User: As a user I want
 * DEVolunteer User: As a user I want
 #### Marketing Viewpoint:
-* Marketing Agent: As a marketer I want
-* Marketing Agent: As a marketer I want
+* Marketing Agent: As a marketer I want the website to be user friendly and easy to use.
+* Marketing Agent: As a marketer I want to show the website can be great asset to building on volunteer work.
 ---
 ##### Team Members:
 * JR Iriarte
