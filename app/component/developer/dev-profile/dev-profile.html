@@ -6,6 +6,14 @@
 
     <form class="dev-profile" name="devProfile" ng-submit="devProfileCtrl.updateProfile(devProfileCtrl.dev)" no-validate>
 
+      <!-- This is for a brand new Dev -->
+      <button type="submit" class="btn-std" ng-hide="devProfileCtrl.isNewUser">Update Profile</button>
+
+      <!-- This is for a Dev who does not exist yet   -->
+      <button type="submit" class="btn-std" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
+
+    <button tye="button" class="btn-std" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button>
+
       <h2>Username: {{ devProfileCtrl.dev.username }} </h2>
 
       <cl-image public-id="{{ devProfileCtrl.dev.picture }}" format="jpg">
@@ -24,10 +32,11 @@
         <input type="text" name="Name" ng-model="devProfileCtrl.dev.name">
       </fieldset>
 
-      <fieldset>
-        <span class="item-label">Description</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.desc">
-      </fieldset>
+      <!-- <fieldset> -->
+        <!-- <span class="item-label">Description</span>
+        <textarea rows="4" cols="100" name="Description" ng-model="devProfileCtrl.dev.desc"> -->
+        <!-- <input type="text" name="Description" ng-model="devProfileCtrl.dev.desc"> -->
+      <!-- </fieldset> -->
 
       <fieldset>
         <span class="item-label">City</span>
@@ -50,11 +59,17 @@
         <input type="tel" name="Phone" ng-model="devProfileCtrl.dev.phone">
       </fieldset>
 
-      <fieldset>
-        <!-- this needs to be the average of any ratings applied to the dev -->
-        <span class="item-label">My Rating</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.reviews">
+      <!-- <fieldset>
+         this needs to be the average of any ratings applied to the dev -->
+        <!-- <span class="item-label">My Rating</span> -->
+        <!-- <input type="text" name="Description" ng-model="devProfileCtrl.dev.reviews"> -->
 
+      <!-- </fieldset> -->
+
+      <fieldset>
+
+        <span class="item-label">Years Experience</span>
+        <input type="text" name="Years" ng-model="devProfileCtrl.dev.experience">
       </fieldset>
 
       <fieldset>
@@ -91,14 +106,10 @@
         <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">
       </fieldset>
 
-      <!-- This is for a brand new Dev -->
-      <button type="submit" class="btn-std" ng-hide="devProfileCtrl.isNewUser">Update Profile</button>
+      <span class="item-label">Description</span>
+      <textarea rows="4" cols="100" name="Description" ng-model="devProfileCtrl.dev.desc">
+      </form>
 
-      <!-- This is for a Dev who does not exist yet   -->
-      <button type="submit" class="btn-std" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
-    </form>
-
-    <button tye="button" class="btn-std" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button>
   </section>
 
 </div>
