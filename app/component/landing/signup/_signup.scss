@@ -1,3 +1,5 @@
+@import "../../../scss/lib/theme/_vars";
+
 a:visited, a:focus, a:hover {
   text-decoration: none;
 }
@@ -12,4 +14,10 @@ a:visited, a:focus, a:hover {
     padding-top: 1.5vw;
     padding-bottom: 1.5vw;
   }
+}
+
+input {
+  padding: 1% 5%;
+  font-size: 2vw;
+  border: none;
 }
