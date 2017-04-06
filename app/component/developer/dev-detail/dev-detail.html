@@ -3,58 +3,67 @@
 
 <div dev="item" class="devDetails">
 
-  <h2> DEV-DETAIL.HTML COMPONENT</h2>
-  <p><h3>{{devDetailCtrl.dev}}</h3></p>
+  <!-- <h2> DEV-DETAIL.HTML COMPONENT</h2> -->
+  <!-- <p><h3>{{devDetailCtrl.dev}}</h3></p> -->
 
-  <h3>{{ devDetailCtrl.dev.name }} what is here</h3>
-  <span> {{ devDetailCtrl.selectedDev.city }}</span>
-  <span> {{ devDetailCtrl.dev.state }}</span>
-  <span> {{ devDetailCtrl.dev.zip }}</span>
-  <span> {{ devDetailCtrl.dev.desc }}</span>
-  <span> {{ devDetailCtrl.dev.reviews }}</span>
-  <span> {{ devDetailCtrl.dev.languages }}</span>
-  <span> {{ devDetailCtrl.dev.services }}</span>
-  <span> {{ devDetailCtrl.dev.website }}</span>
-  <span> I am currently {{ devDetailCtrl.dev.available }}</span>
+  <h3>{{ devDetailCtrl.dev.name }}</h3>
+  <h5>{{ devDetailCtrl.dev.city }}</h5>
+  <h5>{{ devDetailCtrl.dev.state }}</h5>
+  <h5>{{ devDetailCtrl.dev.zip }}</h5>
+
+  <h5>About Me: {{ devDetailCtrl.dev.desc }}</span>
+  <!-- <span>Reviews: {{ devDetailCtrl.dev.reviews }}</span> -->
+  <!-- <span>{{ devDetailCtrl.dev.javascript }}</span>
+  <span>{{ devDetailCtrl.dev.html}}</span>
+  <span>{{ devDetailCtrl.dev.angular}}</span>
+  <span>{{ devDetailCtrl.dev.react}}</span>
+  <span>{{ devDetailCtrl.dev.python}}</span>
+  <span>{{ devDetailCtrl.dev.otherlang}}</span> -->
+  <!-- <span> {{ devDetailCtrl.dev.services }}</span> -->
+  <!-- <span>Find Me: {{ devDetailCtrl.dev.website }}</span> -->
+  <!-- <span> I am currently {{ devDetailCtrl.dev.available }}</span> -->
 
   <h4>Rate Me!</h4>
-  <form ng-submit="devItemCtrl.addDevRating(devItemCtrl.rating)" class="" novalidate>
+  <form ng-submit="devDetailCtrl.addDevRating(devDetailCtrl.rating)" class="" novalidate>
     <input type="radio" ng-model="devItemCtrl.rating.one" value="true" name="radioGroup" required><label for="one"> One Star</label>
     <input type="radio" ng-model="devItemCtrl.rating.two" value="true" name="radioGroup" required><label for="two"> Two Stars</label>
     <input type="radio" ng-model="devItemCtrl.rating.three" value="true" name="radioGroup" required><label for="one"> Three Stars</label>
     <input type="radio" ng-model="devItemCtrl.rating.four" value="true" name="radioGroup" required><label for="two"> Four Stars</label>
     <input type="radio" ng-model="devItemCtrl.rating.five" value="true" name="radioGroup" required><label for="two"> Five Stars</label>
 
-    <input type="submit" class="btn-warning btn-border-radius-small" value="Add Your Rating">
+    <button ng-click="devDetailCtrl.addDevRating(devDetailCtrl.rating)" type="submit" class="btn-border-radius-small">Add a Rating</button>
   </form>
 
 
-  <span class="item-label">Languages I Know</span>
-  <input type="checkbox" ng-disabled="true" name="JavaScript" ng-model="devItemCtrl.selectedDev.javascript"><label for="JavaScript">JavaScript</label>
+  <h3 class="item-label">Languages I Know</h3>
+  <input type="checkbox" ng-disabled="true" name="JavaScript" ng-model="devDetailCtrl.dev.javascript"><label for="JavaScript">JavaScript</label>
 
-  <input type="checkbox" ng-disabled="true" name="html" ng-model="devProfileCtrl.dev.html"><label for="html"> HTML/CSS</label>
+  <input type="checkbox" ng-disabled="true" name="html" ng-model="devDetailCtrl.dev.html"><label for="html"> HTML/CSS</label>
 
-  <input type="checkbox" ng-disabled="true" name="Angular" ng-model="devProfileCtrl.dev.angular" ><label for="Angular"> Angular</label>
+  <input type="checkbox" ng-disabled="true" name="Angular" ng-model="devDetailCtrl.dev.angular" ><label for="Angular"> Angular</label>
 
-  <input type="checkbox" ng-disabled="true" name="React" ng-model="devProfileCtrl.dev.react"><label for="React"> React</label>
+  <input type="checkbox" ng-disabled="true" name="React" ng-model="devDetailCtrl.dev.react"><label for="React"> React</label>
 
-  <input type="checkbox" ng-disabled="true" name="Python" ng-model="devProfileCtrl.dev.python"><label for="Python"> Python</label>
+  <input type="checkbox" ng-disabled="true" name="Python" ng-model="devDetailCtrl.dev.python"><label for="Python"> Python</label>
 
-  <input type="checkbox" ng-disabled="true" name="other" ng-model="devProfileCtrl.dev.otherlang"><label for="other"> Other</label>
+  <input type="checkbox" ng-disabled="true" name="other" ng-model="devDetailCtrl.dev.otherlang"><label for="other"> Other</label>
 
-  <span class="item-label">Types of Programs I Build</span>
-  <input type="checkbox" ng-disabled="true" name="website" ng-model="devProfileCtrl.dev.websitework"><label for="website"> Website</label>
-  <input type="checkbox" ng-disabled="true" name="mobileApp" ng-model="devProfileCtrl.dev.mobileapp"><label for="mobileApp"> Mobile Apps</label>
-  <input type="checkbox" ng-disabled="true" name="webApp" ng-model="devProfileCtrl.dev.webapp"><label for="webApp"> Web App</label>
-  <input type="checkbox" ng-disabled="true" name="other" ng-model="devProfileCtrl.dev.otherwork"><label for="other"> Other</label>
+  <h3 class="item-label">Types of Programs I Build</h3>
+  <input type="checkbox" ng-disabled="true" name="website" ng-model="devDetailCtrl.dev.websitework"><label for="website"> Website</label>
+
+  <input type="checkbox" ng-disabled="true" name="mobileApp" ng-model="devDetailCtrl.dev.mobileapp"><label for="mobileApp"> Mobile Apps</label>
+
+  <input type="checkbox" ng-disabled="true" name="webApp" ng-model="devDetailCtrl.dev.webapp"><label for="webApp"> Web App</label>
+
+  <input type="checkbox" ng-disabled="true" name="other" ng-model="devDetailCtrl.dev.otherwork"><label for="other"> Other</label>
 
 
-  <span class="item-label">Available</span>
-  <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">
+  <h3 class="item-label">Available</h3>
+  <input type="checkbox" name="Available" ng-model="devDetailCtrl.dev.available">
 
 <!-- THE BELOW NEEDS THE SAME NG-IF THAT THE CONTACT ME BUTTON NEEDS -->
   <h4>Where You Can Find Me On the Web</h4>
-  <a href="{{devProfileCtrl.dev.website}}">{{devProfileCtrl.dev.website}}</a>
+  <a href="{{devDetailCtrl.dev.website}}">{{devDetailCtrl.dev.website}}</a>
 
 
 <!-- I'M NOT SURE IF THE CHECK WILL BE IF A TOKEN EXISTS OR IF THE USER HAS/LACKS A PASSWORD...I GUESS WE COULD EVEN CHECK IF THERE'S A USER PROFILE, SO IF USER -->

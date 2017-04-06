@@ -2,7 +2,7 @@
 
 
 <div class="devDiv">
-  <h2> DEV-ITEM.HTML COMPONENT </h2>
+  <!-- <h2> DEV-ITEM.HTML COMPONENT </h2> -->
       <div class="devItem">
         <cl-image public-id="{{ devItemCtrl.dev.picture }}" format="jpg">
             <cl-transformation height="75" width="75" crop="thumb" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
@@ -11,19 +11,19 @@
           <li><h3>Name: {{ devItemCtrl.dev.name }}</h3></li>
           <li><span> {{ devItemCtrl.dev.desc }}</span></li>
           <li><p>Reviews:</p></li>
-          <li><span> {{ devItemCtrl.dev.reviews }}</span></li>
+          <!-- <li><span> {{ devItemCtrl.dev.reviews }}</span></li> -->
         <h2>Languages/skills:</h2>
         <div class="" ng-repeat="service in devItemCtrl.dev.services">
-          <li><p>{{ service }}</p></li>
+          <li>{{ service | capitalizeFilter: devListCtrl.capCheck}}</li>
         </div>
       </ul>
 
-        <span>{{ devItemCtrl.dev.javascript | uppercase }}</span>
-        <span>{{ devItemCtrl.dev.html}}</span>
-        <span>{{ devItemCtrl.dev.angular}}</span>
-        <span>{{ devItemCtrl.dev.react}}</span>
-        <span>{{ devItemCtrl.dev.python}}</span>
-        <span>{{ devItemCtrl.dev.otherlang}}</span>
+      <!-- <span>{{ devItemCtrl.dev.javascript }}</span>
+      <span>{{ devItemCtrl.dev.html}}</span>
+      <span>{{ devItemCtrl.dev.angular}}</span>
+      <span>{{ devItemCtrl.dev.react}}</span>
+      <span>{{ devItemCtrl.dev.python}}</span>
+      <span>{{ devItemCtrl.dev.otherlang}}</span> -->
         <!-- <span> Available: {{ devItemCtrl.dev.available }}</span> -->
         <!-- <span> Available: {{ devItemCtrl.dev.booleanKey }}</span> -->
 
