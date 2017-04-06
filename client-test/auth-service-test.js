@@ -1,6 +1,7 @@
 'use strict';
 
-const angular = require('angular-mocks');
+const angular = require('angular');
+
 
 describe('testing authService', function(){
   // let url = 'http://localhost:3000/api/login';
@@ -9,7 +10,7 @@ describe('testing authService', function(){
     angular.mock.module('DEVolunteer');
     angular.mock.inject((authService, $window, $rootScope, $httpBackend) => {
       this.authService = authService;
-      authService.setToken('testMahToeKin');
+      // authService.setToken('testMahToeKin');
       this.$window = $window;
       this.$rootScope = $rootScope;
       this.$httpBackend = $httpBackend;
@@ -22,13 +23,30 @@ describe('testing authService', function(){
   });
 
 //test authService methods since environment is set up
-  describe('#authService.getToken()', () => {
-    this.authService.token = 'J.R.R. token';
 
-    this.authService.getToken()
-    .then(token => {
-      expect(token).toEqual('J.R.R. token');
+
+//test getToken()
+
+  describe('authService.getToken()', () => {
+    it('should return a token named testy toking', () => {
+      this.$window.localStorage.setItem('token', 'J.R.R. Token');
+
+      this.authService.getToken()
+      .then(token => {
+        expect(token).toEqual('J.R.R. Token');
+      });
+
+      this.$window.localStorage.removeItem('token');
+      this.$rootScope.$apply();
+    });
+
+    it('should return "token not found"', () => {
+      this.authService.getToken()
+      .catch(err => {
+        expect(err.message).toEqual('token not found');
+      });
+
+      this.$rootScope.$apply();
     });
   });
-  this.$rootScope.apply();
 });
