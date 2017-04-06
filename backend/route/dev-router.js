@@ -35,7 +35,7 @@ router.post('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
 //get individual ID
 
 router.get('/api/dev/:id', bearerAuth, (req, res, next) => {
-  if(!req.user.isDev) return next(createError(401, 'please log in as a developer'));
+  if(!req.user) return next(createError(401, 'please log in as a developer'));
   Dev.findById(req.params.id)
   .then(dev => {
     if(!dev) return next(createError(404, 'not found'));

@@ -48,7 +48,7 @@ router.get('/api/npo', bearerAuth, (req, res, next) => {
 router.delete('/api/npo', bearerAuth, (req, res) => {
   Npo.findByIdAndRemove(req.user.id)
   .then(()=> {
-    res.sendStatus(204)
+    res.sendStatus(204);
   })
   .catch(e => {
     console.log(e);
@@ -57,37 +57,13 @@ router.delete('/api/npo', bearerAuth, (req, res) => {
 });
 
 
-router.put('/api/npo/:id', bearerAuth, jsonParser, (req, res, next) => {
-  console.log(req.params)
-  Npo.findById(req.params.id)
-  .catch(err => {
-    Promise.reject(createError(404, 'NPO does not exist'))
-
-  })
+router.put('/api/npo', bearerAuth, jsonParser, (req, res, next) => {
+  return Npo.findOneAndUpdate({username: req.user.username}, req.body, {new: true})
   .then(npo => {
-    return Npo.findOneAndUpdate(req.params.id, req.body, {new: true})
+    res.json(npo);
   })
-  .then(npo => {
-    res.json(npo)
-  })
-  .catch(next)
-  // Npo.findByIdAndUpdate(req.params.id, req.body, {new: true})
-  // .then(npo => {
-  //
-  //
-  // })
-  // .then(user => {
-  //   user.save();
-  //   delete req.body.password;
-  //   console.log(user);
-  //   res.json(user);
-  //   // console.log(user);
-  // })
-  // .catch(e => {
-  //   console.log(e);
-  //   res.json({});
-  // });
-})
+  .catch(next);
+});
 
 // submit form via email logic here:
 // heroku addons:create postmark:10k

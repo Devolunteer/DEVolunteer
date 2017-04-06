@@ -1,12 +1,14 @@
 'use strict';
 
-require('./_home.scss');
+require('./_partners.scss');
 
 
-module.exports = ['$log', '$rootScope', 'devService', 'npoService', 'questService', HomeController];
+module.exports = ['$log', PartnersController];
 
-function HomeController($log, $rootScope, devService, npoService, questService) {
-  $log.debug('In the HomeController');
+function PartnersController($log) {
+  $log.debug('In the partners controller');
+}
+
 
   // THIS WILL NEED TO PULL IN OR HAVE THE INFORMATION FOR THE QUESTIONAIRE TO DISPLAY.
 
@@ -26,5 +28,3 @@ function HomeController($log, $rootScope, devService, npoService, questService) 
   // $rootScope.$on('$locationChangeSuccess', () =>{
   //   this.fetchGalleries();
   // })
-
-}
