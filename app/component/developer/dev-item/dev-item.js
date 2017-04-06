@@ -5,8 +5,8 @@ module.exports = {
   controller: ['$log', '$location', 'devService', 'Cloudinary', devItemController],
   controllerAs: 'devItemCtrl',
   bindings: {
-    dev: '<',
-  },
+    dev: '<'
+  }
 };
 
 function devItemController($log, $location, devService, Cloudinary){
@@ -16,7 +16,9 @@ function devItemController($log, $location, devService, Cloudinary){
   this.showDev = false;
   this.showMsg = false;
 
-
+  this.showLess = function() {
+    this.showDev = false;
+  };
 
 
 
@@ -25,7 +27,7 @@ function devItemController($log, $location, devService, Cloudinary){
     .then(dev => {
       $log.log('this is a dev ', dev);
       this.selectedDev = dev;
-      this.showDev = true
+      this.showDev = true;
       console.log('selectedDev', this.selectedDev);
       console.log('selected Name', this.selectedDev.name);
     })
