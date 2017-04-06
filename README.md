@@ -12,6 +12,19 @@
 ## **Documentation**
 
 ### Back-End
+##### Startup The Servers:
+`mongo` and `node server.js` from the backend directory.
+
+* Some cURL commands you can use:
+
+**SIGNUP**  
+```
+curl -X POST -H "Content-Type: application/json" -d '{"username":"test-username","password":"test-password","email":"test-email"}' http://localhost:3000/signup
+```
+It will return a token back that looks like:
+``
+
+
 ### Front-End
 
 ---
