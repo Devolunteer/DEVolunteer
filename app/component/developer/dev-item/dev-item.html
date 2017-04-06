@@ -4,31 +4,22 @@
 <div class="devDiv">
   <!-- <h2> DEV-ITEM.HTML COMPONENT </h2> -->
       <div class="devItem">
-        <cl-image public-id="{{ devItemCtrl.dev.picture }}" format="jpg">
-            <cl-transformation height="75" width="75" crop="thumb" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
+        <cl-image class="clImage" public-id="{{ devItemCtrl.dev.picture }}" format="jpg">
+            <cl-transformation height="150" width="150" crop="thumb" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
         </cl-image>
-        <ul>
-          <li><h3>Name: {{ devItemCtrl.dev.name }}</h3></li>
-          <li><span> {{ devItemCtrl.dev.desc }}</span></li>
-          <li><p>Reviews:</p></li>
-          <!-- <li><span> {{ devItemCtrl.dev.reviews }}</span></li> -->
-        <h2>Languages/skills:</h2>
-        <div class="" ng-repeat="service in devItemCtrl.dev.services">
-          <li>{{ service | capitalizeFilter: devListCtrl.capCheck}}</li>
+
+        <h3 class="devName">{{ devItemCtrl.dev.name }}</h3>
+        <h3 class="devExp">Years Experience {{ devItemCtrl.dev.experience }}</h3>
+        <h3 class="aboutHead">About Me</h3>
+        <span class="aboutDev"> {{ devItemCtrl.dev.desc }}</span>
+        <h3 class="langHead">Languages/skills:</h3>
+        <ul class="skillsList">
+        <div class="serviceList" ng-repeat="service in devItemCtrl.dev.services">
+          <li class="serviceItem">{{ service | capitalizeFilter: devListCtrl.capCheck}}</li>
         </div>
       </ul>
 
-      <!-- <span>{{ devItemCtrl.dev.javascript }}</span>
-      <span>{{ devItemCtrl.dev.html}}</span>
-      <span>{{ devItemCtrl.dev.angular}}</span>
-      <span>{{ devItemCtrl.dev.react}}</span>
-      <span>{{ devItemCtrl.dev.python}}</span>
-      <span>{{ devItemCtrl.dev.otherlang}}</span> -->
-        <!-- <span> Available: {{ devItemCtrl.dev.available }}</span> -->
-        <!-- <span> Available: {{ devItemCtrl.dev.booleanKey }}</span> -->
-
-
-        <button class="btn btn-bm btn-primary"
+        <button class="viewMore btn btn-bm btn-primary"
         ng-click="devItemCtrl.showDetailView(devItemCtrl.dev)"
         type="button"
         name="ViewMore">View More</button>

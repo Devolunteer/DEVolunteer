@@ -4,7 +4,7 @@ module.exports = function() {
   return function(devs, bool=false) {
     if(bool === true) {
       devs = devs.filter(dev => {
-        return dev.services.includes('mobileApp')
+        return dev.services.includes('mobileapp')
       })
       return devs
     }

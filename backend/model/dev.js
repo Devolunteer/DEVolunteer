@@ -27,6 +27,7 @@ let devSchema = mongoose.Schema({
   mobileapp: {type: Boolean},
   otherwork: {type: Boolean},
   available: {type: Boolean},
+  experience: {type: String},
   reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'reviews'}],
 });
 
