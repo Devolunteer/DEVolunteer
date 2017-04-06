@@ -62,29 +62,12 @@ router.get('/api/dev', bearerAuth, (req, res, next) => {
 });
 
 router.put('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
-
-  Dev.findById(req.user._id)
-  .catch(err => {
-    Promise.reject(createError(404, 'DEV does not exist'))
-
-  })
+  return Dev.findOneAndUpdate({username: req.user.username}, req.body, {new: true})
   .then(dev => {
-    return Dev.findOneAndUpdate(req.user._id, req.body, {new: true})
+    res.json(dev);
   })
-  .then(dev => {
-    res.json(dev)
-  })
-  .catch(next)
+  .catch(next);
 });
-
-  // .then(dev => {
-  //   if(!dev) return next(createError(404, 'Not found'))
-  //   res.json(dev)
-  // })
-//   .catch(err => {
-//     console.log(err)
-//   })
-// })
 
 
 router.delete('/api/dev', bearerAuth, (req, res) => {

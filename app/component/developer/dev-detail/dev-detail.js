@@ -2,7 +2,7 @@ require('./_dev-detail.scss');
 
 module.exports = {
   template: require('./dev-detail.html'),
-  controller: ['$log', '$q', 'devService','userService', DevDetailController],
+  controller: ['$log', '$q', 'devService','userService', 'Cloudinary', DevDetailController],
   controllerAs: 'devDetailCtrl',
 
   bindings: {
@@ -10,7 +10,7 @@ module.exports = {
   },
 };
 
-function DevDetailController($log, $q, devService, userService){
+function DevDetailController($log, $q, devService, userService, Cloudinary){
 
   $log.debug('running galleryUpCtrl');
   this.token = userService.token;

@@ -152,7 +152,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     })
     .catch(err => {
       $log.error(err.message);
-      return $q.reject.err;
+      return $q.reject(err);
     });
   };
 
@@ -179,7 +179,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     })
     .catch(err => {
       $log.error(err.message);
-      return $q.reject.err;
+      return $q.reject(err);
     });
   };
 

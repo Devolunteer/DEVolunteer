@@ -4,15 +4,20 @@
 <div class="devDiv">
   <h2> DEV-ITEM.HTML COMPONENT </h2>
       <div class="devItem">
-        <img ng-src="{{ devItemCtrl.dev.picture }}" alt="No picture yet">
-        <h3>Name: {{ devItemCtrl.dev.name }}</h2>
-        <span> {{ devItemCtrl.dev.desc }}</span>
-        <p>Reviews:</p>
-        <span> {{ devItemCtrl.dev.reviews }}</span>
+        <cl-image public-id="{{ devItemCtrl.dev.picture }}" format="jpg">
+            <cl-transformation height="75" width="75" crop="thumb" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
+        </cl-image>
+        <ul>
+          <li><h3>Name: {{ devItemCtrl.dev.name }}</h3></li>
+          <li><span> {{ devItemCtrl.dev.desc }}</span></li>
+          <li><p>Reviews:</p></li>
+          <li><span> {{ devItemCtrl.dev.reviews }}</span></li>
         <h2>Languages/skills:</h2>
         <div class="" ng-repeat="service in devItemCtrl.dev.services">
-          <p>{{ service }}</p>
+          <li><p>{{ service }}</p></li>
         </div>
+      </ul>
+
         <span>{{ devItemCtrl.dev.javascript | uppercase }}</span>
         <span>{{ devItemCtrl.dev.html}}</span>
         <span>{{ devItemCtrl.dev.angular}}</span>
@@ -22,16 +27,18 @@
         <!-- <span> Available: {{ devItemCtrl.dev.available }}</span> -->
         <!-- <span> Available: {{ devItemCtrl.dev.booleanKey }}</span> -->
 
-        <button class="btn-std"
-        ng-click="devItemCtrl.showDetailView(devItemCtrl.dev); devItemCtrl.showDev = !devItemCtrl.showDev"
+
+        <button class="btn btn-bm btn-primary"
+        ng-click="devItemCtrl.showDetailView(devItemCtrl.dev)"
         type="button"
         name="ViewMore">View More</button>
 
-
       </div>
+
+      <h4 ng-if="devItemCtrl.showMsg">Please log in or Sign up to View Dev</h4>
+
       <dev-detail
       dev="devItemCtrl.selectedDev"
-      ng-if="devItemCtrl.showDev"
-
-      ></dev-detail>
+      ng-if="devItemCtrl.showDev">
+    </dev-detail>
 </div>
