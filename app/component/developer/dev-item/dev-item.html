@@ -30,12 +30,12 @@
       name="ViewMore"
       ng-hide="devItemCtrl.showDev">View More</button>
 
-      </div>
-
-      <h4 ng-if="devItemCtrl.showMsg">Please log in or Sign up to View Dev</h4>
-
       <dev-detail
       dev="devItemCtrl.selectedDev"
       ng-if="devItemCtrl.showDev">
     </dev-detail>
+      </div>
+
+      <h4 ng-if="devItemCtrl.showMsg">Please log in or Sign up to View Dev</h4>
+
 </div>
