@@ -1,12 +1,26 @@
+devListContainer {
+  position: relative;
+}
+
+
 .devFilters {
+  position: absolute;
+  left:0;
   display: inline;
   float: left;
+  margin-left: .5em;
 }
 
-checkbox {
+.checkbox {
+  display: inline-block;
+}
+
+label {
   display: block;
+  margin-left: .2em;
 }
 
-.clearfix {
-  clear: both;
+fieldset {
+  // border-bottom: 1px solid black;
+  margin-top: 2em;
 }

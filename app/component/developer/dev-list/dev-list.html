@@ -1,6 +1,6 @@
 <!-- this is the primary view AFTER a search/questionnaire showing a list of matching developer "teasers" -->
 
-<div class="clearfix">
+<div class=" devListContainer">
   <ul>
     <!-- <h2>Your Search returned {{ devListCtrl.dev.length }} available developers.</h2>
     <h2>Your Search returned {{ (dev.length).length }} available developers.</h2> -->
@@ -13,31 +13,31 @@
     <h3>Filter By:</h3>
     <fieldset>
     <h4>Work Type</h4>
-    <input type="checkbox" ng-model="devListCtrl.websiteCheck" ng-clicked="devListCtrl.websiteCheck === true" name="website"><label for="website"> Website</label>
+    <label for="website"><input class="checkbox" type="checkbox" ng-model="devListCtrl.websiteCheck" ng-clicked="devListCtrl.websiteCheck === true" name="website"> Website</label>
 
-    <input type="checkbox" ng-model="devListCtrl.mobileCheck" ng-clicked="devListCtrl.mobileCheck === true" name="mobile"><label for="mobile"> Mobile App</label>
+    <label for="mobile"><input type="checkbox" ng-model="devListCtrl.mobileCheck" ng-clicked="devListCtrl.mobileCheck === true" name="mobile"> Mobile App</label>
 
-    <input type="checkbox" ng-model="devListCtrl.webAppCheck" ng-clicked="devListCtrl.webAppCheck === true" name="webApp"><label for="webApp"> Web App</label>
+    <label for="webApp"><input type="checkbox" ng-model="devListCtrl.webAppCheck" ng-clicked="devListCtrl.webAppCheck === true" name="webApp"> Web App</label>
 
-    <input type="checkbox" ng-model="devListCtrl.otherWorkCheck" ng-clicked="devListCtrl.otherWorkCheck === true" name="other"><label for="other"> Other</label>
+    <label for="other"><input type="checkbox" ng-model="devListCtrl.otherWorkCheck" ng-clicked="devListCtrl.otherWorkCheck === true" name="other"> Other</label>
   </fieldset>
 
   <fieldset>
     <h4>Languages</h4>
-    <input type="checkbox" ng-model="devListCtrl.jsCheck" ng-checked="devListCtrl.jsCheck === true" name="js"><label for="js"> JavaScript</label>
+    <label for="js"><input type="checkbox" ng-model="devListCtrl.jsCheck" ng-checked="devListCtrl.jsCheck === true" name="js"> JavaScript</label>
 
-    <input type="checkbox" ng-model="devListCtrl.htmlCheck" ng-checked="devListCtrl.htmlCheck === true" name="html"><label for="html"> HTML/CSS</label>
+    <label for="html"><input type="checkbox" ng-model="devListCtrl.htmlCheck" ng-checked="devListCtrl.htmlCheck === true" name="html"> HTML/CSS</label>
 
-    <input type="checkbox" ng-model="devListCtrl.angularCheck" ng-checked="devListCtrl.angularCheck === true" name="angular"><label for="angular"> Angular</label>
+    <label for="angular"><input type="checkbox" ng-model="devListCtrl.angularCheck" ng-checked="devListCtrl.angularCheck === true" name="angular"> Angular</label>
 
-    <input type="checkbox" ng-model="devListCtrl.reactCheck" ng-checked="devListCtrl.reactCheck === true" name="react"><label for="react"> React</label>
+    <label for="react"><input type="checkbox" ng-model="devListCtrl.reactCheck" ng-checked="devListCtrl.reactCheck === true" name="react"> React</label>
 
-    <input type="checkbox" ng-model="devListCtrl.pythonCheck" ng-checked="devListCtrl.pythonCheck === true" name="python"><label for="python"> Python</label>
+    <label for="python"><input type="checkbox" ng-model="devListCtrl.pythonCheck" ng-checked="devListCtrl.pythonCheck === true" name="python"> Python</label>
 
-    <input type="checkbox" ng-model="devListCtrl.unknownCheck" ng-checked="devListCtrl.unknownCheck === true" name="unknown"><label for="unknown"> I don't know (it's ok to not know)</label>
+    <label for="unknown"><input type="checkbox" ng-model="devListCtrl.unknownCheck" ng-checked="devListCtrl.unknownCheck === true" name="unknown"> I don't know (it's ok to not know)</label>
 </fieldset>
 
-<fieldset>
+<!-- <fieldset>
   <h4>Reviews</h4>
   <input type="checkbox" ng-model="devListCtrl.fiveCheck" ng-checked="devListCtrl.fiveCheck === true" name="five"><label for="five"> Five Stars</label>
 
@@ -48,11 +48,11 @@
   <input type="checkbox" ng-model="devListCtrl.twoCheck" ng-checked="devListCtrl.twoCheck === true" name="two"><label for="two"> Two Stars</label>
 
   <input type="checkbox" ng-model="devListCtrl.oneCheck" ng-checked="devListCtrl.oneCheck === true" name="one"><label for="one"> One Star</label>
-</fieldset>
+</fieldset> -->
 
   <fieldset>
     <h4>Available</h4>
-    <input type="checkbox" ng-model="devListCtrl.availCheck" ng-checked="devListCtrl.availCheck === true" name="now"><label for="now" > Available Now</label>
+    <label for="now" ><input type="checkbox" ng-model="devListCtrl.availCheck" ng-checked="devListCtrl.availCheck === true" name="now"> Available Now</label>
   </fieldset>
 
 
