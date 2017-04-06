@@ -7,13 +7,32 @@ function npoService($q, $log, $http, Upload, authService) {
   $log.debug('npoService');
 
   let service = {};
+  service.npoList = [];
+
+
+  service.fetchNpos = function() {
+    let url =`http://localhost:3000/api/npoList`;
+
+    return $http.get(url)
+    .then( res => {
+      $log.log('response = you have dev objects from server to work with');
+      service.npoList = res.data;
+      $log.log(service.npoList, ' = devService.devList');
+      return service.npoList;
+    })
+    .catch( err => {
+      console.log('in the fetchNpos catch');
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
 
 
   service.showDetail = function(npoData){
     // let url = `${__API_URL__}/api/npo/${npo._id}`;
     let config = {
       headers: {
-        Accept: 'application/json',
+        Accept: 'application/json'
       }
     };
     return $http.get(url, config)
@@ -29,7 +48,6 @@ function npoService($q, $log, $http, Upload, authService) {
   };
 
   service.createNpo = function(npo) {
-    console.log('trying to create an npo');
     $log.debug('npoService.createNpo()');
 
     return authService.getToken()
@@ -47,7 +65,6 @@ function npoService($q, $log, $http, Upload, authService) {
     .then(res => {
       $log.log('npo created');
       let npo = res.data;
-      console.log('LOGGING THE npo AFTER A POST');
       console.log(npo);
       return npo;
     })
@@ -78,7 +95,7 @@ function npoService($q, $log, $http, Upload, authService) {
 
   service.updateNpo = function(npo) {
     console.log('trying to UPDATE a npo');
-    $log.debug('npoService.updatenpo()');
+    $log.debug('npoService.updateNpo()');
 
     return authService.getToken()
       .then(token => {
@@ -93,7 +110,6 @@ function npoService($q, $log, $http, Upload, authService) {
         return $http.put(url, npo, config)
         .then(res => {
           let npo = res.data;
-          console.log('HERE IS THE npo AFTER A PUT');
           console.log(npo);
           return npo;
         })
@@ -103,66 +119,22 @@ function npoService($q, $log, $http, Upload, authService) {
         });
       });
   };
-
-  // service.updateGallery = function(galleryID, galleryData) {
-  //   $log.debug('running galleryService.updateGallery()');
-  //
-  //   return authService.getToken()
-  //   .then(token => {
-  //     let url = `${__API_URL__}/api/gallery/${galleryID}`;
-  //     let config = {
-  //       headers: {
-  //         Accept: 'application/json',
-  //         Authorization: `Bearer ${token}`,
-  //         'Content-Type': 'application/json'
-  //       }
-  //     }
-  //     return $http.put(url, galleryData, config);
-  //   })
-  //   .then(res => {
-  //     for(let i=0; i<service.galleries.length; i++) {
-  //       let current = service.galleries[i];
-  //       if(current._id === galleryID) {
-  //         service.galleries[i] = res.data;
-  //         break;
-  //       };
-  //     };
-  //     return res.data;
-  //   })
-  //   .catch(err => {
-  //     $log.error(err.message);
-  //     return $q.reject(err);
-  //   });
-  // };
-
-  // service.deleteGallery = function(galleryID){
-  //   $log.debug('running galleryService.updateGallery()/delete')
-  //     return authService.getToken()
-  //     .then(token => {
-  //       let url = `${__API_URL__}/api/gallery/${galleryID}`;
-  //       let config = {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`
-  //         }
-  //       };
-  //       return $http.delete(url, config);
-  //     })
-  //     .then(res => {
-  //       for(let i = 0; i < service.galleries.length; i++) {
-  //         let current = service.galleries[i];
-  //         if(current._id === galleryID) {
-  //           service.galleries.splice(i, 1);
-  //           break;
-  //         };
-  //       };
-  //     })
-  //     .catch(err => {
-  //       $log.error(err.message);
-  //       return $q.reject(err);
-  //     });
-  //   };
-
-
+  service.uploadPic = function(file) {
+    return Upload.upload({
+      url: `https://api.cloudinary.com/v1_1/dy7kdxxqe/image/upload`,
+      data: {
+        upload_preset:'Devolunteer',
+        file: file
+      }
+    })
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      console.error(err);
+      return $q.reject(err);
+    });
+  };
 
   return service;
 }

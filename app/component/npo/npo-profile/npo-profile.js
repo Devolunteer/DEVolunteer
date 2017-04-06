@@ -22,11 +22,20 @@ function NpoProfileController($log, $location, npoService, userService) {
   })
   .catch(console.log);
 
-
+  //this will run every time
   npoService.fetchNpo()
   .then(res => {
     if (res) {
       this.isNewUser = false;
+      this.npo.org = res.data.org;
+      this.npo.website = res.data.website;
+      this.npo.city = res.data.city;
+      this.npo.state = res.data.state;
+      this.npo.phone = res.data.phone;
+      this.npo.email = res.data.email;
+      this.npo.picture = res.data.picture;
+      this.npo.projects = res.data.projects;
+      this.npo.reviews = res.data.reviews;
     }
     else {
       this.isNewUser = true;
@@ -50,4 +59,15 @@ function NpoProfileController($log, $location, npoService, userService) {
     }
     //This is where I will put the is new user logic
   };
+
+  this.uploadPic = function(file) {
+    npoService.uploadPic(file)
+    .then(picData => {
+      this.npo.picture = picData.public_id;
+    })
+    .catch(err => {
+      console.error(err);
+    });
+  };
+
 }

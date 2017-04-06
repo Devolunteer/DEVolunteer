@@ -11,11 +11,11 @@ function routerConfig($stateProvider, $urlRouterProvider) {
 
   let states = [
     {
-      name: 'home',
-      url: '/home',
-      template: require('../view/home/home.html'),
-      controller: 'HomeController',
-      controllerAs: 'homeCtrl'
+      name: 'partners',
+      url: '/partners',
+      template: require('../view/partners/partners.html'),
+      controller: 'PartnersController',
+      controllerAs: 'partnersCtrl'
     },
     {
       name: 'landing',
