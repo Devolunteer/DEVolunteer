@@ -26,6 +26,8 @@ function DevDetailController($log, $q, devService, userService, Cloudinary){
   }
   //
   // this.averageReviews = function(){
+  // let sum = 0;
+  // for(var r = 0; r < )
   //   //math here for reviews
   // }
 

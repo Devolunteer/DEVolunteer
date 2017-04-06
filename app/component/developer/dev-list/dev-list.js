@@ -26,11 +26,13 @@ function devListController($log, devService) {
     this.dev.forEach(function(dev){
       dev.services = [];
       for(let key in dev){
+      // let key = key.charAt(0).toUpperCase() + key.slice(1);
         if(dev[key] === true){
-          dev.services.push(key)
+          // console.log(key);
+          dev.services.push(key);
         }
       }
-    })
+    });
 
     $log.log('response (developers) is saved on .dev property');
     console.log('length', this.dev.length);
@@ -38,11 +40,6 @@ function devListController($log, devService) {
   .catch(e => {
     console.log(e);
   });
-
-
-
-
-
 
 
 //end of the controller

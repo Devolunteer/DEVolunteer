@@ -11,10 +11,10 @@
           <li><h3>Name: {{ devItemCtrl.dev.name }}</h3></li>
           <li><span> {{ devItemCtrl.dev.desc }}</span></li>
           <li><p>Reviews:</p></li>
-          <li><span> {{ devItemCtrl.dev.reviews }}</span></li>
+          <!-- <li><span> {{ devItemCtrl.dev.reviews }}</span></li> -->
         <h2>Languages/skills:</h2>
         <div class="" ng-repeat="service in devItemCtrl.dev.services">
-          <li><p>{{ service }}</p></li>
+          <li>{{ service | capitalizeFilter: devListCtrl.capCheck}}</li>
         </div>
       </ul>
 
