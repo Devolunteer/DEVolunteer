@@ -1,4 +1,62 @@
 .devItem {
   border: 1px solid black;
-  margin: 5%
+  // margin: %;
+  float: right;
+  width: 80%;
+  margin-bottom: 2em;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
+
+.devItem:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.devName {
+  position: absolute;
+  left: 200px;
+  top: 30px;
+}
+
+.devExp {
+  position: absolute;
+  left: 200px;
+  top: 70px;
+}
+
+.aboutHead, .langHead {
+  margin-left: 1em;
+}
+
+.aboutDev {
+  width: 95%;
+  text-decoration: none;
+}
+
+.clImage {
+  position: relative;
+  height: 10em;
+  width: 10em;
+  margin-left: 2em;
+  margin-top: .5em;
+}
+
+.langHead {
+  margin-top: 3.5em;
+}
+
+.skillsList {
+  text-decoration: none;
+  column-count: 3;
+}
+
+.serviceItem {
+  display: inline-block;
+}
+
+.viewMore {
+  margin-bottom: 1em;
 }
