@@ -9,6 +9,7 @@ module.exports = {
   }
 };
 
+
 function NpoProfileController($log, $location, npoService, userService, authService) {
   $log.debug('running npoProfileController');
 
@@ -66,15 +67,15 @@ function NpoProfileController($log, $location, npoService, userService, authServ
   this.deleteMe= function() {
     if(npoService.checkNpo(this.npo)) {
       Promise.all([npoService.deleteNpo(), userService.deleteUser()])
-      .then(() => authService.logout())
       .then(() => $location.url('/'))
+      .then(() => authService.logout())
       .catch(err => {
         console.error(err);
       });
     } else  {
       userService.deleteUser()
+      .then(() => $location.url('/'))
         .then(() => authService.logout())
-        .then(() => $location.url('/'))
         .catch(err => {
           console.error(err);
         });

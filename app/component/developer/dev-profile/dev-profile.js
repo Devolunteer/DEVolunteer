@@ -79,15 +79,15 @@ function DevProfileController($log, $location, authService, devService, userServ
   this.deleteMe= function() {
     if(devService.checkDev(this.dev)) {
       Promise.all([devService.deleteDev(), userService.deleteUser()])
-      .then(() => authService.logout())
       .then(() => $location.url('/'))
+      .then(() => authService.logout())
       .catch(err => {
         console.error(err);
       });
     } else  {
       userService.deleteUser()
+      .then(() => $location.url('/'))
         .then(() => authService.logout())
-        .then(() => $location.url('/'))
         .catch(err => {
           console.error(err);
         });
