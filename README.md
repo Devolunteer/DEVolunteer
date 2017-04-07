@@ -9,6 +9,10 @@
 
 - **As a nonprofit**, you can find the right developer to fit your software needs. You will have the capability to browse and filter through developer profiles until you have found the person that is right for your mission.
 
+## The Layout
+#### The Schemas:
+![userschema](https://cloud.githubusercontent.com/assets/18372172/24781591/8f250f02-1af5-11e7-9161-ec222dad709f.png)
+
 ## **Documentation**
 
 ### Back-End
