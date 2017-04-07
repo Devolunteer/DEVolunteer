@@ -1,9 +1,5 @@
 @import "../../scss/lib/theme/vars";
 
-// body {
-//   background-image: url('../../assets/img/stock/help-images-free.jpg')
-// }
-
 .drop-down-menu {
   margin-top: $gutter-std;
 
@@ -28,3 +24,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+// ng-style="{'background-image':'url(/static/'+imgURL+')'}"  possibly add this to the background tag in html.
+
+// .landing {
+//   position: relative;
+//   background: url('../assets/img/stock/holdingHands.png') no-repeat fixed;
+//   background-size: 100%;
+//   margin-bottom: 5%;
+//   color: white;
+//   width: auto;
+// }
