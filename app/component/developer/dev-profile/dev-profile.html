@@ -113,28 +113,13 @@
       </fieldset>
 
 
-      <!-- <fieldset>
-        <label for="Website">Website</label>
-        <input  class="form-control" type="text" name="Website" ng-model="devProfileCtrl.dev.website">
-      </fieldset> -->
-
-      <!-- <fieldset>
-        <label for="Available">
-        <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">Available</label>
-      </fieldset> -->
-
-      <!-- <label for="Description">Description</label>
-      <textarea  class=" descriptionText form-control" rows="4" cols="100" name="Description" ng-model="devProfileCtrl.dev.desc"></textarea> -->
-
-
-
       <!-- This is for a brand new Dev -->
-      <button type="submit" class="btn-std" ng-hide="devProfileCtrl.isNewUser">Update Profile</button>
+      <button type="submit" class="saveDevProfile btn-primary" ng-hide="devProfileCtrl.isNewUser">Update Profile</button>
 
       <!-- This is for a Dev who does not exist yet   -->
-      <button type="submit" class="btn-std" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
+      <button type="submit" class="saveDevProfile btn-primary" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
 
-      <button tye="button" class="btn-std" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button>
+      <button tye="button" class="deleteDevProfile" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button>
   </form>
 
 
