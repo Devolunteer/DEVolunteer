@@ -29,9 +29,10 @@ module.exports = {
 
 function AboutUsController($log) {
   $log.debug('AboutUs Controller');
+  console.log('About Us Controller');
 
-  this.$onInit = function() {
-    this.imgURI = require('../../assets/img/coders/me.png');
-    console.log(this.imgURI);
-  }
+  // this.$onInit = function() {
+  //   this.imgURI = require('../../assets/img/coders/me.png');
+  //   console.log(this.imgURI);
+  // };
 }
