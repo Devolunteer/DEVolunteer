@@ -3,7 +3,7 @@
   // margin: %;
   float: right;
   width: 80%;
-  margin-bottom: 2em;
+  margin-bottom: 2%;
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -17,14 +17,14 @@
 
 .devName {
   position: absolute;
-  left: 200px;
-  top: 30px;
+  left: 202px;
+  top: 12px;
 }
 
 .detailCity {
   position: absolute;
-  left: 200px;
-  top: 75px
+  left: 202px;
+  top: 58px;
 }
 
 .devEmail {
@@ -36,16 +36,16 @@
 
 .devExp {
   position: absolute;
-  left: 200px;
-  top: 105px;
+  left: 202px;
+  top: 90px;
 }
 
 .aboutHead, .langHead {
-  margin-left: 1em;
+  margin-left: 2%;
 }
 
 .aboutDev {
-  margin-left: 2em;
+  margin-left: 2%;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
@@ -56,14 +56,14 @@
 
 .clImage {
   position: relative;
-  height: 10em;
-  width: 10em;
-  margin-left: 2em;
-  margin-top: .5em;
+  height: 10%;
+  width: 12%;
+  margin-left: 2%;
+  margin-top: 1%;
 }
 
 .langHead {
-  margin-top: .5em;
+  margin-top: 1.5%;
 }
 
 .skillsList {
@@ -76,5 +76,5 @@
 }
 
 .viewMore {
-  margin-bottom: 1em;
+  margin-bottom: 1%;
 }

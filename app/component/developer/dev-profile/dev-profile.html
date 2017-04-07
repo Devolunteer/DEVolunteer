@@ -6,14 +6,6 @@
 
   <form class="dev-profile" name="devProfile" ng-submit="devProfileCtrl.updateProfile(devProfileCtrl.dev)" no-validate>
 
-      <!-- This is for a brand new Dev -->
-      <!-- <button type="submit" class="btn-std" ng-hide="devProfileCtrl.isNewUser">Update Profile</button> -->
-
-      <!-- This is for a Dev who does not exist yet   -->
-      <!-- <button type="submit" class="btn-std" ng-show="devProfileCtrl.isNewUser">Save Changes</button> -->
-
-    <!-- <button tye="button" class="btn-std" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button> -->
-
       <h2>Username: {{ devProfileCtrl.dev.username }} </h2>
 
       <cl-image class="devProfileImage" public-id="{{ devProfileCtrl.dev.picture }}" format="jpg">
@@ -119,7 +111,7 @@
       <!-- This is for a Dev who does not exist yet   -->
       <button type="submit" class="saveDevProfile btn-primary" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
 
-      <button tye="button" class="deleteDevProfile" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button>
+      <button type="button" class="deleteDevProfile" ng-click="devProfileCtrl.deleteUser()">Delete Profile</button>
   </form>
 
 

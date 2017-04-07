@@ -4,14 +4,14 @@
 
     <form class="edit-profile" name="editProfile" ng-submit="npoProfileCtrl.updateProfile(npoProfileCtrl.npo)" no-validate>
 
-      <h2>Username: {{ npoProfileCtrl.npo.username }} </h2>
+      <h2 class="npoUsername">Username: {{ npoProfileCtrl.npo.username }} </h2>
 
       <cl-image class="npoProfileImage" public-id="{{ npoProfileCtrl.npo.picture }}" format="jpg">
           <cl-transformation height="200" width="200" crop="thumb" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
       </cl-image>
 
       <br />
-      <fieldset>
+      <fieldset class="uploadPicBtn">
         <div class="btn btn-primary" ng-model="npoProfileCtrl.npo.picture" ngf-select="npoProfileCtrl.uploadPic($file)">Upload New Picture</div>
       </fieldset>
       <br />
@@ -74,7 +74,7 @@
       <button type="submit" class="saveNpoProfile btn-primary" ng-hide="npoProfileCtrl.isNewUser">Update Profile</button>
 
       <!-- This is for a Dev who does not exist yet   -->
-      <button type="submit" class="btn-std" ng-show="npoProfileCtrl.isNewUser">Save Changes</button>
+      <button type="submit" class="btn-primary" ng-show="npoProfileCtrl.isNewUser">Save Changes</button>
     </form>
   </section>
 </div>
