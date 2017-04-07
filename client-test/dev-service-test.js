@@ -47,9 +47,51 @@ describe('setting up devService environment', function() {
         available: true,
       });
 
+
       this.devService.createDev(testDev);
+
+      expect(testDev.username).toBe('Testacular');
+      expect(testDev.desc).toBe('test desc');
+      expect(testDev.city).toBe('test city');
+      expect(testDev.state).toBe('test state');
+      expect(testDev.phone).toBe('123-456-7891');
+      expect(testDev.available).toBe(true);
+
       this.$httpBackend.flush();
       this.$rootScope.$apply();
+    });
+  });
+
+//fetchDevs is an unauthed route. do not pass in authentication
+  describe('#devService.fetchDevs', () => {
+    it('should return a devList', () => {
+
+      this.$httpBackend.expectGET('http://localhost:3000/api/devList').respond(200);
+
+      this.devService.fetchDevs();
+
+      expect(Array.isArray(this.devService.devList)).toBe(true);
+
+      this.$httpBackend.flush();
+      this.$rootScope.$apply();
+    });
+  });
+
+  describe('#devService.fetchDev', () => {
+    it('should return status code 200', () => {
+
+      let headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${this.testToken}`
+      };
+
+      this.$httpBackend.expectGET('http://localhost:3000/api/dev', headers).respond(200);
+
+      this.devService.fetchDev();
+      this.$rootScope.$apply();
+
+
     });
   });
 });
