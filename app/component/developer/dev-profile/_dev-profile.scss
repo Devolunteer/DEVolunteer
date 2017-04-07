@@ -8,8 +8,8 @@
 
 .available {
   position: absolute;
-  right: 3.688em;
-  bottom: 31.125em;
+  right: 3%;
+  bottom: 85%;
 }
 
 .form-control {
@@ -18,40 +18,40 @@
 
 .devProfileLang,  {
   column-count: 2;
-  width: 30em;
+  width: 140%;
   padding-left: 0px;
 }
 
 .devProfileImage {
-  margin-top: 2em;
+  margin-top: 2%;
 }
 
 .firstDemographics {
-  position: relative;
-  margin-bottom: 3em;
+  margin-bottom: 3%;
 }
 
 .secondDemographics {
   position: absolute;
-  left: 22.375em;
-  bottom: 13.125em;
+  left: 20%;
+  bottom: 35%;
 }
 
 .languages {
   position: absolute;
-  left: 47em;
-  top: 38.125em;
+  left: 45.5%;
+  top: 120%;
 }
 
 .services {
   position: absolute;
-  right: 48.629em;
-  top: 48.438em;
+  right: 47%;
+  top: 153%;
 }
 
 
 .descriptionText {
   display: inline-block;
+  resize: none;
 }
 
 .saveDevProfile {
@@ -72,12 +72,12 @@
   font-size: 2rem;
   border-radius: .75rem;
   transition: all .2s ease-in-out;
-  right: 3em;
+  right: 3%;
 }
 
 .deleteDevProfile {
   position: absolute;
-  right: 17em;
+  right: 23%;
   background-color: #d9534f;
   display: inline-block;
   font-weight: 400;

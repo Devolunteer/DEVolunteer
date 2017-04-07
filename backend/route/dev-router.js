@@ -71,12 +71,9 @@ router.put('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
 
 
 router.delete('/api/dev', bearerAuth, (req, res) => {
-  Dev.findByIdAndRemove(req.user.id)
-  .then(()=> {
-    res.sendStatus(204);
-  })
-  .catch(e => {
-    console.log(e);
-    res.json({}); //or err.message?
+  Dev.findOneAndRemove({username: req.user.username}).exec()
+  .then(() => res.status(204).end())
+  .catch(err => {
+    console.error(err);
   });
 });
