@@ -1,6 +1,4 @@
 <!-- this is the NPO profile view. this page will allow edits  -->
-
-
 <div class="npoDetails">
   <section class="edit">
 
@@ -8,7 +6,7 @@
 
       <h2>Username: {{ npoProfileCtrl.npo.username }} </h2>
 
-      <cl-image public-id="{{ npoProfileCtrl.npo.picture }}" format="jpg">
+      <cl-image class="npoProfileImage" public-id="{{ npoProfileCtrl.npo.picture }}" format="jpg">
           <cl-transformation height="200" width="200" crop="thumb" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
       </cl-image>
 
@@ -18,52 +16,62 @@
       </fieldset>
       <br />
 
-      <fieldset>
-        <span class="item-label">Organization Name</span>
-        <input type="text" name="Name" ng-model="npoProfileCtrl.npo.org">
-      </fieldset>
 
-      <fieldset>
-        <span class="item-label">Website</span>
-        <input type="text" name="Website" ng-model="npoProfileCtrl.npo.website">
-      </fieldset>
 
-      <fieldset>
-        <span class="item-label">City</span>
-        <input type="text" name="City" ng-model="npoProfileCtrl.npo.city">
-      </fieldset>
+      <div class="allNpoProfile">
+        <ul class="firstNpoDemographics">
+          <fieldset>
+            <label for="Name">Organization Name</label>
+            <input class="form-control" type="text" name="Name" ng-model="npoProfileCtrl.npo.org">
+          </fieldset>
 
-      <fieldset>
-        <span class="item-label">State</span>
-        <input type="text" name="State" ng-model="npoProfileCtrl.npo.state">
-      </fieldset>
+          <fieldset>
+            <label for="Website">Website</label>
+            <input class="form-control" type="text" name="Website" ng-model="npoProfileCtrl.npo.website">
+          </fieldset>
 
-      <fieldset>
-        <span class="item-label">Phone</span>
-        <input type="tel" name="Phone" ng-model="npoProfileCtrl.npo.phone">
-      </fieldset>
+          <fieldset>
+            <label for="City">City</label>
+            <input class="form-control" type="text" name="City" ng-model="npoProfileCtrl.npo.city">
+          </fieldset>
 
-      <fieldset>
-        <span class="item-label">Email</span>
-        <input type="text" name="Email" ng-model="npoProfileCtrl.npo.email">
-      </fieldset>
+          <fieldset>
+            <label for="State">State</label>
+            <input class="form-control" type="text" name="State" ng-model="npoProfileCtrl.npo.state">
+          </fieldset>
+        </ul>
 
-      <fieldset>
-        <span class="item-label">Projects</span>
-        <input type="text" name="Projects" ng-model="npoProfileCtrl.npo.projects">
-      </fieldset>
+        <ul class="secondNpoDemographics">
+          <fieldset>
+            <label for="Phone">Phone</label>
+            <input class="form-control" type="tel" name="Phone" ng-model="npoProfileCtrl.npo.phone">
+          </fieldset>
 
-      <fieldset>
+          <fieldset>
+            <label for="Email">Email</label>
+            <input class="form-control" type="text" name="Email" ng-model="npoProfileCtrl.npo.email">
+          </fieldset>
+
+          <fieldset>
+            <label for="Projects">Projects</label>
+            <input class="form-control" type="text" name="Projects" ng-model="npoProfileCtrl.npo.projects">
+          </fieldset>
+        </ul>
+      </div>
+
+      <!-- <fieldset>
         <span class="item-label">Reviews</span>
         <input type="text" name="Reviews" ng-model="npoProfileCtrl.npo.reviews">
-      </fieldset>
+      </fieldset> -->
 
-      <fieldset>
+      <!-- <fieldset>
         <span class="item-label">Developers</span>
         <input type="text" name="Developers" ng-model="npoProfileCtrl.npo.developers">
-      </fieldset>
+      </fieldset> -->
+
+
       <!-- This is for a brand new Dev -->
-      <button type="submit" class="btn-std" ng-hide="npoProfileCtrl.isNewUser">Update Profile</button>
+      <button type="submit" class="saveNpoProfile btn-primary" ng-hide="npoProfileCtrl.isNewUser">Update Profile</button>
 
       <!-- This is for a Dev who does not exist yet   -->
       <button type="submit" class="btn-std" ng-show="npoProfileCtrl.isNewUser">Save Changes</button>
