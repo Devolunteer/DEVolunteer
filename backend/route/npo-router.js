@@ -46,14 +46,11 @@ router.get('/api/npo', bearerAuth, (req, res, next) => {
 });
 
 router.delete('/api/npo', bearerAuth, (req, res) => {
-  Npo.findByIdAndRemove(req.user.id)
-  .then(()=> {
-    res.sendStatus(204);
-  })
-  .catch(e => {
-    console.log(e);
-    res.json({}); //or err.message?
-  });
+  Npo.findOneAndRemove({username: req.user.username}).exec()
+    .then(() => res.status(204).end())
+    .catch(err => {
+      console.error(err);
+    });
 });
 
 
