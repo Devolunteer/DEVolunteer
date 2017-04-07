@@ -1,10 +1,23 @@
+@import "../../../scss/lib/theme/_vars";
+
 a:visited, a:focus, a:hover {
   text-decoration: none;
 }
 
-.signup-form {
-  display: block;
-  border: 2vw solid black;
-  border-radius: 1vw 1vw 1vw 1vw;
-  // justify-content: around;
+.signup {
+  .input-std {
+    margin-bottom: $gutter-sm;
+  }
+
+  button {
+    float: right;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
+  }
+}
+
+input {
+  padding: 1% 5%;
+  font-size: 2vw;
+  border: none;
 }

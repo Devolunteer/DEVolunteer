@@ -1,4 +1,21 @@
+@import "../../../scss/lib/theme/_vars";
 .login-form {
-  display: flex;
-  justify-content: around;
+    .input-std {
+      margin-bottom: $gutter-sm;
+    }
+
+    button {
+      float: right;
+      padding-top: 1.5vw;
+      padding-bottom: 1.5vw;
+    }
+
+
 }
+
+input {
+  margin-bottom: $gutter-sm;
+}
+// input {
+//   color: black;
+// }
