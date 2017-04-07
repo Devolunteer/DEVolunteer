@@ -75,19 +75,25 @@ function DevProfileController($log, $location, authService, devService, userServ
     //This is where I will put the is new user logic
   };
 
-  this.deleteUser= function() {
-    userService.deleteUser()
-    .then(() => authService.logout())
-    .then(()=> {
-      $location.url('/');
-      delete this.dev;
-    })
-    .then(() => {
-    })
-    .catch(err => {
-      console.error(err);
-    });
+
+  this.deleteMe= function() {
+    if(devService.checkDev(this.dev)) {
+      Promise.all([devService.deleteDev(), userService.deleteUser()])
+      .then(() => authService.logout())
+      .then(() => $location.url('/'))
+      .catch(err => {
+        console.error(err);
+      });
+    } else  {
+      userService.deleteUser()
+        .then(() => authService.logout())
+        .then(() => $location.url('/'))
+        .catch(err => {
+          console.error(err);
+        });
+    }
   };
+
 
   this.uploadPic = function(file) {
     devService.uploadPic(file)

@@ -27,6 +27,14 @@ function npoService($q, $log, $http, Upload, authService) {
     });
   };
 
+  service.checkNpo = function(npo) {
+    if(npo) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
 
   service.showDetail = function(npoData){
     // let url = `${__API_URL__}/api/npo/${npo._id}`;
@@ -132,6 +140,26 @@ function npoService($q, $log, $http, Upload, authService) {
     })
     .catch(err => {
       console.error(err);
+      return $q.reject(err);
+    });
+  };
+
+  service.deleteNpo = function() {
+    console.log('trying to DELETE a npo');
+    $log.debug('npoService.deleteNpo()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/npo/`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config);
+    })
+    .catch(err => {
+      console.log(err);
       return $q.reject(err);
     });
   };
