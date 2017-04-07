@@ -1,3 +1,5 @@
+require('./_npo-profile.scss');
+
 module.exports = {
   template: require('./npo-profile.html'),
   controller: ['$log', '$location', 'npoService', 'userService', NpoProfileController],
@@ -36,6 +38,7 @@ function NpoProfileController($log, $location, npoService, userService) {
       this.npo.picture = res.data.picture;
       this.npo.projects = res.data.projects;
       this.npo.reviews = res.data.reviews;
+      console.log('pic', this.npo.picture);
     }
     else {
       this.isNewUser = true;

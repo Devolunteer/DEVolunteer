@@ -21,10 +21,23 @@
   top: 30px;
 }
 
+.detailCity {
+  position: absolute;
+  left: 200px;
+  top: 75px
+}
+
+.devEmail {
+  position: absolute;
+  left: 700px;
+  top: 0px;
+}
+
+
 .devExp {
   position: absolute;
   left: 200px;
-  top: 70px;
+  top: 105px;
 }
 
 .aboutHead, .langHead {
@@ -32,8 +45,13 @@
 }
 
 .aboutDev {
-  width: 95%;
+  margin-left: 2em;
   text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100ch;
+  float: none;
 }
 
 .clImage {
@@ -45,7 +63,7 @@
 }
 
 .langHead {
-  margin-top: 3.5em;
+  margin-top: .5em;
 }
 
 .skillsList {

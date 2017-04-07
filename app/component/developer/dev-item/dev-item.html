@@ -7,9 +7,10 @@
         <cl-image class="clImage" public-id="{{ devItemCtrl.dev.picture }}" format="jpg">
             <cl-transformation height="150" width="150" crop="crop" background="#F5F5F5" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
         </cl-image>
-
+        <h4 class="devEmail">Contact Me: <a href="mailto: {{devItemCtrl.dev.email}}">{{ devItemCtrl.dev.email }}</a></h4>
         <h3 class="devName">{{ devItemCtrl.dev.name }}</h3>
-        <h3 class="devExp">Years Experience {{ devItemCtrl.dev.experience }}</h3>
+        <h4 class="detailCity">{{ devItemCtrl.dev.city }}, {{ devItemCtrl.dev.state }} {{ devItemCtrl.dev.zip }}</h4>
+        <h4 class="devExp">{{ devItemCtrl.dev.experience }} Years Experience </h4>
         <h3 class="aboutHead">About Me</h3>
         <span class="aboutDev"> {{ devItemCtrl.dev.desc }}</span>
         <h3 class="langHead">Languages/skills:</h3>

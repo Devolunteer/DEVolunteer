@@ -1,3 +1,5 @@
+require('./_dev-profile.scss');
+
 module.exports = {
   template: require('./dev-profile.html'),
   controller: ['$log', '$location', 'authService', 'devService', 'userService', 'Cloudinary', DevProfileController],

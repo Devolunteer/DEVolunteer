@@ -6,13 +6,11 @@
   <!-- <h2> DEV-DETAIL.HTML COMPONENT</h2> -->
   <!-- <p><h3>{{devDetailCtrl.dev}}</h3></p> -->
 
-  <h3 class="detailName">{{ devDetailCtrl.dev.name }}</h3>
-  <h5 class="detailCity">{{ devDetailCtrl.dev.city }}</h5>
-  <h5 class="detailState">{{ devDetailCtrl.dev.state }}</h5>
-  <h5 class="detailZip">{{ devDetailCtrl.dev.zip }}</h5>
+  <!-- <h3 class="detailName">{{ devDetailCtrl.dev.name }}</h3> -->
+  <!-- <h5 class="detailCity">{{ devDetailCtrl.dev.city }}, {{ devDetailCtrl.dev.state }} {{ devDetailCtrl.dev.zip }}</h5> -->
 
-  <h3 class="aboutHead">About Me</h3>
-  <span class="aboutDev"> {{ devDetailCtrl.dev.desc }}</span>
+  <h3 class="aboutDetailHead">About Me</h3>
+  <span class="aboutDetailDev"> {{ devDetailCtrl.dev.desc }}</span>
 
   <!-- <h4>Rate Me!</h4>
   <form ng-submit="devDetailCtrl.addDevRating(devDetailCtrl.rating)" class="" novalidate>
@@ -26,34 +24,40 @@
   <!-- </form> -->
 
 
-  <h3 class="item-label">Languages I Know</h3>
-  <label for="JavaScript"><input type="checkbox" ng-disabled="true" name="JavaScript" ng-model="devDetailCtrl.dev.javascript">JavaScript</label>
+  <h3 class="langDetailHead item-label">Languages I Know</h3>
+  <ul class="langList">
+    <label for="JavaScript"><input type="checkbox" ng-disabled="true" name="JavaScript" ng-model="devDetailCtrl.dev.javascript">JavaScript</label>
 
-  <label for="html"><input type="checkbox" ng-disabled="true" name="html" ng-model="devDetailCtrl.dev.html"> HTML/CSS</label>
+    <label for="html"><input type="checkbox" ng-disabled="true" name="html" ng-model="devDetailCtrl.dev.html"> HTML/CSS</label>
 
-  <label for="Angular"><input type="checkbox" ng-disabled="true" name="Angular" ng-model="devDetailCtrl.dev.angular"> Angular</label>
+    <label for="Angular"><input type="checkbox" ng-disabled="true" name="Angular" ng-model="devDetailCtrl.dev.angular"> Angular</label>
 
-  <label for="React"><input type="checkbox" ng-disabled="true" name="React" ng-model="devDetailCtrl.dev.react"> React</label>
+    <label for="React"><input type="checkbox" ng-disabled="true" name="React" ng-model="devDetailCtrl.dev.react"> React</label>
 
-  <label for="Python"><input type="checkbox" ng-disabled="true" name="Python" ng-model="devDetailCtrl.dev.python"> Python</label>
+    <label for="Python"><input type="checkbox" ng-disabled="true" name="Python" ng-model="devDetailCtrl.dev.python"> Python</label>
 
-  <label for="other"><input type="checkbox" ng-disabled="true" name="other" ng-model="devDetailCtrl.dev.otherlang"> Other</label>
+    <label for="other"><input type="checkbox" ng-disabled="true" name="other" ng-model="devDetailCtrl.dev.otherlang"> Other</label>
 
-  <h3 class="item-label">Types of Programs I Build</h3>
-  <label for="website"><input type="checkbox" ng-disabled="true" name="website" ng-model="devDetailCtrl.dev.websitework"> Website</label>
-
-  <label for="mobileApp"><input type="checkbox" ng-disabled="true" name="mobileApp" ng-model="devDetailCtrl.dev.mobileapp"> Mobile Apps</label>
-
-  <label for="webApp"><input type="checkbox" ng-disabled="true" name="webApp" ng-model="devDetailCtrl.dev.webapp"> Web App</label>
-
-  <label for="other"><input type="checkbox" ng-disabled="true" name="other" ng-model="devDetailCtrl.dev.otherwork"> Other</label>
+  </ul>
 
 
-  <h3 class="item-label">Available</h3>
-  <input type="checkbox" name="Available" ng-model="devDetailCtrl.dev.available">
+  <h3 class="programsDetailHead item-label">Types of Programs I Build</h3>
+  <ul class="programsList">
+    <label for="website"><input type="checkbox" ng-disabled="true" name="website" ng-model="devDetailCtrl.dev.websitework"> Website</label>
 
-  <h4>Where You Can Find Me On the Web</h4>
-  <a href="{{devDetailCtrl.dev.website}}">{{devDetailCtrl.dev.website}}</a>
+    <label for="mobileApp"><input type="checkbox" ng-disabled="true" name="mobileApp" ng-model="devDetailCtrl.dev.mobileapp"> Mobile Apps</label>
+
+    <label for="webApp"><input type="checkbox" ng-disabled="true" name="webApp" ng-model="devDetailCtrl.dev.webapp"> Web App</label>
+
+    <label for="other"><input type="checkbox" ng-disabled="true" name="other" ng-model="devDetailCtrl.dev.otherwork"> Other</label>
+  </ul>
+
+
+  <!-- <h3 class="item-label">Available</h3>
+  <input type="checkbox" name="Available" ng-model="devDetailCtrl.dev.available"> -->
+
+  <h4 class="webDetailHead">Where You Can Find Me On the Web</h4>
+  <a class="webDetailLink" href="{{devDetailCtrl.dev.website}}">{{devDetailCtrl.dev.website}}</a>
 
 
   <!-- <button ng-if="devDetailCtrl.userAuthenticated" type="button" name="button" ng-click="SOMETHING">Contact Me</button> -->
