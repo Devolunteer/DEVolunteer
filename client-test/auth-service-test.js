@@ -28,7 +28,7 @@ describe('testing authService', function(){
 //test getToken()
 
   describe('authService.getToken()', () => {
-    it('should return a token named testy toking', () => {
+    it('should return a token named J.R.R. Token', () => {
       this.$window.localStorage.setItem('token', 'J.R.R. Token');
 
       this.authService.getToken()
