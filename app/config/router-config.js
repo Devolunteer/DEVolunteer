@@ -3,19 +3,19 @@
 module.exports = ['$stateProvider', '$urlRouterProvider', routerConfig];
 
 function routerConfig($stateProvider, $urlRouterProvider) {
-  // $urlRouterProvider.when('' , '/join#signup');
-  // $urlRouterProvider.when('/' , '/join#signup');
+  $urlRouterProvider.when('' , '/#!');
+  // $urlRouterProvider.when('/' , '/#!');
   // $urlRouterProvider.when('/signup' , '/signup');
   // $urlRouterProvider.when('/' , '/join');
 
 
   let states = [
     {
-      name: 'home',
-      url: '/home',
-      template: require('../view/home/home.html'),
-      controller: 'HomeController',
-      controllerAs: 'homeCtrl'
+      name: 'partners',
+      url: '/partners',
+      template: require('../view/partners/partners.html'),
+      controller: 'PartnersController',
+      controllerAs: 'partnersCtrl'
     },
     {
       name: 'landing',
@@ -29,7 +29,7 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       url: '/devlist',
       template: require('../view/devlist/devlist.html'),
       controller: 'DevlistController',
-      controllerAs: 'devlistCtrl'
+      controllerAs: 'devListCtrl'
     },
     {
       name: 'login',
@@ -51,6 +51,11 @@ function routerConfig($stateProvider, $urlRouterProvider) {
       template: require('../view/editview/editview.html'),
       controller: 'EditviewController',
       controllerAs: 'editViewCtrl'
+    },
+    {
+      name: 'about-us',
+      url: '/about-us',
+      template: require('../view/about-us/about-us.html')
     }
     // {
     //   name: 'newprofile',

@@ -2,19 +2,41 @@
 
 
 <div class="devDiv">
-
+  <!-- <h2> DEV-ITEM.HTML COMPONENT </h2> -->
       <div class="devItem">
-        <img ng-src="{{ devItemCtrl.picture }}" alt="No picture yet">
-        <h3>{{ devItemCtrl.dev.name }}</h3>
-        <span> {{ devItemCtrl.dev.desc }}</span>
-        <p>Reviews:</p>
-        <span> {{ devItemCtrl.dev.reviews }}</span>
-        <p>Languages:</p>
-        <span> {{ devItemCtrl.dev.languages | limitTo: 4}}</span>
+        <cl-image class="clImage" public-id="{{ devItemCtrl.dev.picture }}" format="jpg">
+            <cl-transformation height="150" width="150" crop="crop" background="#F5F5F5" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
+        </cl-image>
+        <h4 class="devEmail" ng-if="devItemCtrl.isUser">Contact Me: <a href="mailto: {{devItemCtrl.dev.email}}">{{ devItemCtrl.dev.email }}</a></h4>
+        <h3 class="devName">{{ devItemCtrl.dev.name }}</h3>
+        <h4 class="detailCity">{{ devItemCtrl.dev.city }}, {{ devItemCtrl.dev.state }} {{ devItemCtrl.dev.zip }}</h4>
+        <h4 class="devExp">{{ devItemCtrl.dev.experience }} Years Experience </h4>
+        <h3 class="aboutHead">About Me</h3>
+        <p class="aboutDev"> {{ devItemCtrl.dev.desc }}</p>
+        <h3 class="langHead">Languages/skills:</h3>
+        <ul class="skillsList">
+        <div class="serviceList" ng-repeat="service in devItemCtrl.dev.services">
+          <li class="serviceItem">{{ service | capitalizeFilter: devListCtrl.capCheck}}</li>
+        </div>
+      </ul>
 
-        <button class="btn-std" ng-click="devItemCtrl.showDetailView()" type="button" name="ViewMore">View More</button>
+      <button class="viewMore btn btn-bm btn-primary"
+      ng-click="devItemCtrl.showDetailView(devItemCtrl.dev)"
+      type="button"
+      name="ViewMore"
+      ng-hide="devItemCtrl.showDev">View More</button>
 
+      <button class = "viewMore btn btn-bm btn-primary"
+      ng-show="devItemCtrl.showDev"
+      ng-click="devItemCtrl.showLess()">View Less</button>
 
+      <h2 ng-if="devItemCtrl.showMsg" class="middle"> &nbsp; Please log in or Sign up to View Dev</h2>
 
+      <dev-detail
+      dev="devItemCtrl.selectedDev"
+      ng-if="devItemCtrl.showDev">
+    </dev-detail>
       </div>
+
+
 </div>

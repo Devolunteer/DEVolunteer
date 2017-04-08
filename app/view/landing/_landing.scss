@@ -1,26 +1,78 @@
-@import "../../scss/lib/theme/vars";
+// @import "../../scss/lib/theme/_vars";
 
-.drop-down-menu {
-  margin-top: $gutter-std;
+.landing {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-position: center;
+}
 
-  * {
-    font-size: 2.5vw;
-  }
+.findDevLandingBtn {
+  background: url('../../assets/img/stock/help-images-free.jpg') no-repeat fixed;
+  background-size: 100%;
+  height: 33em;
+  display: flex;
+  align-items: center;
+  text-align: center;
 
-  div {
-    &:not(.panel-group) {
-      padding: $gutter-sm;
-    }
-  }
-
-  p {
-    line-height: 4vw;
-  }
 }
 
 #landing-button {
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  position: absolute;
+  margin-left: 50%;
+  top: 41%;
   transform: translate(-50%, -50%);
+}
+
+
+.lowerWrapper {
+  width: 100%;
+
+}
+
+
+.tileOne {
+  padding: 1%;
+  border: 1px solid grey;
+  width: 26.6%;
+  margin-left: 5%;
+  float: left;
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
+
+.tileTwo {
+  padding: 1%;
+  border: 1px solid grey;
+  width: 26.6%;
+  margin-left: 5%;
+  margin-right: 5%;
+  float: left;
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
+//
+.tileThree {
+  padding: .5%;
+  border: 1px solid grey;
+  width: 26.6%;
+  margin-right: 5%;
+  float: left;
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #F5F5F5;
 }

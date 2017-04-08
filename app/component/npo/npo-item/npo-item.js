@@ -13,6 +13,6 @@ function npoItemController($log, npoService) {
   $log.log('in npoItemCtrl');
 
   this.showDetailView = function() {
-    npoService.showDetail(this.dev._id);
+    npoService.showDetail(this.npo._id);
   };
 }

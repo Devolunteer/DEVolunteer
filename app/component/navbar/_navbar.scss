@@ -1,8 +1,66 @@
-@import "../../scss/lib/theme/vars";
+@import "../../scss/lib/theme/_vars";
+
+.navbar {
+  height: auto;
+}
+
+.navbar-nav{
+  position: absolute;
+  left: 0;
+  margin: 0;
+  top: 51%;
+}
 
 
-button {
-  float: right;
-  padding: 2em;
-  margin: 1%;
+
+.nav-container {
+  position: relative;
+  text-align: center;
+  height: 100px;
+}
+
+.mainText {
+  margin-bottom: 1%;
+}
+
+.navbar-right {
+  position: absolute;
+  top: 50%;
+  right: 4%;
+}
+
+.btn-primary a {
+  color: #777;
+}
+
+.btn-primary a:hover {
+  color: black;
+}
+
+
+.auth {
+    position: absolute;
+    right: 2%;
+    top: 54%;
+    margin: 1%;
+
+    background:none!important;
+     color:inherit;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+}
+
+.register {
+    position: absolute;
+    right: 8%;
+    top: 54%;
+    margin: 1%;
+    background:none!important;
+     color:inherit;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
 }

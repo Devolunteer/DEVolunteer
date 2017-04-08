@@ -1,7 +1,25 @@
-.devFilters {
-  display: inline;
+devListContainer {
+  position: relative;
 }
 
-checkbox {
+
+.devFilters {
+  position: absolute;
+  left:0;
+  display: inline;
+  float: left;
+  margin-left: 1%;
+}
+
+.checkbox {
   display: inline-block;
 }
+
+.filterLabel {
+  display: block;
+  margin-left: .2%;
+}
+
+// fieldset {
+//   margin-top: 10%;
+// }

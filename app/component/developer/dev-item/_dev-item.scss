@@ -1,0 +1,86 @@
+.devItem {
+  border: 1px solid black;
+  // margin: %;
+  float: right;
+  width: 80%;
+  margin-bottom: 2%;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
+
+.middle {
+  text-align: center;
+}
+
+.devItem:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.devName {
+  position: absolute;
+  left: 202px;
+  top: 12px;
+}
+
+.detailCity {
+  position: absolute;
+  left: 202px;
+  top: 58px;
+}
+
+.devEmail {
+  position: absolute;
+  left: 700px;
+  top: 0px;
+}
+
+
+.devExp {
+  position: absolute;
+  left: 202px;
+  top: 90px;
+}
+
+.aboutHead, .langHead {
+  margin-left: 2%;
+  margin-bottom: .5%;
+}
+
+.aboutDev {
+  margin-left: 2%;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100ch;
+}
+
+.clImage {
+  position: relative;
+  height: 10%;
+  width: 12%;
+  margin-left: 2%;
+  margin-top: 1%;
+}
+
+.langHead {
+  margin-top: 1.5%;
+}
+
+.skillsList {
+  text-decoration: none;
+  column-count: 3;
+}
+
+.serviceItem {
+  display: inline-block;
+}
+
+.viewMore {
+  float: right;
+  margin-bottom: 1%;
+  margin-right: 2%;
+}

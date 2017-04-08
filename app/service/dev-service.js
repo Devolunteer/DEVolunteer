@@ -1,17 +1,19 @@
-//need a service for pulling in the developer details.
 'use strict';
 
-module.exports = ['$q', '$log', '$http', 'Upload', 'authService', devService];
+module.exports = ['$q', '$log', '$http', 'Upload', 'authService', 'Cloudinary', devService];
 
-function devService($q, $log, $http, Upload, authService) {
+function devService($q, $log, $http, Upload, authService, Cloudinary) {
   $log.debug('devService');
+  console.log(Cloudinary);
 
   let service = {};
   service.devList = [];
+  service.dev;
+  service.currentDev;
 
   service.fetchDevs = function() {
     console.log('in the fetchDevs, yo');
-    let url =`http://localhost:3000/api/devList`;
+    let url =`${__API_URL__}/api/devList`;
     // let url =`${__API_URL__}/api/dev`;
     console.log('url', url);
 
@@ -29,14 +31,21 @@ function devService($q, $log, $http, Upload, authService) {
     });
   };
 
-  service.updateDev = function(dev) {
-    console.log('MADE IT INTO UPDATE DEV');
-    console.log(dev);
-    $log.debug('devService.updateDev()');
+  service.checkDev = function(dev) {
+    if(dev) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  service.createDev = function(dev) {
+    console.log('trying to create a dev');
+    $log.debug('devService.createDev()');
 
     return authService.getToken()
       .then(token => {
-        let url = `http://localhost:3000/api/dev/`;
+        let url = `${__API_URL__}/api/dev/`;
         let config = {
           headers: {
             Accept: 'application/json',
@@ -49,6 +58,8 @@ function devService($q, $log, $http, Upload, authService) {
     .then(res => {
       $log.log('dev created');
       let dev = res.data;
+      console.log('LOGGING THE DEV AFTER A POST');
+      console.log(dev);
       service.devList.unshift(dev);
       return dev;
     })
@@ -58,29 +69,150 @@ function devService($q, $log, $http, Upload, authService) {
     });
   };
 
+  service.fetchDev = function() {
+    //T
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/dev`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.get(url, config) //try to get the user from the dev database
+      .then(user => { //if you succeed, the the user exists in the dev database
+        return user;
+      })
+      .catch(() => { //if there is no user in the dev database, you should hit the catch
+        return false;
+      });
+    });
+  };
+
+  service.updateDev = function(dev) {
+    console.log('trying to UPDATE a dev');
+    $log.debug('devService.updateDev()');
+
+    return authService.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/dev/`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        };
+        return $http.put(url, dev, config)
+        .then(res => {
+          let dev = res.data;
+          return dev;
+        })
+        .catch(err => {
+          console.log(err);
+          return $q.reject(err);
+        });
+      });
+  };
+
+  service.uploadPic = function(file) {
+    return Upload.upload({
+      url: `https://api.cloudinary.com/v1_1/dy7kdxxqe/image/upload`,
+      data: {
+        upload_preset:'Devolunteer',
+        file: file
+      }
+    })
+    .then(response => {
+      console.log('LOGGING THE RESPONSE DATA');
+      console.log(response.data);
+      return response.data;
+    })
+    .catch(err => {
+      console.error(err);
+      return $q.reject(err);
+    });
+  };
+
+
+
+
+  service.showDetail = function(){
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/dev`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.get(url, config)
+      .then(res => {
+        $log.log('here is a dev, yo', res.data);
+        service.dev = res.data;
+        return service.dev;
+      });
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  //grabbing individual dev by their ._id prop
+  service.getDevByID = function(dev){
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/dev/${dev._id}`;
+      let config = {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      };
+
+      return $http.get(url, config)
+      .then(res => {
+        $log.log('here is a dev, yo', res.data);
+        service.currentDev = res.data;
+        console.log('res', res.data);
+        return service.currentDev;
+      });
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.deleteDev = function() {
+    console.log('trying to DELETE a dev');
+    $log.debug('devService.deleteDev()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/dev/`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config);
+    })
+    .catch(err => {
+      console.log(err);
+      return $q.reject(err);
+    });
+  };
   return service;
 }
 
 
 
-  // service.showDetail = function(devData){
-  //   let url = `${__API_URL__}/api/dev/${dev._id}`;
-  //   let config = {
-  //     headers: {
-  //       Accept: 'application/json',
-  //     }
-  //   };
-  //   return $http.get(url, config)
-  //   .then(res => {
-  //     $log.log('here is a dev, yo');
-  //     service.developer = res.data;
-  //     return service.developer;
-  //   })
-  //   .catch(err => {
-  //     $log.error(err.message);
-  //     return $q.reject.err;
-  //   });
-  // };
 
 
 //BELOW HERE IS THE EDIT DEVELOPER PROFILE FUNCTIONALITY. DO WE EVEN NEED THIS, IF WE'RE LETTING A DEV EDIT HIS PROFILE FROM THE PROFILE PAGE?

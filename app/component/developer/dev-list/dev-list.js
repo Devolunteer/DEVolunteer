@@ -7,20 +7,40 @@ module.exports = {
   controller: ['$log', 'devService', devListController],
   controllerAs: 'devListCtrl',
   bindings: {
-    dev: '<'
+    dev: '<',
   }
 };
 
 function devListController($log, devService) {
   $log.debug('devServiceController()');
-  this.dev = {};
+  this.dev;
+  this.filtered = [];
+
+
+
+
   //retrieve all items in the devService.devList array
   devService.fetchDevs() //returns a Promise that i can filter by specific dev properties that are taken in by the form filter
   .then( devList => {
     this.dev = devList;
+    this.dev.forEach(function(dev){
+      dev.services = [];
+      for(let key in dev){
+      // let key = key.charAt(0).toUpperCase() + key.slice(1);
+        if(dev[key] === true){
+          // console.log(key);
+          dev.services.push(key);
+        }
+      }
+    });
+
     $log.log('response (developers) is saved on .dev property');
+    console.log('length', this.dev.length);
   })
   .catch(e => {
     console.log(e);
   });
+
+
+//end of the controller
 }

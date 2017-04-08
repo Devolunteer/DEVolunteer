@@ -1,4 +1,4 @@
-//need a service for pulling in the developer details.
+//need a service for pulling in the npoeloper details.
 'use strict';
 
 module.exports = ['$q', '$log', '$http', 'Upload', 'authService', npoService];
@@ -7,13 +7,40 @@ function npoService($q, $log, $http, Upload, authService) {
   $log.debug('npoService');
 
   let service = {};
+  service.npoList = [];
+
+
+  service.fetchNpos = function() {
+    let url =`${__API_URL__}/api/npoList`;
+
+    return $http.get(url)
+    .then( res => {
+      $log.log('response = you have dev objects from server to work with');
+      service.npoList = res.data;
+      $log.log(service.npoList, ' = devService.devList');
+      return service.npoList;
+    })
+    .catch( err => {
+      console.log('in the fetchNpos catch');
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
+
+  service.checkNpo = function(npo) {
+    if(npo) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
 
   service.showDetail = function(npoData){
-    let url = `${__API_URL__}/api/npo/${npo._id}`;
+    // let url = `${__API_URL__}/api/npo/${npo._id}`;
     let config = {
       headers: {
-        Accept: 'application/json',
+        Accept: 'application/json'
       }
     };
     return $http.get(url, config)
@@ -28,65 +55,114 @@ function npoService($q, $log, $http, Upload, authService) {
     });
   };
 
-  // service.updateGallery = function(galleryID, galleryData) {
-  //   $log.debug('running galleryService.updateGallery()');
-  //
-  //   return authService.getToken()
-  //   .then(token => {
-  //     let url = `${__API_URL__}/api/gallery/${galleryID}`;
-  //     let config = {
-  //       headers: {
-  //         Accept: 'application/json',
-  //         Authorization: `Bearer ${token}`,
-  //         'Content-Type': 'application/json'
-  //       }
-  //     }
-  //     return $http.put(url, galleryData, config);
-  //   })
-  //   .then(res => {
-  //     for(let i=0; i<service.galleries.length; i++) {
-  //       let current = service.galleries[i];
-  //       if(current._id === galleryID) {
-  //         service.galleries[i] = res.data;
-  //         break;
-  //       };
-  //     };
-  //     return res.data;
-  //   })
-  //   .catch(err => {
-  //     $log.error(err.message);
-  //     return $q.reject(err);
-  //   });
-  // };
+  service.createNpo = function(npo) {
+    $log.debug('npoService.createNpo()');
 
-  // service.deleteGallery = function(galleryID){
-  //   $log.debug('running galleryService.updateGallery()/delete')
-  //     return authService.getToken()
-  //     .then(token => {
-  //       let url = `${__API_URL__}/api/gallery/${galleryID}`;
-  //       let config = {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`
-  //         }
-  //       };
-  //       return $http.delete(url, config);
-  //     })
-  //     .then(res => {
-  //       for(let i = 0; i < service.galleries.length; i++) {
-  //         let current = service.galleries[i];
-  //         if(current._id === galleryID) {
-  //           service.galleries.splice(i, 1);
-  //           break;
-  //         };
-  //       };
-  //     })
-  //     .catch(err => {
-  //       $log.error(err.message);
-  //       return $q.reject(err);
-  //     });
-  //   };
+    return authService.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/npo/`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        };
+        return $http.post(url, npo, config);
+      })
+    .then(res => {
+      $log.log('npo created');
+      let npo = res.data;
+      console.log(npo);
+      return npo;
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
+    });
+  };
 
+  service.fetchNpo = function() {
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/npo`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.get(url, config) //try to get the user from the npo database
+      .then(user => { //if you succeed, the the user exists in the npo database
+        return user;
+      })
+      .catch(() => { //if there is no user in the npo database, you should hit the catch
+        return false;
+      });
+    });
+  };
 
+  service.updateNpo = function(npo) {
+    console.log('trying to UPDATE a npo');
+    $log.debug('npoService.updateNpo()');
+
+    return authService.getToken()
+      .then(token => {
+        let url = `${__API_URL__}/api/npo/`;
+        let config = {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        };
+        return $http.put(url, npo, config)
+        .then(res => {
+          let npo = res.data;
+          console.log(npo);
+          return npo;
+        })
+        .catch(err => {
+          console.log(err);
+          return $q.reject(err);
+        });
+      });
+  };
+  service.uploadPic = function(file) {
+    return Upload.upload({
+      url: `https://api.cloudinary.com/v1_1/dy7kdxxqe/image/upload`,
+      data: {
+        upload_preset:'Devolunteer',
+        file: file
+      }
+    })
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      console.error(err);
+      return $q.reject(err);
+    });
+  };
+
+  service.deleteNpo = function() {
+    console.log('trying to DELETE a npo');
+    $log.debug('npoService.deleteNpo()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/npo/`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config);
+    })
+    .catch(err => {
+      console.log(err);
+      return $q.reject(err);
+    });
+  };
 
   return service;
 }
