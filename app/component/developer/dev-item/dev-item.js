@@ -2,14 +2,14 @@ require('./_dev-item.scss');
 
 module.exports = {
   template: require('./dev-item.html'),
-  controller: ['$log', '$location', 'devService', 'Cloudinary', devItemController],
+  controller: ['$log', '$location', 'devService', 'userService', 'Cloudinary', devItemController],
   controllerAs: 'devItemCtrl',
   bindings: {
     dev: '<'
   }
 };
 
-function devItemController($log, $location, devService, Cloudinary){
+function devItemController($log, $location, devService, userService, Cloudinary){
   $log.debug('running devItemCtrl');
 
   this.selectedDev = {};
@@ -20,6 +20,17 @@ function devItemController($log, $location, devService, Cloudinary){
     this.showDev = false;
   };
 
+  this.isUser = false;
+  this.username = '';
+
+  userService.fetchUser()
+    .then(user => {
+      if(!user) {
+        this.isUser = false;
+      } else {
+        this.isUser = true;
+      }
+    });
 
 
   this.showDetailView = function(dev) {
