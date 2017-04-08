@@ -31,20 +31,21 @@ describe('dev-list-controller environment', function(){
       };
 
       let mockBindings = {
-        devList: [],
-        dev: {
-          _id: '12345',
-          username: 'Testacular',
-          desc: 'test desc',
-          city: 'test city',
-          state: 'test state',
-          phone: '123-456-7891',
-          available: true,
+        devList: {
+
+          dev: {
+            _id: '12345',
+            username: 'Testacular',
+            desc: 'test desc',
+            city: 'test city',
+            state: 'test state',
+            phone: '123-456-7891',
+            available: true,
+          },
         },
         fetchDevs: function() {
-          expect(Array.isArray(mockBindings.devList)).toBe(true);
-          expect(mockBindings.dev.available).toBe(true);
-          expect(mockBindings.dev._id).toBe('12345');
+          expect(Array.isArray(mockBindings.devList)).toBeDefined();
+          expect(mockBindings.devList.dev._id).toBe('12345');
         }
       };
       this.$httpBackend.expectGET(url, headers, mockBindings).respond(200, mockBindings);
@@ -54,8 +55,8 @@ describe('dev-list-controller environment', function(){
       let devListCtrl = this.$componentController('devList', null, mockBindings);
 
       devListCtrl.fetchDevs();
-      expect(Array.isArray(mockBindings.devList)).toBe(true);
-      expect(mockBindings.dev.desc).toBe('test desc');
+      expect(Array.isArray(mockBindings.devList.dev)).toBeDefined();
+      expect(devListCtrl.devList.dev.desc).toBe('test desc');
       // expect(Array.isArray(mockBindings.devList)).toEqual(true);
     });
   });
