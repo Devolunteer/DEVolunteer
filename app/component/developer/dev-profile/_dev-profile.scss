@@ -1,9 +1,27 @@
-.allDetailDemo {
+.allDetailDemo, .services, .languages {
   position: relative;
   background: #f8f7f6;
   border: 1px solid #D5D3D1;
   padding: 20px;
   border-radius: 6px;
+
+  .services {
+    position: absolute;
+    right: 40%;
+    top: 28%;
+    border: none;
+    padding-top: 0;
+  }
+
+  .languages {
+    position: absolute;
+    left: 34.5%;
+    top: -%;
+    padding-top: 0;
+    width: 49%;
+    border: none;
+  }
+
 }
 
 .available {
@@ -39,17 +57,7 @@
   bottom: 40%;
 }
 
-.languages {
-  position: absolute;
-  left: 40.5%;
-  top: -3%;
-}
 
-.services {
-  position: absolute;
-  right: 53%;
-  top: 25%;
-}
 
 .descHead {
   margin-top: 3%;
