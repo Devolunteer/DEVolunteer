@@ -15,7 +15,7 @@ function userService($q, $log, $http, authService) {
     .then(token => {
       console.log('GETTING THE TOKEN');
       console.log(token);
-      let url =`http://localhost:3000/api/user`;//will change this
+      let url =`${__API_URL__}/api/user`;//will change this
       let config = {
         headers: {
           Authorization: `Bearer ${token}`
@@ -42,7 +42,7 @@ function userService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then(token => {
-      let url = `http://localhost:3000/api/user/`;
+      let url = `${__API_URL__}/api/user/`;
       let config = {
         headers: {
           Authorization: `Bearer ${token}`
