@@ -1,9 +1,27 @@
-.allDetailDemo {
+.allDetailDemo, .services, .languages {
   position: relative;
   background: #f8f7f6;
   border: 1px solid #D5D3D1;
   padding: 20px;
   border-radius: 6px;
+
+  .services {
+    position: absolute;
+    right: 40%;
+    top: 28%;
+    border: none;
+    padding-top: 0;
+  }
+
+  .languages {
+    position: absolute;
+    left: 34.5%;
+    top: -%;
+    padding-top: 0;
+    width: 49%;
+    border: none;
+  }
+
 }
 
 .available {
@@ -14,6 +32,7 @@
 
 .form-control {
   width: auto;
+  margin-bottom: 1%;
 }
 
 .devProfileLang,  {
@@ -24,30 +43,25 @@
 
 .devProfileImage {
   margin-top: 2%;
-}
-
-.firstDemographics {
   margin-bottom: 3%;
 }
 
-.secondDemographics {
+.phone, .email, .experience, .website {
+  margin-top: 9%;
+}
+
+
+.devDemographicsSecond {
   position: absolute;
   left: 20%;
-  bottom: 35%;
+  bottom: 40%;
 }
 
-.languages {
-  position: absolute;
-  left: 45.5%;
-  top: 120%;
-}
 
-.services {
-  position: absolute;
-  right: 47%;
-  top: 153%;
-}
 
+.descHead {
+  margin-top: 3%;
+}
 
 .descriptionText {
   display: inline-block;
@@ -56,6 +70,7 @@
 
 .saveDevProfile {
   position: absolute;
+  margin-top: 2%;
   height: auto;
   display: inline-block;
   font-weight: 400;
@@ -78,27 +93,11 @@
 .deleteDevProfile {
   position: absolute;
   right: 23%;
-  background-color: #d9534f;
-  display: inline-block;
-  font-weight: 400;
-  line-height: 2.25;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: .5rem 6rem;
-  font-size: 2rem;
-  border-radius: .75rem;
-  transition: all .2s ease-in-out;
+  margin-top: 3.5%;
+  background:none!important;
+  color:inherit;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  cursor: pointer;
 }
-
-// border-radius: 5px;
-
-
-//button:hover {
-// background: somthing;
-// }

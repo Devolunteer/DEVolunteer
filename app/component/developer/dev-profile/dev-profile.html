@@ -25,59 +25,57 @@
           <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">Yes</label>
         </fieldset>
 
-    <div class="firstDemographics">
+        <div class="devDemographicsFirst">
+          <label for="Name">Name</label>
+          <input class="form-control"  type="text" name="Name" ng-model="devProfileCtrl.dev.name">
 
-      <label for="Name">Name</label>
-      <input class="form-control"  type="text" name="Name" ng-model="devProfileCtrl.dev.name">
+          <fieldset class="city">
+            <label for="City">City</label>
+            <input class="form-control"  type="text" name="City" ng-model="devProfileCtrl.dev.city">
+          </fieldset>
 
-      <fieldset class="city">
-        <label for="City">City</label>
-        <input class="form-control"  type="text" name="City" ng-model="devProfileCtrl.dev.city">
-      </fieldset>
+          <fieldset class="state">
+            <label for="State">State</label>
+            <input class="form-control"  type="text" name="State" ng-model="devProfileCtrl.dev.state">
+          </fieldset>
 
-      <fieldset class="state">
-        <label for="State">State</label>
-        <input class="form-control"  type="text" name="State" ng-model="devProfileCtrl.dev.state">
-      </fieldset>
+          <fieldset class="zip">
+            <label for="Zip">Zip</label>
+            <input class="form-control"  type="text" name="Zip" ng-model="devProfileCtrl.dev.zip">
+          </fieldset>
+        </div>
 
-      <fieldset class="zip">
-        <label for="Zip">Zip</label>
-        <input class="form-control"  type="text" name="Zip" ng-model="devProfileCtrl.dev.zip">
-      </fieldset>
-    </div>
 
-    <div class="secondDemographics">
-      <fieldset class="phone">
-        <label for="Phone">Phone</label>
-        <input class="form-control" type="tel" name="Phone" ng-model="devProfileCtrl.dev.phone">
-      </fieldset>
 
-      <fieldset class="email">
-        <label for="Email">Email</label>
-        <input  class="form-control" type="text" name="Email" ng-model="devProfileCtrl.dev.email">
-      </fieldset>
 
-      <!-- <fieldset>
-         this needs to be the average of any ratings applied to the dev -->
-        <!-- <span class="item-label">My Rating</span> -->
-        <!-- <input type="text" name="Description" ng-model="devProfileCtrl.dev.reviews"> -->
+        <div class="devDemographicsSecond">
+          <fieldset class="phone">
+            <label for="Phone">Phone</label>
+            <input class="form-control" type="tel" name="Phone" ng-model="devProfileCtrl.dev.phone">
+          </fieldset>
 
-      <!-- </fieldset> -->
+          <fieldset class="email">
+            <label for="Email">Email</label>
+            <input  class="form-control" type="text" name="Email" ng-model="devProfileCtrl.dev.email">
+          </fieldset>
 
-      <fieldset class="experience">
-        <label for="Years">Years of Experience</label>
-        <input class="form-control"  type="text" name="Years" ng-model="devProfileCtrl.dev.experience">
-      </fieldset>
+          <fieldset class="experience">
+            <label for="Years">Years of Experience</label>
+            <input class="form-control"  type="text" name="Years" ng-model="devProfileCtrl.dev.experience">
+          </fieldset>
 
-      <fieldset>
-        <label for="Website">Website</label>
-        <input  class="form-control" type="text" name="Website" ng-model="devProfileCtrl.dev.website">
-      </fieldset>
+          <fieldset class="website">
+            <label for="Website">Website</label>
+            <input  class="form-control" type="text" name="Website" ng-model="devProfileCtrl.dev.website">
+          </fieldset>
+        </div>
 
-    </div>
+
+
+
+
     <label class="descHead" for="Description">Description</label>
     <textarea  class=" descriptionText form-control" rows="4" cols="100" name="Description" ng-model="devProfileCtrl.dev.desc"></textarea>
-  </div>
 
       <fieldset class="languages checkbox">
         <h3>Languages</h3>
@@ -103,6 +101,7 @@
         <label for="webApp"><input type="checkbox" name="webApp" ng-model="devProfileCtrl.dev.webapp"> Web App</label>
         <label for="other"><input type="checkbox" name="other" ng-model="devProfileCtrl.dev.otherwork"> Other</label>
       </fieldset>
+    </div>
 
 
       <!-- This is for a brand new Dev -->

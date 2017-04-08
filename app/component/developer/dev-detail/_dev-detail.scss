@@ -15,25 +15,27 @@
 .langList, .programsList {
   column-count: 2;
   width: 40%;
+  padding-left: 2%;
 }
 
 
 .aboutDetailDev {
   text-decoration: none;
+  margin-bottom: .5%;
 }
 
 .langDetailHead {
-  margin-top: 10%;
+  margin-top: 4%;
 }
 
 .webDetailHead {
   position: absolute;
   bottom: 51%;
-  right: 2%;
+  right: 5%;
 }
 
 .webDetailLink {
   position: absolute;
   bottom: 44%;
-  right: 25%;
+  right: 24.5%;
 }
