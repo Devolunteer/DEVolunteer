@@ -1,4 +1,57 @@
-.login-form {
-  display: flex;
-  justify-content: around;
+@import "../../../scss/lib/theme/_vars";
+
+
+.loginForm {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
+
+.loginFields { 
+  text-align: center;
+}
+
+.signinGoBtn {
+  height: auto;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 2.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem 6rem;
+  font-size: 2rem;
+  border-radius: .75rem;
+  transition: all .2s ease-in-out;
+}
+
+// form {
+//   margin-top: 17%;
+//   margin-bottom: 30%;
+// }
+//
+//
+// .login-form {
+//     .input-std {
+//       margin-bottom: $gutter-sm;
+//     }
+
+    // button {
+    //   float: right;
+    //   padding-top: 1.5vw;
+    //   padding-bottom: 1.5vw;
+    // }
+// }
+
+
+// input {
+//   margin-bottom: $gutter-sm;
+// }
+// input {
+//   color: black;
+// }

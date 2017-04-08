@@ -33,6 +33,14 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     });
   };
 
+  service.checkDev = function(dev) {
+    if(dev) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   service.createDev = function(dev) {
     console.log('trying to create a dev');
     $log.debug('devService.createDev()');
@@ -183,30 +191,27 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     });
   };
 
+  service.deleteDev = function() {
+    console.log('trying to DELETE a dev');
+    $log.debug('devService.deleteDev()');
+
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/dev/`;
+      let config = {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      };
+      return $http.delete(url, config);
+    })
+    .catch(err => {
+      console.log(err);
+      return $q.reject(err);
+    });
+  };
   return service;
 }
-
-//   service.deleteDev = function() {
-//     console.log('trying to DELETE a dev');
-//     $log.debug('devService.deleteDev()');
-//
-//     return authService.getToken()
-//     .then(token => {
-//       let url = `http://localhost:3000/api/dev/`;
-//       let config = {
-//         headers: {
-//           Authorization: `Bearer ${token}`
-//         }
-//       };
-//       return $http.delete(url, config);
-//     })
-//     .catch(err => {
-//       console.log(err);
-//       return $q.reject(err);
-//     });
-//   };
-//   return service;
-// }
 
 
 

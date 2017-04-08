@@ -2,14 +2,15 @@ require('./_npo-profile.scss');
 
 module.exports = {
   template: require('./npo-profile.html'),
-  controller: ['$log', '$location', 'npoService', 'userService', NpoProfileController],
+  controller: ['$log', '$location', 'npoService', 'userService', 'authService', NpoProfileController],
   controllerAs: 'npoProfileCtrl',
   bindings: {
     user: '='
   }
 };
 
-function NpoProfileController($log, $location, npoService, userService) {
+
+function NpoProfileController($log, $location, npoService, userService, authService) {
   $log.debug('running npoProfileController');
 
   this.npo = {};
@@ -61,6 +62,24 @@ function NpoProfileController($log, $location, npoService, userService) {
       });
     }
     //This is where I will put the is new user logic
+  };
+
+  this.deleteMe= function() {
+    if(npoService.checkNpo(this.npo)) {
+      Promise.all([npoService.deleteNpo(), userService.deleteUser()])
+      .then(() => $location.url('/'))
+      .then(() => authService.logout())
+      .catch(err => {
+        console.error(err);
+      });
+    } else  {
+      userService.deleteUser()
+      .then(() => $location.url('/'))
+        .then(() => authService.logout())
+        .catch(err => {
+          console.error(err);
+        });
+    }
   };
 
   this.uploadPic = function(file) {

@@ -11,6 +11,7 @@ let npoSchema = mongoose.Schema({
   state: {type: String},
   phone: {type: String},
   email: {type: String},
+  optIn: {type: Boolean},
   projects: [{type: String}],
   developers: [{type: mongoose.Schema.Types.ObjectId, ref: 'devs'}],
   reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'reviews'}],

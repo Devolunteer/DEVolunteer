@@ -8,19 +8,18 @@ devListContainer {
   left:0;
   display: inline;
   float: left;
-  margin-left: .5em;
+  margin-left: 1%;
 }
 
 .checkbox {
   display: inline-block;
 }
 
-label {
+.filterLabel {
   display: block;
-  margin-left: .2em;
+  margin-left: .2%;
 }
 
-fieldset {
-  // border-bottom: 1px solid black;
-  margin-top: 2em;
-}
+// fieldset {
+//   margin-top: 10%;
+// }
