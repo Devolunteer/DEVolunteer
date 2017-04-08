@@ -14,7 +14,7 @@
 
 .services {
   position: absolute;
-  right: 40%;
+  right: 42%;
   top: 28%;
   border: none;
   padding-top: 0;
@@ -34,6 +34,7 @@
   position: absolute;
   right: 3%;
   bottom: 85%;
+  z-index: 1;
 }
 
 .form-control {
