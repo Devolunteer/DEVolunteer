@@ -3,6 +3,7 @@
   <div class="signupFields">
 
     <form name="registrationForm" ng-submit="signupCtrl.signup(signupCtrl.user)" novalidate>
+      <br />
 
       <h2>Let's get you started</h2>
 
@@ -23,10 +24,11 @@
           ng-model="signupCtrl.user.password" required>
 
           <h3>Are You A...</h3>
+        <h4>
+          <label class="radioNpo" for="NPO"><input class="regRadios radioNpo" type="radio" ng-model="signupCtrl.user.isNPO" value="true" name="radioGroup" required> &nbsp;<b>Non Profit Organization </b> &nbsp;</label>
 
-          <label class="radioNpo" for="NPO"><input class="regRadios radioNpo" type="radio" ng-model="signupCtrl.user.isNPO" value="true" name="radioGroup" required>Non Profit Organization</label>
-
-          <label class="radioDev" for="DEV"><input class="regRadios" type="radio" ng-model="signupCtrl.user.isDev" value="true" name="radioGroup">Developer</label>
+          <label class="radioDev" for="DEV"><input class="regRadios" type="radio" ng-model="signupCtrl.user.isDev" value="true" name="radioGroup">&nbsp;<b>Developer</b>&nbsp;</label>
+        </h4>
 
 
           <button class="registerGoBtn btn-primary">Create Account</button>
