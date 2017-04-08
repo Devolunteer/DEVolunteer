@@ -14,10 +14,11 @@
     "lint": "eslint ./"
   },
   "devDependencies": {
-    "angular-mocks": "^1.6.3",
+    "angular-mocks": "^1.6.4",
     "chai": "^3.5.0",
     "jasmine-core": "^2.5.2",
     "karma": "^1.5.0",
+    "karma-chrome-launcher": "^2.0.0",
     "karma-jasmine": "^1.1.0",
     "karma-mocha-reporter": "^2.2.3",
     "karma-phantomjs-launcher": "^1.0.4",

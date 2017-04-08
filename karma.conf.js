@@ -1,5 +1,5 @@
 const webpack= require('./webpack.config.js');
-webpack.entry = {};
+delete webpack.entry;
 
 module.exports = function(config) {
   config.set({
@@ -12,16 +12,17 @@ module.exports = function(config) {
     concurrency: Infinity,
     frameworks: ['jasmine'],
     reporters: ['mocha'],
-    browsers: ['PhantomJS'],
+    // browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
     logLevel: config.LOG_INFO,
     failOnEmptyTestSuite: false,
     preprocessors: {
-      'test/**/*-test.js': ['webpack'],
+      'client-test/*-test.js': ['webpack'],
       'app/entry.js': ['webpack']
     },
     files: [
       'app/entry.js',
-      'test/**/*-test.js',
+      'client-test/*-test.js',
       'node_modules/angular-mocks/angular-mocks.js'
     ]
   });
