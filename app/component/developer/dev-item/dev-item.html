@@ -12,7 +12,7 @@
         <h4 class="detailCity">{{ devItemCtrl.dev.city }}, {{ devItemCtrl.dev.state }} {{ devItemCtrl.dev.zip }}</h4>
         <h4 class="devExp">{{ devItemCtrl.dev.experience }} Years Experience </h4>
         <h3 class="aboutHead">About Me</h3>
-        <span class="aboutDev"> {{ devItemCtrl.dev.desc }}</span>
+        <p class="aboutDev"> {{ devItemCtrl.dev.desc }}</p>
         <h3 class="langHead">Languages/skills:</h3>
         <ul class="skillsList">
         <div class="serviceList" ng-repeat="service in devItemCtrl.dev.services">
@@ -20,16 +20,17 @@
         </div>
       </ul>
 
-      <button class = "viewMore btn btn-bm btn-primary"
-      ng-show="devItemCtrl.showDev"
-      ng-click="devItemCtrl.showLess()">View Less</button>
-
-
       <button class="viewMore btn btn-bm btn-primary"
       ng-click="devItemCtrl.showDetailView(devItemCtrl.dev)"
       type="button"
       name="ViewMore"
       ng-hide="devItemCtrl.showDev">View More</button>
+
+      <button class = "viewMore btn btn-bm btn-primary"
+      ng-show="devItemCtrl.showDev"
+      ng-click="devItemCtrl.showLess()">View Less</button>
+
+
 
       <dev-detail
       dev="devItemCtrl.selectedDev"

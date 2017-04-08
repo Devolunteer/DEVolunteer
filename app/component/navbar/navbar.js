@@ -4,14 +4,14 @@ require('./_navbar.scss');
 
 module.exports = {
   template: require('./navbar.html'),
-  controller: ['$log', '$location', '$rootScope', 'authService', 'userService', NavBarController],
+  controller: ['$log', '$location', '$rootScope', 'authService', 'userService', 'devService', NavBarController],
   controllerAs: 'navBarCtrl',
   bindings: {
     user: '='
   }
 };
 
-function NavBarController($log, $location, $rootScope, authService, userService){
+function NavBarController($log, $location, $rootScope, authService, userService, devService){
   $log.debug('NavBarController');
 
   this.isUser = false;
@@ -29,6 +29,12 @@ function NavBarController($log, $location, $rootScope, authService, userService)
     });
   };
 
+
+//I WANT USER TO BE ABLE TO SEARCH FOR DEVS FROM THE NAV BAR.
+  // this.fetchDevs = function(){
+  //   devService.fetchDevs();
+  //   $location.url('/devlist');
+  // }
 
   this.editUser = function() {
     userService.fetchUser()

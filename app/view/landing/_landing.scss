@@ -1,31 +1,24 @@
 // @import "../../scss/lib/theme/_vars";
 
-.drop-down-menu {
-  // margin-top: $gutter-std;
 
-  * {
-    font-size: 2.5vw;
-  }
-
-  div {
-    &:not(.panel-group) {
-      // padding: $gutter-sm;
-    }
-  }
-
-  p {
-    line-height: 4vw;
-  }
-}
 
 #landing-button {
-  position: fixed;
+  position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
 }
 
-// ng-style="{'background-image':'url(/static/'+imgURL+')'}"  possibly add this to the background tag in html.
+.findDevLandingBtn {
+  text-align: center;
+}
+
+.lowerWrapper {
+  // clear: both;
+  // display: table;
+  width: 100%;
+  
+}
+
 
 .landing {
   display: flex;
@@ -43,4 +36,17 @@
   // color: white;
   width: 1280px;
   height: 853px
+
+.tileRow {
+  display: table-row;
+}
+
+.tileOne, .tileTwo, .tileThree {
+  display: table-cell;
+  // float: left;
+  border: 1px solid black;
+  // display: inline-block;
+  border-spacing: 10%;
+  width: 30%;
+
 }

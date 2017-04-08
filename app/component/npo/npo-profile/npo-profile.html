@@ -41,22 +41,30 @@
           </fieldset>
         </ul>
 
-        <ul class="secondNpoDemographics">
-          <fieldset>
+        <div class="secondNpoDemographics">
+          <fieldset class="npoDemo">
             <label for="Phone">Phone</label>
             <input class="form-control" type="tel" name="Phone" ng-model="npoProfileCtrl.npo.phone">
           </fieldset>
 
-          <fieldset>
+          <fieldset class="npoDemo">
             <label for="Email">Email</label>
             <input class="form-control" type="text" name="Email" ng-model="npoProfileCtrl.npo.email">
           </fieldset>
 
-          <fieldset>
+          <fieldset class="npoDemo">
             <label for="Projects">Projects</label>
             <input class="form-control" type="text" name="Projects" ng-model="npoProfileCtrl.npo.projects">
           </fieldset>
-        </ul>
+        </div>
+
+
+          <fieldset class="optIn">
+            <h5>Can we display your company information in our partners page?</h5>
+            <input type="radio" class="radio-inline" ng-model="npoProfileCtrl.npo.optIn" value="true" name="radioGroup" required><label for="YES">&nbsp; Yes &nbsp;</label>
+            <input type="radio" class="radio-inline" ng-model="npoProfileCtrl.npo.optIn" value="false" name="radioGroup"><label for="NO">&nbsp; No &nbsp;</label>
+          </fieldset>
+          
       </div>
 
       <!-- <fieldset>

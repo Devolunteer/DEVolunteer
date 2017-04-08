@@ -1,11 +1,24 @@
-<nav class="navbar">
+<nav class="navbar navbar-default">
   <div class="nav-container" oninit="navBarCtrl.checkUser()">
 
-<button class="btn btn-default" ng-hide="navBarCtrl.isUser"><a ui-sref="login">LOG IN</a></button>
-<button class="btn btn-default" ng-hide="navBarCtrl.isUser"><a ui-sref="signup">SIGN UP</a></button>
+    <div class="titleText"><h1 class="mainText">DEVolunteer</h1></div>
+    <div class="titleText subText"><h3>Make the world a better place.</h3></div>
+
+    <button class="auth btn navbar-btn btn-primary" ng-hide="navBarCtrl.isUser"><a ui-sref="login">LOG IN</a></button>
+
+    <button class="register btn navbar-btn btn-primary" ng-hide="navBarCtrl.isUser"><a ui-sref="signup">SIGN UP</a></button>
+
+    <ul class="nav navbar-nav">
+            <li><a ui-sref="landing">Home</a></li>
+            <li><a ui-sref="edit" ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.editUser()">Edit Profile</a></li>
+            <li><a ui-sref="about-us" ng-click="navBarCtrl.aboutUs()">About Us</a></li>
+            <li><a ui-sref="partners">Our Partners</a></li>
+            <!-- <li><a ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.fetchDevs()" ui-sref="landing">Find Devs</a></li>   THIS WOULD ALLOW USERS TO SEARCH FOR DEVS FROM NAVBAR REGARDLESS OF LOCATION-->
+            <li><a ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.logout()" ui-sref="landing">Log Out</a></li>
+    </ul>
 
 
-    <div class="btn-group" uib-dropdown is-open="status.isopen">
+    <!-- <div class="btn-group" uib-dropdown is-open="status.isopen">
       <button id="single-button" type="button" class="btn btn-default" ng-click="navBarCtrl.checkUser()" uib-dropdown-toggle ng-disabled="disabled">
         DEVolunteer <span class="caret"></span>
       </button>
@@ -21,8 +34,8 @@
         <li class="divider" ng-if="navBarCtrl.isUser"></li>
         <li role="menuitem" ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.logout()"><a ui-sref="landing">Log Out</a></li>
       </ul>
-      </div>
-      <span ng-if="navBarCtrl.isUser"><h3>Hello {{ navBarCtrl.username }} </h3></span>
+      </div> -->
+      <span class="navbar-text navbar-right" ng-if="navBarCtrl.isUser"><h4>Hello {{ navBarCtrl.username }} </h4></span>
     </div>
 
 </nav>

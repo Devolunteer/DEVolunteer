@@ -1,21 +1,94 @@
 @import "../../scss/lib/theme/_vars";
-
+//
 .navbar {
-
-
-  button {
-    float: right;
-    // padding: 2em;
-    margin: 1%;
+  height: auto;
 }
 
-  span {
-    display: inline-block;
+.navbar-nav{
+  position: absolute;
+  left: 0;
+  margin: 0;
+  top: 51%;
+}
+
+// .navbar-nav>.active {
+//     color: #555;
+//     background-color: #e7e7e7;
+// }
+
+
+// .navbar-nav:active {
+// background: $navbar-default-bg;
+// }
+//
+// .navbar-nav li:active {
+//   background: $navbar-default-link-active-color;
+// }
+
+
+.nav-container {
+  position: relative;
+  text-align: center;
+  height: 100px;
+}
+
+.mainText {
+  margin-bottom: 1%;
+}
+
+.navbar-right {
+  position: absolute;
+  top: 50%;
+  right: 4%;
+}
+
+.btn-primary a:hover {
+  color: white;
+}
+//
+//   button {
+//     float: right;
+//     // padding: 2em;
+//     margin: 1%;
+// }
+//
+//   // span {
+//   //   display: inline-block;
+//   //   margin: 1%;
+//   //   float: right;
+//   //   text-decoration: underline;
+//   // }
+//   // .btn-group {
+//   //   color: #b38b6d
+//   // }
+
+// // }
+
+.auth {
+    position: absolute;
+    right: 2%;
+    top: 54%;
     margin: 1%;
-    float: right;
-    text-decoration: underline;
-  }
-  .btn-group {
-    color: #b38b6d
-  }
+
+    background:none!important;
+     color:inherit;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     /*border is optional*/
+    //  border-bottom:1px solid #444;
+     cursor: pointer;
+}
+
+.register {
+    position: absolute;
+    right: 8%;
+    top: 54%;
+    margin: 1%;
+    background:none!important;
+     color:inherit;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
 }

@@ -1,4 +1,9 @@
-<section class="login-form">
+<section>
+
+
+
+  <div class="loginFields">
+    
   <form
     name="loginForm"
     ng-submit="loginCtrl.login()" novalidate>
@@ -13,8 +18,6 @@
         class="input-std"
         ng-minlength="4"
         ng-model="loginCtrl.user.username" required>
-
-      <!-- <input class="field" type="text" placeholder="email"> -->
     </div>
 
     <div
@@ -29,7 +32,12 @@
         ng-minlength="3"
         ng-model="loginCtrl.user.password" required>
     </div>
-
-    <button class="btn-warning btn-border-radius-small">SIGN IN</button>
+    <button class="signinGoBtn btn-primary">SIGN IN</button>
   </form>
+</div>
+
+
 </section>
+
+<!-- btn-warning -->
+<!-- <button class="signinGoBtn btn-border-radius-small">SIGN IN</button> -->
