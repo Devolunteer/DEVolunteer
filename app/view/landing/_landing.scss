@@ -1,4 +1,5 @@
-@import "../../scss/lib/theme/vars";
+// @import "../../scss/lib/theme/_vars";
+
 
 
 #landing-button {
@@ -18,6 +19,24 @@
   
 }
 
+
+.landing {
+  display: flex;
+  // justify-content: center
+  background-image: url('../../assets/img/stock/help-images-free.jpg');
+  background-repeat: no-repeat;
+  border: 1vw solid #b38b6d;
+  border-style: inset;
+  background-size: 100%;
+  margin: -5% -10% -10% -4%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  // color: white;
+  width: 1280px;
+  height: 853px
+
 .tileRow {
   display: table-row;
 }
@@ -29,4 +48,5 @@
   // display: inline-block;
   border-spacing: 10%;
   width: 30%;
+
 }
