@@ -1,34 +1,33 @@
 <section class = "landing">
 
-</section>
-<div class="findDevLandingBtn">
-  <button class = "btn-lg btn-primary" id="landing-button"><a ng-click="devListCtrl.fetchDevs" ui-sref="devlist">FIND A DEV</a></button>
-  <!--the link above takes us to the dev list view. clicking it will fire a backend route-->
-</div>
-
-
-  <div class="lowerWrapper">
-
-  <div class="tileRow">
-
-    <div class="landingTiles tileOne">
-      <h2>this is a tile1</h2>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    </div>
-
-    <div class="landingTiles tileTwo">
-      <h2>this is a tile2</h2>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    </div>
-
-    <div class="landingTiles tileThree">
-      <h2>this is a tile3</h2>
-      <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    </div>
-
+<section class="upperLanding">
+  <div class="findDevLandingBtn">
+    <button class = "btn-lg btn-primary" id="landing-button"><a ng-click="devListCtrl.fetchDevs" ui-sref="devlist">FIND A DEV</a></button>
+    <!--the link above takes us to the dev list view. clicking it will fire a backend route-->
   </div>
-</div>
 </section>
 
 
+<section class="lowerLanding">
+  <div class="lowerWrapper">
+    <div class="landingTiles">
+
+      <div class="tileOne">
+        <h2>Who We Are</h2>
+        <p>We are a team of passionate developers who want to make the world a better place.  We come from several different backgrounds but all have one common goal: improving the lives of others through our code.  Everything we do is focused on leaving this world better than it was when we found it.</p>
+      </div>
+
+      <div class="tileTwo">
+        <h2>Who You Are</h2>
+        <p>You are one of two people.  You are either a member of a Non Profit Organization whose sole focus is helping others, those in need, those who can't speak for themselves.  Or, you are a developer who is looking to expand your skills, your portfolio and make a positive impact on the world while doing so.</p>
+      </div>
+
+      <div class="tileThree">
+        <h2>Why DEVolunteer</h2>
+        <p>We combine both worlds, the charitable selflessness of a Non Profit and the keen eye and desire to solve problems of a developer. DEVolunteer allows developers to advertise their skills and availability while providing Non Profit Organizations a single location to find developers to help them with their tech/website needs.</p>
+      </div>
+
+      </div>
+    </div>
+  </section>
 </section>
