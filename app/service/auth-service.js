@@ -50,12 +50,13 @@ function authService($q, $log, $http, $window){
   service.signup = function(user) {
     console.log('user', user);
     $log.debug('authService.signup()');
-    let url = `http://localhost:3000/api/signup`;
+    // let url = `http://localhost:3000/api/signup`;
+    let url = `${__API_URL__}/api/signup`;
 
     let config = {
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
+        'Accept': 'application/json'
       }
     };
     $log.log('data', user);
@@ -78,6 +79,7 @@ function authService($q, $log, $http, $window){
     $log.debug('authService.login()');
 
     let url = `http://localhost:3000/api/login`;
+    let url = `${__API_URL__}/api/signup`;
 
     let base64 = $window.btoa(`${user.username}:${user.password}`);
     let config = {

@@ -11,11 +11,9 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
   service.dev;
   service.currentDev;
 
-  let __API_URL__ = 'http://localhost:3000';
-
   service.fetchDevs = function() {
     console.log('in the fetchDevs, yo');
-    let url =`http://localhost:3000/api/devList`;
+    let url =`${__API_URL__}/api/devList`;
     // let url =`${__API_URL__}/api/dev`;
     console.log('url', url);
 
@@ -47,7 +45,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
 
     return authService.getToken()
       .then(token => {
-        let url = `http://localhost:3000/api/dev/`;
+        let url = `${__API_URL__}/api/dev/`;
         let config = {
           headers: {
             Accept: 'application/json',
@@ -75,7 +73,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     //T
     return authService.getToken()
     .then(token => {
-      let url = `http://localhost:3000/api/dev`;
+      let url = `${__API_URL__}/api/dev`;
       let config = {
         headers: {
           Authorization: `Bearer ${token}`
@@ -97,7 +95,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
 
     return authService.getToken()
       .then(token => {
-        let url = `http://localhost:3000/api/dev/`;
+        let url = `${__API_URL__}/api/dev/`;
         let config = {
           headers: {
             Accept: 'application/json',
@@ -197,7 +195,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
 
     return authService.getToken()
     .then(token => {
-      let url = `http://localhost:3000/api/dev/`;
+      let url = `${__API_URL__}/api/dev/`;
       let config = {
         headers: {
           Authorization: `Bearer ${token}`
