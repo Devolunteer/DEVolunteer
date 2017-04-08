@@ -1,24 +1,6 @@
 @import "../../scss/lib/theme/vars";
 
 
-.drop-down-menu {
-  margin-top: $gutter-std;
-
-  * {
-    font-size: 2.5vw;
-  }
-
-  div {
-    &:not(.panel-group) {
-      padding: $gutter-sm;
-    }
-  }
-
-  p {
-    line-height: 4vw;
-  }
-}
-
 #landing-button {
   position: absolute;
   top: 50%;
@@ -29,13 +11,22 @@
   text-align: center;
 }
 
-// ng-style="{'background-image':'url(/static/'+imgURL+')'}"  possibly add this to the background tag in html.
+.lowerWrapper {
+  // clear: both;
+  // display: table;
+  width: 100%;
+  
+}
 
-// .landing {
-//   position: relative;
-//   background: url('../assets/img/stock/holdingHands.png') no-repeat fixed;
-//   background-size: 100%;
-//   margin-bottom: 5%;
-//   color: white;
-//   width: auto;
-// }
+.tileRow {
+  display: table-row;
+}
+
+.tileOne, .tileTwo, .tileThree {
+  display: table-cell;
+  // float: left;
+  border: 1px solid black;
+  // display: inline-block;
+  border-spacing: 10%;
+  width: 30%;
+}

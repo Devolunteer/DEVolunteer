@@ -38,7 +38,7 @@
 
 .secondNpoDemographics {
   position: absolute;
-  left: 45%;
+  left: 35%;
   top: 0%;
 }
 
@@ -46,9 +46,18 @@
   margin-bottom: 3%;
 }
 
+.optIn {
+  position: absolute;
+  left: 60%;
+  top: 7%;
+  width: 100%;
+}
+
 .saveNpoProfile {
   position: absolute;
-  left: 34%;
+  // left: 34%;
+  right: 23%;
+
   margin-top: 1%;
   height: auto;
   display: inline-block;
@@ -70,7 +79,9 @@
 
 .deleteNpoProfile {
   position: absolute;
-  left: 26%;
+  // left: 26%;
+  right: 45%;
+  margin-right: 4%;
   margin-top: 2%;
   background:none!important;
   color:inherit;
@@ -79,11 +90,4 @@
   font: inherit;
   cursor: pointer;
 
-}
-
-.optIn {
-  position: absolute;
-  left: 110%;
-  top: 1%;
-  width: 100%;
 }

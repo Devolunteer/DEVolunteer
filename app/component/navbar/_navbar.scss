@@ -41,6 +41,10 @@
   top: 50%;
   right: 4%;
 }
+
+.btn-primary a:hover {
+  color: white;
+}
 //
 //   button {
 //     float: right;
@@ -61,19 +65,30 @@
 // // }
 
 .auth {
-    // float: right;
     position: absolute;
     right: 2%;
-    top: 3%;
-    // padding: 2em;
+    top: 54%;
     margin: 1%;
+
+    background:none!important;
+     color:inherit;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     /*border is optional*/
+    //  border-bottom:1px solid #444;
+     cursor: pointer;
 }
 
 .register {
-    // float: right;
     position: absolute;
     right: 8%;
-    top: 3%;
-    // padding: 2em;
+    top: 54%;
     margin: 1%;
+    background:none!important;
+     color:inherit;
+     border:none;
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
 }
