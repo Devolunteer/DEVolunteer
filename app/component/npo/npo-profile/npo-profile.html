@@ -51,11 +51,11 @@
             <label for="Email">Email</label>
             <input class="form-control" type="text" name="Email" ng-model="npoProfileCtrl.npo.email">
           </fieldset>
-
+<!-- 
           <fieldset class="npoDemo">
             <label for="Projects">Projects</label>
             <input class="form-control" type="text" name="Projects" ng-model="npoProfileCtrl.npo.projects">
-          </fieldset>
+          </fieldset> -->
         </div>
 
 
@@ -64,25 +64,15 @@
             <input type="radio" class="radio-inline" ng-model="npoProfileCtrl.npo.optIn" value="true" name="radioGroup" required><label for="YES">&nbsp; Yes &nbsp;</label>
             <input type="radio" class="radio-inline" ng-model="npoProfileCtrl.npo.optIn" value="false" name="radioGroup"><label for="NO">&nbsp; No &nbsp;</label>
           </fieldset>
-          
+
       </div>
-
-      <!-- <fieldset>
-        <span class="item-label">Reviews</span>
-        <input type="text" name="Reviews" ng-model="npoProfileCtrl.npo.reviews">
-      </fieldset> -->
-
-      <!-- <fieldset>
-        <span class="item-label">Developers</span>
-        <input type="text" name="Developers" ng-model="npoProfileCtrl.npo.developers">
-      </fieldset> -->
 
 
       <!-- This is for a brand new Dev -->
       <button type="submit" class="saveNpoProfile btn-primary" ng-hide="npoProfileCtrl.isNewUser">Update Profile</button>
 
       <!-- This is for a Dev who does not exist yet   -->
-      <button type="submit" class="btn-primary" ng-show="npoProfileCtrl.isNewUser">Save Changes</button>
+      <button type="submit" class="saveNpoProfile btn-primary" ng-show="npoProfileCtrl.isNewUser">Save Changes</button>
     </form>
 
       <button type="button" class="deleteNpoProfile" ng-click="npoProfileCtrl.deleteMe()">Delete Profile</button>

@@ -1,53 +1,78 @@
 // @import "../../scss/lib/theme/_vars";
 
-
-
-#landing-button {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+.landing {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-position: center;
 }
 
 .findDevLandingBtn {
+  background: url('../../assets/img/stock/help-images-free.jpg') no-repeat fixed;
+  background-size: 100%;
+  height: 33em;
+  display: flex;
+  align-items: center;
   text-align: center;
+
 }
 
+#landing-button {
+  position: absolute;
+  margin-left: 50%;
+  top: 41%;
+  transform: translate(-50%, -50%);
+}
+
+
 .lowerWrapper {
-  // clear: both;
-  // display: table;
   width: 100%;
 
 }
 
 
-.landing {
-  display: flex;
-  // justify-content: center
-  background-image: url('../../assets/img/stock/help-images-free.jpg');
-  background-repeat: no-repeat;
-  border: 1vw solid #b38b6d;
-  border-style: inset;
-  background-size: 100%;
-  margin: -5% -10% -10% -4%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  background-position: center;
-  // color: white;
-  width: 1280px;
-  height: 853px;
-}
-
-.tileRow {
-  display: table-row;
-}
-
-.tileOne, .tileTwo, .tileThree {
-  display: table-cell;
-  // float: left;
+.tileOne {
+  padding: 1%;
+  border: 1px solid grey;
+  width: 26.6%;
+  margin-left: 5%;
+  float: left;
   border: 1px solid black;
-  // display: inline-block;
-  border-spacing: 10%;
-  width: 30%;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
 
+.tileTwo {
+  padding: 1%;
+  border: 1px solid grey;
+  width: 26.6%;
+  margin-left: 5%;
+  margin-right: 5%;
+  float: left;
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
+//
+.tileThree {
+  padding: .5%;
+  border: 1px solid grey;
+  width: 26.6%;
+  margin-right: 5%;
+  float: left;
+  border: 1px solid black;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #F5F5F5;
 }
