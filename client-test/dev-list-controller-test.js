@@ -24,7 +24,14 @@ describe('dev-list-controller environment', function(){
   describe('devListController.fetchDevs', () => {
     it('should call #.fetchDevs', () => {
       let url =`http://localhost:3000/api/devList`;
+
+      let headers = {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      };
+
       let mockBindings = {
+        devList: [],
         dev: {
           _id: '12345',
           username: 'Testacular',
@@ -33,9 +40,23 @@ describe('dev-list-controller environment', function(){
           state: 'test state',
           phone: '123-456-7891',
           available: true,
+        },
+        fetchDevs: function() {
+          expect(Array.isArray(mockBindings.devList)).toBe(true);
+          expect(mockBindings.dev.available).toBe(true);
+          expect(mockBindings.dev._id).toBe('12345');
         }
       };
-      expect(true).toBe(true);
+      this.$httpBackend.expectGET(url, headers, mockBindings).respond(200, mockBindings);
+
+      //mock fetchDevs, pass in bindings and test they come back..
+
+      let devListCtrl = this.$componentController('devList', null, mockBindings);
+
+      devListCtrl.fetchDevs();
+      expect(Array.isArray(mockBindings.devList)).toBe(true);
+      expect(mockBindings.dev.desc).toBe('test desc');
+      // expect(Array.isArray(mockBindings.devList)).toEqual(true);
     });
   });
 });
