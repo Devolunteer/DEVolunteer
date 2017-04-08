@@ -1,5 +1,19 @@
 @import "../../../scss/lib/theme/_vars";
 
+.signup-Form {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signupFields {
+  text-align: center;
+}
+
+
+
+
+
 a:visited, a:focus, a:hover {
   text-decoration: none;
 }
@@ -10,7 +24,7 @@ a:visited, a:focus, a:hover {
   }
 
   button {
-    float: right;
+    // float: right;
     padding-top: 1.5vw;
     padding-bottom: 1.5vw;
   }

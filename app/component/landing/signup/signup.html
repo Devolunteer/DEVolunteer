@@ -1,30 +1,39 @@
 <section class="signup">
-  <form class="signup-form"
+
+  <div class="signupFields">
+    <form class="signup-form"
     ng-submit="signupCtrl.signup(signupCtrl.user)"
     no-validate>
+    <h2>Let's get you started.</h2>
 
       <input class="input-std field"
-        type="text"
-        placeholder="name"
-        ng-minlength="4"
-        ng-model="signupCtrl.user.username" required>
+      type="text"
+      placeholder="name"
+      ng-minlength="4"
+      ng-model="signupCtrl.user.username" required>
 
       <input class="input-std field"
-        type="email"
-        placeholder="email"
-        ng-model="signupCtrl.user.email">
+      type="email"
+      placeholder="email"
+      ng-model="signupCtrl.user.email">
 
       <input class="input-std field"
-        type="password"
-        placeholder="password"
-        ng-minlength="3"
-        ng-model="signupCtrl.user.password" required>
+      type="password"
+      placeholder="password"
+      ng-minlength="3"
+      ng-model="signupCtrl.user.password" required>
 
       <h4>Are You A...</h4>
       <input type="radio" ng-model="signupCtrl.user.isNPO" value="true" name="radioGroup" required><label for="NPO"> Non Profit Organization</label>
       <input type="radio" ng-model="signupCtrl.user.isDev" value="true" name="radioGroup"><label for="DEV"> Developer</label>
 
 
-      <input type="submit" class="btn-warning btn-border-radius-small" value="SIGN UP">
-  </form>
+      <!-- <input type="submit" class="btn-warning btn-border-radius-small" value="SIGN UP"> -->
+      <button class="registerGoBtn btn-primary">Create Account</button>
+    </form>
+  </div>
+
+
+
+
 </section>
