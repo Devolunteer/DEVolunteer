@@ -49,24 +49,11 @@ module.exports = {
       },
       {
         test: /\.(woff|png|jpg|ttf|svg|eot).*/,
-        use: 'url-loader?limit=10000&name=app/assets/img/**/[hash].[ext]'
+        use: 'file-loader'
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract(
-          {
-            use: [
-              { loader: 'css-loader',  options: { sourceMap: true } },
-              {
-                loader: 'sass-loader',
-                options: {
-                  sourceMap: true,
-                  includePaths: [`${__dirname}/app/scss/`]
-                }
-              }
-            ]
-          }
-        )
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   }

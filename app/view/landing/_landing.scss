@@ -1,7 +1,7 @@
-@import "../../scss/lib/theme/vars";
+// @import "../../scss/lib/theme/_vars";
 
 .drop-down-menu {
-  margin-top: $gutter-std;
+  // margin-top: $gutter-std;
 
   * {
     font-size: 2.5vw;
@@ -9,7 +9,7 @@
 
   div {
     &:not(.panel-group) {
-      padding: $gutter-sm;
+      // padding: $gutter-sm;
     }
   }
 
@@ -27,11 +27,20 @@
 
 // ng-style="{'background-image':'url(/static/'+imgURL+')'}"  possibly add this to the background tag in html.
 
-// .landing {
-//   position: relative;
-//   background: url('../assets/img/stock/holdingHands.png') no-repeat fixed;
-//   background-size: 100%;
-//   margin-bottom: 5%;
-//   color: white;
-//   width: auto;
-// }
+.landing {
+  display: flex;
+  // justify-content: center
+  background-image: url('../../assets/img/stock/help-images-free.jpg');
+  background-repeat: no-repeat;
+  border: 1vw solid #b38b6d;
+  border-style: inset;
+  background-size: 100%;
+  margin: -5% -10% -10% -4%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  // color: white;
+  width: 1280px;
+  height: 853px
+}

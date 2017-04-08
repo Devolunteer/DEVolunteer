@@ -8,6 +8,6 @@ module.exports = ['$log', '$location', '$rootScope', 'authService', landingContr
 function landingController($log, $location, authService) {
   console.log('in landing controller');
 
-  
+
 
 }
