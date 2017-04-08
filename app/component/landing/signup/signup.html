@@ -1,37 +1,74 @@
-<section class="signup">
+<section class="registration">
 
   <div class="signupFields">
+
+    <form name="registrationForm" ng-submit="signupCtrl.signup(signupCtrl.user)" novalidate>
+
+      <h2>Let's get you started</h2>
+
+
+        <input class="field input-std" type="text"
+          name="username"
+          placeholder="Username"
+          ng-minlength="4"
+          ng-model="signupCtrl.user.username" required>
+
+        <input class="field input-std" type="email"
+          placeholder="email"
+          ng-model="signupCtrl.user.email" required>
+
+        <input class="field input-std" type="password" name="password"
+          placeholder="password"
+          ng-minlength="3"
+          ng-model="signupCtrl.user.password" required>
+
+          <h3>Are You A...</h3>
+
+          <label class="radioNpo" for="NPO"><input class="regRadios radioNpo" type="radio" ng-model="signupCtrl.user.isNPO" value="true" name="radioGroup" required>Non Profit Organization</label>
+
+          <label class="radioDev" for="DEV"><input class="regRadios" type="radio" ng-model="signupCtrl.user.isDev" value="true" name="radioGroup">Developer</label>
+
+
+          <button class="registerGoBtn btn-primary">Create Account</button>
+
+    </form>
+
+
+      </div>
+  <!-- </form>
+</div> -->
+
+  <!-- <div class="signupFields">
     <form class="signup-form"
     ng-submit="signupCtrl.signup(signupCtrl.user)"
     no-validate>
     <h2>Let's get you started.</h2>
 
-      <input class="input-std field"
+      <input class="regField"
       type="text"
       placeholder="name"
       ng-minlength="4"
       ng-model="signupCtrl.user.username" required>
 
-      <input class="input-std field"
-      type="email"
+      <input class="regField"
+      type="text"
       placeholder="email"
-      ng-model="signupCtrl.user.email">
+      ng-model="signupCtrl.user.email" required>
 
-      <input class="input-std field"
+      <!-- <input class=""
+      type="text"
+      placeholder="email"
+      ng-model="signupCtrl.user.email"> -->
+
+      <!-- <input class="regField"
       type="password"
       placeholder="password"
       ng-minlength="3"
-      ng-model="signupCtrl.user.password" required>
-
-      <h4>Are You A...</h4>
-      <input type="radio" ng-model="signupCtrl.user.isNPO" value="true" name="radioGroup" required><label for="NPO"> Non Profit Organization</label>
-      <input type="radio" ng-model="signupCtrl.user.isDev" value="true" name="radioGroup"><label for="DEV"> Developer</label>
+      ng-model="signupCtrl.user.password" required> -->
 
 
-      <!-- <input type="submit" class="btn-warning btn-border-radius-small" value="SIGN UP"> -->
-      <button class="registerGoBtn btn-primary">Create Account</button>
-    </form>
-  </div>
+
+        <!-- <input type="submit" class="btn-warning btn-border-radius-small" value="SIGN UP"> -->
 
 
 
