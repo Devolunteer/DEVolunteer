@@ -1,0 +1,84 @@
+.allNpoProfile {
+  position: relative;
+  background: #f8f7f6;
+  border: 1px solid #D5D3D1;
+  padding: 20px;
+  border-radius: 6px;
+  width: 50%;
+}
+
+.npoUsername {
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.npoProfileImage {
+  margin-top: -1%;
+}
+
+fieldset {
+  margin-top: 0;
+}
+
+.uploadPicBtn {
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.form-control {
+  width: auto;
+}
+
+// .devProfileLang,  {
+//   column-count: 2;
+//   width: 30em;
+//   padding-left: 0px;
+// }
+
+
+.firstNpoDemographics {
+  // position: relative;
+  margin-bottom: 3%;
+}
+
+label {
+  margin-top: 3%;
+}
+
+.secondNpoDemographics {
+  position: absolute;
+  left: 45%;
+  bottom: 35%;
+}
+
+// .descriptionText {
+//   display: inline-block;
+// }
+
+.saveNpoProfile {
+  position: absolute;
+  left: 23em;
+  height: auto;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 2.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .5rem 6rem;
+  font-size: 2rem;
+  border-radius: .75rem;
+  transition: all .2s ease-in-out;
+}
+
+
+
+
+//button:hover {
+// background: somthing;
+// }

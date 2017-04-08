@@ -2,17 +2,37 @@ require('./_dev-item.scss');
 
 module.exports = {
   template: require('./dev-item.html'),
-  controller: ['$log', 'developerService', devItemController],
+  controller: ['$log', '$location', 'devService', 'Cloudinary', devItemController],
   controllerAs: 'devItemCtrl',
   bindings: {
-    dev: '<',
-  },
+    dev: '<'
+  }
 };
 
-function devItemController($log, devService){
+function devItemController($log, $location, devService, Cloudinary){
   $log.debug('running devItemCtrl');
 
-  this.showDetailView = function() {
-    devService.showDetail(this.dev._id);
+  this.selectedDev = {};
+  this.showDev = false;
+  this.showMsg = false;
+
+  this.showLess = function() {
+    this.showDev = false;
+  };
+
+
+
+  this.showDetailView = function(dev) {
+    devService.getDevByID(dev)
+    .then(dev => {
+      $log.log('this is a dev ', dev);
+      this.selectedDev = dev;
+      this.showDev = true;
+      console.log('selectedDev', this.selectedDev);
+      console.log('selected Name', this.selectedDev.name);
+    })
+    .catch(() => {
+      this.showMsg = true;
+    });
   };
 }

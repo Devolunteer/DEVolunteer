@@ -9,6 +9,7 @@ const authRouter = require('./route/auth-router.js');
 const devRouter = require('./route/dev-router');
 const npoRouter = require('./route/npo-router.js');
 const errorMiddleware = require('./lib/error-midd.js');
+const cloudinary = require('cloudinary');
 
 const app = express();
 dotenv.load();
@@ -16,7 +17,7 @@ dotenv.load();
 //local mongo db will be called 'devolunteer'
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/devolunteer';
-
+const CLOUDINARY_URL = process.env.CLOUDINARY_URL;
 
 
 mongoose.Promise = Promise;

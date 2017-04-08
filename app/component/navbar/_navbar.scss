@@ -1,8 +1,21 @@
-@import "../../scss/lib/theme/vars";
+@import "../../scss/lib/theme/_vars";
+
+.navbar {
 
 
-button {
-  float: right;
-  padding: 2em;
-  margin: 1%;
+  button {
+    float: right;
+    // padding: 2em;
+    margin: 1%;
+}
+
+  span {
+    display: inline-block;
+    margin: 1%;
+    float: right;
+    text-decoration: underline;
+  }
+  .btn-group {
+    color: #b38b6d
+  }
 }

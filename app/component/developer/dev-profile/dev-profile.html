@@ -4,78 +4,118 @@
 <div class="devProfile">
   <section class="devProfileEdit">
 
-    <form class="dev-profile" name="devProfile" ng-submit="devProfileCtrl.updateProfile(devProfileCtrl.dev)" no-validate>
+  <form class="dev-profile" name="devProfile" ng-submit="devProfileCtrl.updateProfile(devProfileCtrl.dev)" no-validate>
 
       <h2>Username: {{ devProfileCtrl.dev.username }} </h2>
 
+      <cl-image class="devProfileImage" public-id="{{ devProfileCtrl.dev.picture }}" format="jpg">
+          <cl-transformation height="200" width="200" crop="thumb" gravity="face" radius="max" border="2px_solid_rgb:00390b60" />
+      </cl-image>
+
+      <br />
       <fieldset>
-        <img ng-src="{{ devProfileCtrl.picture }}">
-        <p class="grab-img" ngf-select ng-model="devProfileCtrl.pic.file">Choose some random ass pic to upload.</p>
+        <div class="btn btn-primary" ng-model="devProfileCtrl.dev.picture" ngf-select="devProfileCtrl.uploadPic($file)">Upload New Picture</div>
+      </fieldset>
+      <br />
+
+    <div class="allDetailDemo">
+      <fieldset class="available checkbox">
+        <h3>I am Available for Work</h3>
+        <label for="Available">
+          <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">Yes</label>
+        </fieldset>
+
+    <div class="firstDemographics">
+
+      <label for="Name">Name</label>
+      <input class="form-control"  type="text" name="Name" ng-model="devProfileCtrl.dev.name">
+
+      <fieldset class="city">
+        <label for="City">City</label>
+        <input class="form-control"  type="text" name="City" ng-model="devProfileCtrl.dev.city">
+      </fieldset>
+
+      <fieldset class="state">
+        <label for="State">State</label>
+        <input class="form-control"  type="text" name="State" ng-model="devProfileCtrl.dev.state">
+      </fieldset>
+
+      <fieldset class="zip">
+        <label for="Zip">Zip</label>
+        <input class="form-control"  type="text" name="Zip" ng-model="devProfileCtrl.dev.zip">
+      </fieldset>
+    </div>
+
+    <div class="secondDemographics">
+      <fieldset class="phone">
+        <label for="Phone">Phone</label>
+        <input class="form-control" type="tel" name="Phone" ng-model="devProfileCtrl.dev.phone">
+      </fieldset>
+
+      <fieldset class="email">
+        <label for="Email">Email</label>
+        <input  class="form-control" type="text" name="Email" ng-model="devProfileCtrl.dev.email">
+      </fieldset>
+
+      <!-- <fieldset>
+         this needs to be the average of any ratings applied to the dev -->
+        <!-- <span class="item-label">My Rating</span> -->
+        <!-- <input type="text" name="Description" ng-model="devProfileCtrl.dev.reviews"> -->
+
+      <!-- </fieldset> -->
+
+      <fieldset class="experience">
+        <label for="Years">Years of Experience</label>
+        <input class="form-control"  type="text" name="Years" ng-model="devProfileCtrl.dev.experience">
       </fieldset>
 
       <fieldset>
-        <span class="item-label">Name</span>
-        <input type="text" name="Name" ng-model="devProfileCtrl.dev.name">
+        <label for="Website">Website</label>
+        <input  class="form-control" type="text" name="Website" ng-model="devProfileCtrl.dev.website">
       </fieldset>
 
-      <fieldset>
-        <span class="item-label">Description</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.desc">
+    </div>
+    <label class="descHead" for="Description">Description</label>
+    <textarea  class=" descriptionText form-control" rows="4" cols="100" name="Description" ng-model="devProfileCtrl.dev.desc"></textarea>
+  </div>
+
+      <fieldset class="languages checkbox">
+        <h3>Languages</h3>
+        <ul class="devProfileLang">
+          <label for="JavaScript"><input type="checkbox" name="JavaScript" ng-model="devProfileCtrl.dev.javascript">JavaScript</label>
+
+          <label for="html"><input type="checkbox" name="html" ng-model="devProfileCtrl.dev.html"> HTML/CSS</label>
+
+          <label for="Angular"><input type="checkbox" name="Angular" ng-model="devProfileCtrl.dev.angular" > Angular</label>
+
+          <label for="React"><input type="checkbox" name="React" ng-model="devProfileCtrl.dev.react"> React</label>
+
+          <label for="Python"><input type="checkbox" name="Python" ng-model="devProfileCtrl.dev.python"> Python</label>
+
+          <label for="other"><input type="checkbox" name="other" ng-model="devProfileCtrl.dev.otherlang"> Other</label>
+        </ul>
       </fieldset>
 
-      <fieldset>
-        <span class="item-label">City</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.city">
+      <fieldset class="services checkbox">
+        <h3>Services</h3>
+        <label for="website"><input type="checkbox" name="website" ng-model="devProfileCtrl.dev.websitework"> Website</label>
+        <label for="mobileApp"><input type="checkbox" name="mobileApp" ng-model="devProfileCtrl.dev.mobileapp"> Mobile Apps</label>
+        <label for="webApp"><input type="checkbox" name="webApp" ng-model="devProfileCtrl.dev.webapp"> Web App</label>
+        <label for="other"><input type="checkbox" name="other" ng-model="devProfileCtrl.dev.otherwork"> Other</label>
       </fieldset>
 
-      <fieldset>
-        <span class="item-label">State</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.state">
-      </fieldset>
 
-      <fieldset>
-        <span class="item-label">Zip</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.zip">
-      </fieldset>
+      <!-- This is for a brand new Dev -->
+      <button type="submit" class="saveDevProfile btn-primary" ng-hide="devProfileCtrl.isNewUser">Update Profile</button>
 
-      <fieldset>
+      <!-- This is for a Dev who does not exist yet   -->
+      <button type="submit" class="saveDevProfile btn-primary" ng-show="devProfileCtrl.isNewUser">Save Changes</button>
 
-        <span class="item-label">Phone</span>
-        <input type="tel" name="Phone" ng-model="editProfileCtrl.dev.phone">
-      </fieldset>
 
-      <fieldset>
-        <span class="item-label">Reviews</span>
-        <input type="text" name="Description" ng-model='editProfileCtrl.dev.reviews'>
+  </form>
+  <button type="button" class="deleteDevProfile" ng-click="devProfileCtrl.deleteMe()">Delete Profile</button>
 
-      </fieldset>
 
-      <fieldset>
-        <span class="item-label">Languages</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.languages">
-      </fieldset>
-
-      <fieldset>
-        <span class="item-label">Services</span>
-        <input type="checkbox" name="website" ng-model="devProfileCtrl.dev.services"><label for="website"> Website</label>
-        <input type="checkbox" name="mobileApp" ng-model="devProfileCtrl.dev.services"><label for="mobileApp"> Mobile Apps</label>
-        <input type="checkbox" name="webApp" ng-model="devProfileCtrl.dev.services"><label for="webApp"> Web App</label>
-        <input type="checkbox" name="other" ng-model="devProfileCtrl.dev.services"><label for="other"> Other</label>
-
-      </fieldset>
-
-      <fieldset>
-        <span class="item-label">Websites</span>
-        <input type="text" name="Description" ng-model="devProfileCtrl.dev.desc">
-      </fieldset>
-
-      <fieldset>
-        <span class="item-label">Available</span>
-        <input type="checkbox" name="Available" ng-model="devProfileCtrl.dev.available">
-      </fieldset>
-
-      <button type="submit" class="btn-std">Save Changes</button>
-    </form>
   </section>
 
 </div>

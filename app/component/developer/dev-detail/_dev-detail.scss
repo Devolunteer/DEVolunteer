@@ -1,0 +1,39 @@
+.devDetails {
+    // border: 1px solid black;
+    // margin: %;
+    margin-top: 1.5em;
+    float: right;
+    width: 87%;
+    margin-bottom: 2em;
+    position: relative;
+    // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    // transition: 0.3s;
+    // border-radius: 5px;
+    background-color: #F5F5F5;
+}
+
+.langList, .programsList {
+  column-count: 2;
+  width: 40%;
+}
+
+
+.aboutDetailDev {
+  text-decoration: none;
+}
+
+.langDetailHead {
+  margin-top: 10%;
+}
+
+.webDetailHead {
+  position: absolute;
+  bottom: 51%;
+  right: 2%;
+}
+
+.webDetailLink {
+  position: absolute;
+  bottom: 44%;
+  right: 25%;
+}

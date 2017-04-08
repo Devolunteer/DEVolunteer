@@ -23,6 +23,7 @@ $brand-success:         $app-success !default;
 $brand-info:            $app-info !default;
 $brand-warning:         $app-warn !default;
 $brand-danger:          $app-error !default;
+$brand-special:         #b38b6d !default;
 
 
 //== Scaffolding
@@ -153,7 +154,7 @@ $table-border-color:            #ddd !default;
 $btn-font-weight:                normal !default;
 
 $btn-default-color:              #333 !default;
-$btn-default-bg:                 #fff !default;
+$btn-default-bg:                 darken(#b38b6d, 5%) !default;
 $btn-default-border:             #ccc !default;
 
 $btn-primary-color:              #fff !default;
@@ -176,7 +177,11 @@ $btn-danger-color:               #fff !default;
 $btn-danger-bg:                  $brand-danger !default;
 $btn-danger-border:              darken($btn-danger-bg, 5%) !default;
 
-$btn-link-disabled-color:        $gray-light !default;
+$btn-special-color:              #fff !default;
+$btn-special-bg:                 $brand-special !default;
+$btn-special-border:             darken($btn-special-bg, 5%) !default;
+
+$btn-link-disabled-color:        $brand-special !default;
 
 // Allows for customizing button radius independently from global border radius
 $btn-border-radius-base:         $border-radius-base !default;
@@ -240,7 +245,7 @@ $cursor-disabled:                not-allowed !default;
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-$dropdown-bg:                    lighten(orange, 5%) !default;
+$dropdown-bg:                    lighten(#b38b6d, 20%) !default;
 //** Dropdown menu `border-color`.
 $dropdown-border:                rgba(0,0,0,.15) !default;
 //** Dropdown menu `border-color` **for IE8**.

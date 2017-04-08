@@ -1,13 +1,13 @@
 'use strict';
 
-module.exports = function(){
-  return function (developers, value){
-    console.log(value);
-    if(!value) return /.*/;
-    developers.dev.forEach(item, function(){
-      if(developers.dev.ratings == value) {
-        return developers.dev;
-      }
-    });
+module.exports = function() {
+  return function(devs, bool=false) {
+    if(bool === true) {
+      devs = devs.filter(dev => {
+        return dev.services.includes('four')
+      })
+      return devs
+    }
+    return devs;
   };
 };
