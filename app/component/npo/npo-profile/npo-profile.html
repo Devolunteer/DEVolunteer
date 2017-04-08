@@ -56,6 +56,12 @@
             <label for="Projects">Projects</label>
             <input class="form-control" type="text" name="Projects" ng-model="npoProfileCtrl.npo.projects">
           </fieldset>
+
+          <fieldset class="optIn">
+            <h5>Can we display your company information in our partners page?</h5>
+            <input type="radio" class="radio-inline" ng-model="npoProfileCtrl.npo.optIn" value="true" name="radioGroup" required><label for="YES">&nbsp; Yes &nbsp;</label>
+            <input type="radio" class="radio-inline" ng-model="npoProfileCtrl.npo.optIn" value="false" name="radioGroup"><label for="NO">&nbsp; No &nbsp;</label>
+        </fieldset>
         </div>
       </div>
 
