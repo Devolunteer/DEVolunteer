@@ -11,7 +11,8 @@ function npoService($q, $log, $http, Upload, authService) {
 
 
   service.fetchNpos = function() {
-    let url =`${__API_URL__}/api/npoList`;
+    // let url =`${__API_URL__}/api/npoList`;
+    let url =`http://localhost:3000/api/npoList`;
 
     return $http.get(url)
     .then( res => {
@@ -60,7 +61,8 @@ function npoService($q, $log, $http, Upload, authService) {
 
     return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/npo/`;
+        let url = `http://localhost:3000/api/npo`
+        // let url = `${__API_URL__}/api/npo/`;
         let config = {
           headers: {
             Accept: 'application/json',
@@ -107,7 +109,8 @@ function npoService($q, $log, $http, Upload, authService) {
 
     return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/npo/`;
+        let url = `http://localhost:3000/api/npo`
+        // let url = `${__API_URL__}/api/npo/`;
         let config = {
           headers: {
             Accept: 'application/json',
@@ -150,7 +153,8 @@ function npoService($q, $log, $http, Upload, authService) {
 
     return authService.getToken()
     .then(token => {
-      let url = `${__API_URL__}/api/npo/`;
+      let url = `http://localhost:3000/api/npo`
+      // let url = `${__API_URL__}/api/npo/`;
       let config = {
         headers: {
           Authorization: `Bearer ${token}`
