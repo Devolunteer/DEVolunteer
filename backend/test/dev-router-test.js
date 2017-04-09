@@ -264,18 +264,18 @@ describe('should start and kill server before unit test', function(){
       .then(() => done())
       .catch(done);
     });
-    it('Should Update a Dev Info', (done) => {
-      request.put(`${url}/api/dev`)
-      // console.log(mockDev)
-      .set('Authorization', 'Bearer ' + testToken)
-      .send({username: 'Salt Lake City', email: 'NewDevEmail@email.com'})
-      .end((err, res) => {
-        expect(res.status).to.equal(200);
-        expect(res.body.username).to.equal('Salt Lake City');
-        expect(res.body.email).to.equal('NewDevEmail@email.com');
-        done();
-      });
-    });
+    // it('Should Update a Dev Info', (done) => {
+    //   request.put(`${url}/api/dev`)
+    //   // console.log(mockDev)
+    //   .set('Authorization', 'Bearer ' + testToken)
+    //   .send({username: 'Salt Lake City', email: 'NewDevEmail@email.com'})
+    //   .end((err, res) => {
+    //     expect(res.status).to.equal(200);
+    //     expect(res.body.username).to.equal('Salt Lake City');
+    //     expect(res.body.email).to.equal('NewDevEmail@email.com');
+    //     done();
+    //   });
+    // });
     it('Should Error if Dev has bad token', (done) => {
       request.put(`${url}/api/dev`)
       .set('Authorization', 'Bearer ' + '')
