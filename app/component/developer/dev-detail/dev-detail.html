@@ -43,7 +43,13 @@
   <a class="webDetailLink" href="{{devDetailCtrl.dev.website}}">{{devDetailCtrl.dev.website}}</a>
 
 
-  <!-- <button ng-if="devDetailCtrl.userAuthenticated" type="button" name="button" ng-click="SOMETHING">Contact Me</button> -->
+  <button class="contactBtn btn btn-bm btn-primary"
+  ng-click="contactDevCtrl.contactDev()"
+  type="button"
+  name="ContactDev">Contact Me</button>
+
+
+  <contact-dev ng-if="contactDevCtrl.contactDev"></contact-dev>
 
 
 
