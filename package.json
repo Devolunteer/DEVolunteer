@@ -2,18 +2,20 @@
   "name": "DEVolunteer",
   "version": "1.0.0",
   "main": "index.js",
-  "engines": { "node": "6.9.1" },
+  "engines": {
+    "node": "6.9.1"
+  },
   "directories": {
-  "test": "test"
-},
-"scripts": {
-  "build": "./node_modules/webpack/bin/webpack.js",
-  "build-watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
-  "test": "./node_modules/karma/bin/karma start --single-run",
-  "test-watch": "./node_modules/karma/bin/karma start",
-  "heroku-postbuild": "webpack -p --progress",
-  "start": "node server.js"
-},
+    "test": "test"
+  },
+  "scripts": {
+    "build": "./node_modules/webpack/bin/webpack.js",
+    "build-watch": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot",
+    "test": "./node_modules/karma/bin/karma start --single-run",
+    "test-watch": "./node_modules/karma/bin/karma start",
+    "heroku-postbuild": "webpack -p --progress",
+    "start": "node server.js"
+  },
   "repository": "https://github.com/jisenber/DEVolunteer.git",
   "author": "jisenber <isenberg.jacob@yahoo.com>",
   "license": "MIT",
@@ -57,6 +59,7 @@
     "pascalcase": "^0.1.1",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
+    "sendgrid": "^5.0.0",
     "style-loader": "^0.16.1",
     "superagent": "^3.5.2",
     "ui-router": "^1.0.0-alpha.3",
