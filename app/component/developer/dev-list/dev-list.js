@@ -15,6 +15,7 @@ function devListController($log, devService) {
   $log.debug('devServiceController()');
   this.dev;
   this.filtered = [];
+  this.devRev;
 
 
 
@@ -26,9 +27,7 @@ function devListController($log, devService) {
     this.dev.forEach(function(dev){
       dev.services = [];
       for(let key in dev){
-      // let key = key.charAt(0).toUpperCase() + key.slice(1);
         if(dev[key] === true){
-          // console.log(key);
           dev.services.push(key);
         }
       }
@@ -36,10 +35,45 @@ function devListController($log, devService) {
 
     $log.log('response (developers) is saved on .dev property');
     console.log('length', this.dev.length);
+    console.log('devs', this.dev);
   })
+  .then( devList => {
+    this.dev.forEach(function(dev){
+      let sum = 0;
+      for( var i = 0; i < dev.reviews.length; i++){
+        sum += parseInt(dev.reviews[i], 10);
+      }
+      console.log('sum', sum);
+      dev.avg = sum/dev.reviews.length;
+      console.log('avg', dev.avg);
+    })
+  })
+
+
+
+
+
+
+
   .catch(e => {
     console.log(e);
   });
+
+  // this.getAverageRating = function()
+
+  // this.getAverageRating = function(dev){
+  //   console.log('running get average rating');
+  //   devService.getDevByID(dev)
+  //   .then(dev => {
+  //     console.log('dev', dev);
+  //     // let sum = 0;
+  //     // for( var i = 0; i < dev.reviews.length; i++){
+  //     //   sum += parseInt(dev.reviews[i], 10);
+  //     // }
+  //     // let avg = sum/dev.reviews.length;
+  //   });
+  //   // this.dev.avg = dev.avg;
+  // };
 
 
 //end of the controller

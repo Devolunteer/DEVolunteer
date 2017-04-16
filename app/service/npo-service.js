@@ -87,7 +87,8 @@ function npoService($q, $log, $http, Upload, authService) {
   service.fetchNpo = function() {
     return authService.getToken()
     .then(token => {
-      let url = `${__API_URL__}/api/npo`;
+      let url = `http://localhost:3000/api/npo`;
+      // let url = `${__API_URL__}/api/npo`;
       let config = {
         headers: {
           Authorization: `Bearer ${token}`
