@@ -10,6 +10,9 @@
         <h4 class="devEmail" ng-if="devItemCtrl.isUser">Contact Me: <a href="mailto: {{devItemCtrl.dev.email}}">{{ devItemCtrl.dev.email }}</a></h4>
         <h3 class="devName">{{ devItemCtrl.dev.name }}</h3>
         <h4 class="detailCity">{{ devItemCtrl.dev.city }}, {{ devItemCtrl.dev.state }} {{ devItemCtrl.dev.zip }}</h4>
+
+        <h5 class="devAvgRating">Average Rating: {{ devItemCtrl.dev.avg }} stars</h5>
+
         <h4 class="devExp">{{ devItemCtrl.dev.experience }} Years Experience </h4>
         <h3 class="aboutHead">About Me</h3>
         <p class="aboutDev"> {{ devItemCtrl.dev.desc }}</p>
