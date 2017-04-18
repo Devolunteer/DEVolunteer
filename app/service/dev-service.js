@@ -121,7 +121,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
 
   service.rateDev = function(dev, rating) {
     $log.debug('devService.rateDev()');
-
     return authService.getToken()
       .then(token => {
         let url = `http://localhost:3000/api/dev`
@@ -134,20 +133,17 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
           }
         };
         $log.log('set the headers');
-        // let data = [rating];
-        // return $http.put(url, dev, config, data)
-        return $http.put(url, config, dev, { $push: { "reviews": rating } })
-
+        return $http.put(url, dev, config)
         .then(res => {
           console.log('res', res);
-          // let dev = res.data;
-          // console.log('returned dev', dev)
-          // return dev;
+          let dev = res.data;
+          console.log('returned dev', dev)
+          return dev;
         })
-        // .catch(err => {
-        //   console.log(err);
-        //   return $q.reject(err);
-        // });
+        .catch(err => {
+          console.log(err);
+          return $q.reject(err);
+        });
       });
   };
 

@@ -70,6 +70,17 @@ router.put('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
 });
 
 
+//updating the reviews for a developer in the db.
+router.put('/api/devlist', bearerAuth, jsonParser, (req, res, next) => {
+  console.log('in the router put for ratings');
+  return Dev.findOneAndUpdate({username: req.user.username}, req.body, {$push : { "reviews": req.body.rating }})
+  .then(dev => {
+    res.json(dev);
+  })
+  .catch(next);
+});
+
+
 router.delete('/api/dev', bearerAuth, (req, res) => {
   Dev.findOneAndRemove({username: req.user.username}).exec()
   .then(() => res.status(204).end())
