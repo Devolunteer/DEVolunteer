@@ -73,7 +73,7 @@ router.put('/api/dev', bearerAuth, jsonParser, (req, res, next) => {
 //updating the reviews for a developer in the db.
 router.put('/api/devlist', bearerAuth, jsonParser, (req, res, next) => {
   console.log('in the router put for ratings');
-  return Dev.findOneAndUpdate({username: req.user.username}, req.body, {$push : { "reviews": req.body.rating }})
+  return Dev.findOneAndUpdate({username: req.body.username}, req.body, {new: true})
   .then(dev => {
     res.json(dev);
   })

@@ -123,7 +123,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     $log.debug('devService.rateDev()');
     return authService.getToken()
       .then(token => {
-        let url = `http://localhost:3000/api/dev`
+        let url = `http://localhost:3000/api/devlist`
         // let url = `${__API_URL__}/api/dev/`;
         let config = {
           headers: {
@@ -141,6 +141,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
           return dev;
         })
         .catch(err => {
+          console.log('in the rateDev catch');
           console.log(err);
           return $q.reject(err);
         });

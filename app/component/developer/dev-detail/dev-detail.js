@@ -19,9 +19,8 @@ function DevDetailController($log, $q, devService, userService, Cloudinary){
 
 
   this.addDevRating = function(rating){
-    console.log('in the add dev ratings');
-    console.log('rating', rating);
-    devService.rateDev(this.dev, rating);
+    this.dev.reviews.push(rating)
+    devService.rateDev(this.dev);
   }
 
 
