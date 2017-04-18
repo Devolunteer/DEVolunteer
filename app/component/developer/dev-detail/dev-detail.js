@@ -17,18 +17,27 @@ function DevDetailController($log, $q, devService, userService, Cloudinary){
   console.log('token', this.token);
 
 
-  let ratings = [];
 
-  this.addDevRatings = function(rating){
+  this.addDevRating = function(rating){
     console.log('in the add dev ratings');
-    ratings.push(rating)
-    console.log('ratings', ratings);
+    console.log('rating', rating);
+    devService.rateDev(this.dev, rating)
+    //updateDev goes to a PUT route. for existing dev profiles.
+    // .then( () => {
+    //   console.log('in the rate a dev stuff');
+    //
+    // });
+    // ratings.push(rating)
+    // console.log('ratings', ratings);
   }
-  //
-  // this.averageReviews = function(){
-  // let sum = 0;
-  // for(var r = 0; r < )
-  //   //math here for reviews
-  // }
 
+
+
+
+
+
+
+
+
+//end of controller
 }
