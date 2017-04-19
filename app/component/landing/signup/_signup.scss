@@ -1,6 +1,10 @@
 @import "../../../scss/lib/theme/_vars";
 
-.registrationForm {
+.registration {
+  height: 100%;
+  margin-top: 15%;
+}
+#registrationForm {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -29,6 +33,7 @@ a:visited, a:focus, a:hover {
 }
 
 .registerGoBtn {
+  align-items: center;
   display: block;
   margin: auto;
   margin-top: 2%;
@@ -41,4 +46,20 @@ input {
   padding: 1% 5%;
   font-size: 2vw;
   border: none;
+}
+
+@media only screen and (max-width: 320px) {
+  .registration {
+    padding-top: 90px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .registration {
+    padding-top: 70px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .registration {
+    padding-top: 70px;
+  }
 }

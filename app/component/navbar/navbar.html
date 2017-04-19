@@ -1,22 +1,77 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" role="navigation" ng-init="nc=true;">
+<div class="titleText"><h1 class="mainText">DEVolunteer</h1></div>
+<div class="titleText subText"><h3>Make the world a better place.</h3></div>
+      <div class="navbar-header">
+      <button class="auth btn navbar-btn btn-primary" ng-hide="navBarCtrl.isUser"><a ui-sref="login">LOG IN</a></button>
+
+      <button class="register btn navbar-btn btn-primary" ng-hide="navBarCtrl.isUser"><a ui-sref="signup">SIGN UP</a></button>
+
+        <div class="nav-container" oninit="navBarCtrl.checkUser()">
+          <div class="uib-collapse" uib-collapse="nc" horizontal>
+              <ul class="">
+                <li><a ui-sref="landing">Home</a></li>
+                <li><a ui-sref="edit" ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.editUser()">Edit Profile</a></li>
+                <li><a ui-sref="about-us" ng-click="navBarCtrl.aboutUs()">About Us</a></li>
+                <li><a ui-sref="partners">Our Partners</a></li>
+                <li><a ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.logout()" ui-sref="landing">Log Out</a></li>
+                <li><a ui-sref="login">Login</a></li>
+                <li><a ui-sref="signup">Signup</a></li>
+              </ul>
+          </div>
+
+          <button type="button" class="navbar-toggle" ng-click="nc=!nc">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+      				<span class="icon-bar"></span>
+      				<span class="icon-bar"></span>
+          </button>
+
+          <!-- <a href="/!#" class="logo">
+              <span class="appName pull-left">DEVolunteer</span>
+          </a> -->
+          <span class="navbar-text navbar-right" ng-if="navBarCtrl.isUser"><h4>Hello {{ navBarCtrl.username }} </h4></span>
+      </div>
+  </nav>
+  <!-- <nav class="navbar navbar-default" role="navigation" ng-init="nc=true;">
   <div class="nav-container" oninit="navBarCtrl.checkUser()">
 
     <div class="titleText"><h1 class="mainText">DEVolunteer</h1></div>
     <div class="titleText subText"><h3>Make the world a better place.</h3></div>
 
+    <div class="navbar-header">
     <button class="auth btn navbar-btn btn-primary" ng-hide="navBarCtrl.isUser"><a ui-sref="login">LOG IN</a></button>
 
     <button class="register btn navbar-btn btn-primary" ng-hide="navBarCtrl.isUser"><a ui-sref="signup">SIGN UP</a></button>
-
+    			<button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+    				<span class="sr-only">Toggle navigation</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
+    			<a class="navbar-brand" href="#">DEVolunteer</a>
+    		</div>
+    		<div class="horizontal-collapse" uib-collapse="isCollapsedHorizontal" horizontal>
+    			<ul class="nav navbar-nav">
+    				<li><a ui-sref="landing">Home</a></li>
+    				<li><a ui-sref="edit" ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.editUser()">Edit Profile</a></li>
+            <li><a ui-sref="about-us" ng-click="navBarCtrl.aboutUs()">About Us</a></li>
+            <li><a ui-sref="partners">Our Partners</a></li>
+            <li><a ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.logout()" ui-sref="landing">Log Out</a></li>
+            <li><a ui-sref="login">Login</a></li>
+            <li><a ui-sref="signup">Signup</a></li>
+    			</ul>
+    		</div>
     <ul class="nav navbar-nav">
             <li><a ui-sref="landing">Home</a></li>
             <li><a ui-sref="edit" ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.editUser()">Edit Profile</a></li>
             <li><a ui-sref="about-us" ng-click="navBarCtrl.aboutUs()">About Us</a></li>
             <li><a ui-sref="partners">Our Partners</a></li>
             <li><a ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.logout()" ui-sref="landing">Log Out</a></li>
+            <li><a ui-sref="login">Login</a></li>
+            <li><a ui-sref="signup">Signup</a></li>
     </ul>
 
       <span class="navbar-text navbar-right" ng-if="navBarCtrl.isUser"><h4>Hello {{ navBarCtrl.username }} </h4></span>
     </div>
 
-</nav>
+</nav> -->
