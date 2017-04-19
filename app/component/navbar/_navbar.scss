@@ -1,22 +1,64 @@
 @import "../../scss/lib/theme/_vars";
 
+// -------------------------Horizonal NavBar -----/
+.logo img {
+  width:100px;
+}
+
+ul {
+  padding:0;
+}
+
+li {
+  display:inline-block;
+  padding: 10px 5px;
+}
+
+a {
+  font-size:10px;
+}
+
+.uib-collapse, button {
+  float:right;
+  height:45px;
+}
+
+button {
+  margin:0 !important;
+}
+
+.collapsing {
+  transition-duration:2s;
+}
+
+.navbar-toggle {
+  border: none;
+}
+
 .navbar {
   height: auto;
 }
 
 .navbar-nav{
+  // display: inline;
   position: absolute;
   left: 0;
   margin: 0;
   top: 51%;
 }
 
+.titleText {
+  text-align: center;
+}
 
+.navbar-collapse.in {
+    overflow-y: hidden;
+  }
 
 .nav-container {
   position: relative;
   text-align: center;
-  height: 100px;
+  height: 50px;
 }
 
 .mainText {
@@ -63,4 +105,46 @@
      padding:0!important;
      font: inherit;
      cursor: pointer;
+}
+.horizontal-collapse {
+  height:50px;
+}
+ul{
+  display: flex;
+  justify-content: space-around;
+}
+
+// .navbar-text {
+//   padding-right: 37%;
+// }
+
+@media only screen and (max-width: 768px) {
+  // .navbar-header {
+  //   display:block;
+  // }
+  button.auth {
+    display: none;
+  }
+  button.register {
+    display: none;
+  }
+  // body {
+  //   padding-top: 40px;
+  // }
+  .navbar-text {
+    padding-right: 37%;
+  }
+}
+@media only screen and (max-width: 320px) {
+
+  .navbar-text {
+    padding-right: 37%;
+  }
+  .appName {
+    text-decoration: underline;
+    font-weight: bold;
+    position: sticky;
+    text-align: center;
+    overflow-y: hidden;
+  }
 }
