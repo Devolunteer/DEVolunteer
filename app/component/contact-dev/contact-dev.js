@@ -17,11 +17,14 @@ function contactDevController($log, $location, devService, userService, authServ
 
   this.nonP = {};
 
+  this.isNPO = false;
+
   npoService.fetchNpo()
   .then(res => {
     if (res) {
       this.nonP.org = res.data.org;
       this.nonP.email = res.data.email;
+      this.isNPO = true;
     }
     else {
       this.isNewUser = true;

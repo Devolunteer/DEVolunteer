@@ -1,15 +1,11 @@
 .devDetails {
-    // border: 1px solid black;
-    // margin: %;
     margin-top: 1.5em;
     float: right;
     width: 87%;
     margin-bottom: 2em;
     position: relative;
-    // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    // transition: 0.3s;
-    // border-radius: 5px;
     background-color: #F5F5F5;
+    margin-right: 2%;
 }
 
 .langList, .programsList {
@@ -18,13 +14,21 @@
   padding-left: 2%;
 }
 
+.langList label {
+  margin-right: 6%;
+}
+
+.programsList label{
+  margin-right: 6%;
+}
+
 
 .aboutDetailDev {
   text-decoration: none;
   margin-bottom: .5%;
 }
 
-.langDetailHead {
+.langDetailHead, .programsDetailHead {
   margin-top: 4%;
 }
 
@@ -38,4 +42,29 @@
   position: absolute;
   bottom: 75%;
   right: 22.5%;
+}
+
+.rateHead{
+  position: absolute;
+  right: 25%;
+  top: 31%;
+}
+
+.rateForm{
+  position: absolute;
+  right: 20%;
+  top: 40%;
+}
+
+.rateLabel {
+  display: block;
+  margin-left: .2%;
+}
+
+.rateRadio {
+  margin-right: 4%;
+}
+
+.rateBtn {
+  margin-top: 10%;
 }
