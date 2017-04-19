@@ -3,6 +3,17 @@
 
 <div dev="item" class="devDetails">
 
+  <h4>Rate Me!</h4>
+  <form ng-submit="devDetailCtrl.addDevRating(devDetailCtrl.rating)" class="" novalidate>
+    <input type="radio" ng-model="devDetailCtrl.rating" value="1" name="radioGroup" required><label for="one"> One Star</label>
+    <input type="radio" ng-model="devDetailCtrl.rating" value="2" name="radioGroup" required><label for="two"> Two Stars</label>
+    <input type="radio" ng-model="devDetailCtrl.rating" value="3" name="radioGroup" required><label for="one"> Three Stars</label>
+    <input type="radio" ng-model="devDetailCtrl.rating" value="4" name="radioGroup" required><label for="two"> Four Stars</label>
+    <input type="radio" ng-model="devDetailCtrl.rating" value="5" name="radioGroup" required><label for="two"> Five Stars</label>
+
+    <input type="submit" class="btn btn-bm btn-primary" value="Add Your Rating">
+   </form>
+
   <h3 class="aboutDetailHead">About Me</h3>
   <p class="aboutDetailDev"> {{ devDetailCtrl.dev.desc }}</p>
 
@@ -36,14 +47,11 @@
   </ul>
 
 
-  <!-- <h3 class="item-label">Available</h3>
-  <input type="checkbox" name="Available" ng-model="devDetailCtrl.dev.available"> -->
-
   <h4 class="webDetailHead">Where You Can Find Me On the Web</h4>
   <a class="webDetailLink" href="{{devDetailCtrl.dev.website}}">{{devDetailCtrl.dev.website}}</a>
 
 
-  <!-- <button ng-if="devDetailCtrl.userAuthenticated" type="button" name="button" ng-click="SOMETHING">Contact Me</button> -->
+<contact-dev></contact-dev>
 
 
 

@@ -17,18 +17,19 @@ function DevDetailController($log, $q, devService, userService, Cloudinary){
   console.log('token', this.token);
 
 
-  let ratings = [];
 
-  this.addDevRatings = function(rating){
-    console.log('in the add dev ratings');
-    ratings.push(rating)
-    console.log('ratings', ratings);
+  this.addDevRating = function(rating){
+    this.dev.reviews.push(rating)
+    devService.rateDev(this.dev);
   }
-  //
-  // this.averageReviews = function(){
-  // let sum = 0;
-  // for(var r = 0; r < )
-  //   //math here for reviews
-  // }
 
+
+
+
+
+
+
+
+
+//end of controller
 }
