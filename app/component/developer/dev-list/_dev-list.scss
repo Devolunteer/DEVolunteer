@@ -22,19 +22,19 @@ ul {
 // fieldset {
 //   margin-top: 10%;
 // }
-@media only screen and (max-width: 770px) {
+@media only screen and (min-width: 772px) {
   .devFilters {
     margin-top: 25%;
   }
 
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 770px) and (min-width: 422px) {
   .devFilters {
-    margin-top: 45%;
+    margin-top: 30%;
   }
 }
-@media only screen and (max-width: 322px) {
+@media only screen and (max-width: 420px) and (min-width: 318px) {
   .devFilters {
-    margin-top: 60%;
+    margin-top: 50%;
   }
 }
