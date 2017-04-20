@@ -1,6 +1,6 @@
 .devItem {
   border: 1px solid black;
-  // margin: %;
+  margin-top: 5%;
   float: right;
   width: 80%;
   margin-bottom: 2%;
@@ -90,4 +90,21 @@
   float: right;
   margin-bottom: 1%;
   margin-right: 2%;
+}
+
+@media only screen and (max-width: 766px) {
+  .devItem {
+    margin-top: 25%;
+  }
+
+}
+@media only screen and (max-width: 480px) {
+  .devItem {
+    margin-top: 45%;
+  }
+}
+@media only screen and (max-width: 322px) {
+  .devItem {
+    margin-top: 60%;
+  }
 }
