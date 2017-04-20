@@ -3,10 +3,11 @@
 <div npo="item" class="contactDev">
   <section>
     <h3>Contact Me</h3>
-    <form class="contact-form" name="contactDeveloper" ng-submit="" no-validate>
-      <label for="organiztation">Your Company</label><input class="form-control" type="text" name="organization" value="" placeholder="{{ contactDevCtrl.nonP.org }}">
-      <label for="email">Your Email</label><input class="form-control" type="text" name="email" value="" placeholder="{{ contactDevCtrl.nonP.email }}">
-      <textarea class="contactDesc form-control" rows="4" cols="100" name="comment" form="usrform">
+    <form class="contact-form" name="contactDeveloper" ng-submit="contactDevCtrl.sendMail(contactDevCtrl.nonP)" no-validate>
+      <label for="Recipient">TO: </label><input class="form-control" type="text" name="recipient" ng-model="contactDevCtrl.nonP.recipient" value="{{ contactDevCtrl.dev.email }}" placeholder="{{ contactDevCtrl.dev.email }}" readonly>
+      <label for="organization">Your Company</label><input class="form-control" type="text" name="organization" value="" ng-model="contactDevCtrl.nonP.org" placeholder="{{ contactDevCtrl.nonP.org }}">
+      <label for="email">Your Email</label><input class="form-control" type="text" name="email" value="" ng-model="contactDevCtrl.nonP.email" placeholder="{{ contactDevCtrl.nonP.email }}">
+      <textarea class="contactDesc form-control" rows="4" cols="100" name="comment" form="usrform" ng-model="contactDevCtrl.nonP.msg">
 Tell me about you and your project...</textarea>
 
       <input type="submit" class="btn btn-bm btn-primary" value="Send">

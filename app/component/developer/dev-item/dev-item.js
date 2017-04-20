@@ -34,7 +34,6 @@ function devItemController($log, $location, devService, userService, Cloudinary)
       }
     });
 
-
   this.showDetailView = function(dev) {
     devService.getDevByID(dev)
     .then(dev => {

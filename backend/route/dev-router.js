@@ -4,6 +4,8 @@ let bearerAuth = require('../lib/bearer-auth-midd.js');
 let createError = require('http-errors');
 let Dev = require('../model/dev');
 let jsonParser = require('body-parser').json();
+let helper = require('sendgrid').mail;
+var sg = require('sendgrid')(process.env.SENDGRID_API_KEY)
 
 let router = module.exports = new Router();
 
@@ -87,4 +89,27 @@ router.delete('/api/dev', bearerAuth, (req, res) => {
   .catch(err => {
     console.error(err);
   });
+});
+
+router.post('/api/dev/contact', bearerAuth, jsonParser, (req, res) => {
+  let from_email = new helper.Email(req.body.email);
+  let to_email = new helper.Email(req.body.recipient);
+  let subject = `Devolunteer mail from ${req.body.org}`;
+  let content = new helper.Content('text/plain', req.body.msg);
+  var mail = new helper.Mail(from_email, subject, to_email, content);
+
+  var request = sg.emptyRequest({
+    method: 'POST',
+    path: '/v3/mail/send',
+    body: mail.toJSON(),
+  });
+
+  sg.API(request)
+    .then(response => {
+      res.json(response.body);
+    })
+    .catch(error => {
+      console.log(error.response);
+    });
+
 });
