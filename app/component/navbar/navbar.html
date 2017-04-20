@@ -15,8 +15,8 @@
                 <li><a ui-sref="about-us" ng-click="navBarCtrl.aboutUs()">About Us</a></li>
                 <li><a ui-sref="partners">Our Partners</a></li>
                 <li><a ng-if="navBarCtrl.isUser" ng-click="navBarCtrl.logout()" ui-sref="landing">Log Out</a></li>
-                <li><a ui-sref="login" ng-hide="navBarCtrl.isUser">Login</a></li>
-                <li><a ui-sref="signup"ng-hide="navBarCtrl.isUser">Signup</a></li>
+                <li class="mobile"><a ui-sref="login" ng-hide="navBarCtrl.isUser">Login</a></li>
+                <li class="mobile"><a ui-sref="signup"ng-hide="navBarCtrl.isUser">Signup</a></li>
               </ul>
           </div>
 

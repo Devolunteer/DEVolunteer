@@ -14,3 +14,21 @@
   min-height: 100px;
   border: 2px solid;
 }
+@media only screen and (max-width: 322px) {
+
+  .aboutUsPage {
+    margin-top: 45%;
+  }
+}
+@media only screen and (max-width: 425px) {
+
+  .aboutUsPage {
+    margin-top: 40%;
+  }
+}
+@media only screen and (min-width: 768px) {
+
+  .aboutUsPage {
+    margin-top: 20%;
+  }
+}

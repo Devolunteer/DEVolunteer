@@ -114,37 +114,65 @@ ul{
   justify-content: space-around;
 }
 
+
 // .navbar-text {
 //   padding-right: 37%;
 // }
 
-@media only screen and (max-width: 768px) {
-  // .navbar-header {
-  //   display:block;
-  // }
+@media only screen and (max-width: 766px) {
+  .navbar-header {
+    display:block;
+  }
   button.auth {
     display: none;
   }
   button.register {
     display: none;
   }
+  .navbar-text {
+    padding-right: 37%;
+  }
+  li.mobile {
+    display:inline-block;
+  }
+  li.login {
+    display:inline-block;
+  }
+
+}
+@media only screen and (min-width: 770px) {
+  .navbar-header {
+    display:block;
+  }
+  // button.auth {
+  //   display: none;
+  // }
+  // button.register {
+  //   display: none;
+  // }
   // body {
   //   padding-top: 40px;
   // }
   .navbar-text {
     padding-right: 37%;
   }
+  li.mobile {
+    display:none;
+  }
+  li.login {
+    display:none;
+  }
+
 }
 @media only screen and (max-width: 320px) {
 
   .navbar-text {
     padding-right: 37%;
   }
-  .appName {
-    text-decoration: underline;
-    font-weight: bold;
-    position: sticky;
-    text-align: center;
-    overflow-y: hidden;
+  li.mobile {
+    display:inline-block;
+  }
+  li.login {
+    display:inline-block;
   }
 }
