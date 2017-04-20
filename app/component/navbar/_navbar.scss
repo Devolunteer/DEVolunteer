@@ -129,32 +129,24 @@ ul{
   button.register {
     display: none;
   }
-  .navbar-text {
-    padding-right: 37%;
-  }
+  // .navbar-text {
+  //   padding-right: 37%;
+  // }
   li.mobile {
     display:inline-block;
   }
   li.login {
     display:inline-block;
   }
+  .navbar-right {
+    position: relative;
+    left: 5%;
+  }
 
 }
 @media only screen and (min-width: 770px) {
   .navbar-header {
     display:block;
-  }
-  // button.auth {
-  //   display: none;
-  // }
-  // button.register {
-  //   display: none;
-  // }
-  // body {
-  //   padding-top: 40px;
-  // }
-  .navbar-text {
-    padding-right: 37%;
   }
   li.mobile {
     display:none;
@@ -166,13 +158,15 @@ ul{
 }
 @media only screen and (max-width: 320px) {
 
-  .navbar-text {
-    padding-right: 37%;
-  }
   li.mobile {
     display:inline-block;
   }
   li.login {
     display:inline-block;
+  }
+  .navbar-right {
+    top: 50%;
+    position: relative;
+    left: 5%;
   }
 }
