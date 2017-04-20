@@ -3,16 +3,6 @@
 
 <div dev="item" class="devDetails">
 
-  <h4>Rate Me!</h4>
-  <form ng-submit="devDetailCtrl.addDevRating(devDetailCtrl.rating)" class="" novalidate>
-    <input type="radio" ng-model="devDetailCtrl.rating" value="1" name="radioGroup" required><label for="one"> One Star</label>
-    <input type="radio" ng-model="devDetailCtrl.rating" value="2" name="radioGroup" required><label for="two"> Two Stars</label>
-    <input type="radio" ng-model="devDetailCtrl.rating" value="3" name="radioGroup" required><label for="one"> Three Stars</label>
-    <input type="radio" ng-model="devDetailCtrl.rating" value="4" name="radioGroup" required><label for="two"> Four Stars</label>
-    <input type="radio" ng-model="devDetailCtrl.rating" value="5" name="radioGroup" required><label for="two"> Five Stars</label>
-
-    <input type="submit" class="btn btn-bm btn-primary" value="Add Your Rating">
-   </form>
 
   <h3 class="aboutDetailHead">About Me</h3>
   <p class="aboutDetailDev"> {{ devDetailCtrl.dev.desc }}</p>
@@ -50,6 +40,18 @@
   <h4 class="webDetailHead">Where You Can Find Me On the Web</h4>
   <a class="webDetailLink" href="{{devDetailCtrl.dev.website}}">{{devDetailCtrl.dev.website}}</a>
 
+
+  <h3 class="rateHead" ng-if="devDetailCtrl.isNPO">Rate Me!</h3>
+  <form class="rateForm" ng-if="devDetailCtrl.isNPO" ng-submit="devDetailCtrl.addDevRating(devDetailCtrl.rating)" novalidate>
+
+    <label class="rateLabel" for="one"><input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="1" name="radioGroup" required> Bad</label>
+    <label class="rateLabel" for="two"> <input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="2" name="radioGroup" required>Okay</label>
+    <label class="rateLabel" for="one"><input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="3" name="radioGroup" required> Average</label>
+    <label class="rateLabel" for="two"><input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="4" name="radioGroup" required> Above Average </label>
+    <label class="rateLabel" for="two"><input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="5" name="radioGroup" required> The Greatest </label>
+
+    <input type="submit" class="rateBtn btn btn-bm btn-primary" value="Add Your Rating">
+  </form>
 
 <contact-dev></contact-dev>
 

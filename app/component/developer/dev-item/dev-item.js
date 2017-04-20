@@ -29,6 +29,7 @@ function devItemController($log, $location, devService, userService, Cloudinary)
       if(!user) {
         this.isUser = false;
       } else {
+        console.log('user', user);
         this.isUser = true;
       }
     });
