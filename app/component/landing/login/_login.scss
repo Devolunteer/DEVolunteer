@@ -59,12 +59,18 @@ input {
     display: flex;
     align-items: center;
   }
+  input {
+    font-size: 1em;
+  }
 }
 
 @media only screen and (max-width: 375px) {
   .loginFields {
     // padding-top: 90px;
     margin-top: 50%;
+  }
+  input {
+    font-size: 1em;
   }
 }
 
@@ -73,6 +79,9 @@ input {
     // padding-top: 90px;
     margin-top: 40%;
     // padding-top: 20%;
+  }
+  input {
+    font-size: 1em;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -84,6 +93,9 @@ input {
   #loginForm {
     display: flex;
     align-items: center;
+  }
+  input {
+    font-size: 1em;
   }
 }
 // form {
