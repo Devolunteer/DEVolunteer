@@ -1,13 +1,23 @@
 @import "../../../scss/lib/theme/_vars";
 
-.registrationForm {
-  position: absolute;
+.go-btn {
+  display: flex;
+  justify-content: center;
+}
+.registration {
+  height: 100%;
+  margin-top: 10%;
+}
+#registrationForm {
+  display: flex;
+  justify-content: center;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
 .signupFields {
   text-align: center;
+  align-items: center;
 }
 
 .regRadios {
@@ -29,6 +39,8 @@ a:visited, a:focus, a:hover {
 }
 
 .registerGoBtn {
+  align-items: center;
+  font-weight: 400;
   display: block;
   margin: auto;
   margin-top: 2%;
@@ -41,4 +53,30 @@ input {
   padding: 1% 5%;
   font-size: 2vw;
   border: none;
+}
+
+@media only screen and (max-width: 318px) {
+  .registration {
+    padding-top: 10%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .registration {
+    padding-top: 10%;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .registration {
+    padding-top: 30%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .registration {
+    // padding-top: 90px;
+    margin-top: 20%;
+  }
+  #registrationForm {
+    display: flex;
+    align-items: center;
+  }
 }

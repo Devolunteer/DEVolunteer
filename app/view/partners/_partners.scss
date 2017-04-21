@@ -4,3 +4,24 @@ a {
 a:visited {
   text-decoration: none;
 }
+
+.partners h1 {
+  margin-top: 5%;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 422px) {
+  .partners h1 {
+    margin-top: 35%;
+  }
+}
+@media only screen and (max-width: 425px) and (min-width: 320px) {
+  .partners h1 {
+    margin-top: 53%;
+  }
+}
+@media only screen and (max-width: 1024px)  and (min-width: 766px){
+
+  .partners h1 {
+    margin-top: 20%;
+  }
+}

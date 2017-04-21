@@ -1,7 +1,6 @@
-devListContainer {
-  position: relative;
+ul {
+  display: block;
 }
-
 
 .devFilters {
   position: absolute;
@@ -23,3 +22,19 @@ devListContainer {
 // fieldset {
 //   margin-top: 10%;
 // }
+@media only screen and (max-width: 1024px) and (min-width: 771px) {
+  .devFilters {
+    margin-top: 20%;
+  }
+
+}
+@media only screen and (max-width: 770px) and (min-width: 422px) {
+  .devFilters {
+    margin-top: 30%;
+  }
+}
+@media only screen and (max-width: 420px) and (min-width: 318px) {
+  .devFilters {
+    margin-top: 50%;
+  }
+}

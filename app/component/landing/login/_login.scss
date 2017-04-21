@@ -1,15 +1,31 @@
 @import "../../../scss/lib/theme/_vars";
 
-
-.loginForm {
-  position: absolute;
+input {
+  margin: auto, 0;
+  padding: 1% 5%;
+  font-size: 2vw;
+  border: none;
+}
+// .login {
+//   display: flex;
+//   align-items: center;
+// }
+#loginForm {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  // position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
 .loginFields {
+  width: 100%;
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin-top: 5%;
+  padding-top: 5%;
 }
 
 .signinGoBtn {
@@ -31,6 +47,57 @@
   transition: all .2s ease-in-out;
 }
 
+@media only screen and (max-width: 320px) {
+  .loginFields {
+    // padding-top: 90px;
+    margin-top: 50%;
+  }
+  button {
+    padding: 0;
+  }
+  #loginForm {
+    display: flex;
+    align-items: center;
+  }
+  input {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .loginFields {
+    // padding-top: 90px;
+    margin-top: 50%;
+  }
+  input {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .loginFields {
+    // padding-top: 90px;
+    margin-top: 40%;
+    // padding-top: 20%;
+  }
+  input {
+    font-size: 1em;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .loginFields {
+    // padding-top: 90px;
+    margin-top: 50%;
+    padding-top: 5%;
+  }
+  #loginForm {
+    display: flex;
+    align-items: center;
+  }
+  input {
+    font-size: 1em;
+  }
+}
 // form {
 //   margin-top: 17%;
 //   margin-bottom: 30%;

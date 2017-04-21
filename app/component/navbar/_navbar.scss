@@ -1,22 +1,64 @@
 @import "../../scss/lib/theme/_vars";
 
+// -------------------------Horizonal NavBar -----/
+.logo img {
+  width:100px;
+}
+
+ul {
+  padding:0;
+}
+
+li {
+  display:inline-block;
+  padding: 10px 5px;
+}
+
+a {
+  font-size:1.2em;
+}
+
+.uib-collapse, button {
+  float:right;
+  height:45px;
+}
+
+button {
+  margin:0 !important;
+}
+
+.collapsing {
+  transition-duration:2s;
+}
+
+.navbar-toggle {
+  border: none;
+}
+
 .navbar {
   height: auto;
 }
 
 .navbar-nav{
+  // display: inline;
   position: absolute;
   left: 0;
   margin: 0;
   top: 51%;
 }
 
+.titleText {
+  text-align: center;
+}
 
+.navbar-collapse.in {
+    overflow-y: hidden;
+  }
 
 .nav-container {
   position: relative;
   text-align: center;
-  height: 100px;
+  height: 50px;
 }
 
 .mainText {
@@ -63,4 +105,64 @@
      padding:0!important;
      font: inherit;
      cursor: pointer;
+}
+.horizontal-collapse {
+  height:50px;
+}
+
+
+// .navbar-text {
+//   padding-right: 37%;
+// }
+
+@media only screen and (max-width: 766px) {
+  .navbar-header {
+    display:block;
+  }
+  button.auth {
+    display: none;
+  }
+  button.register {
+    display: none;
+  }
+  // .navbar-text {
+  //   padding-right: 37%;
+  // }
+  li.mobile {
+    display:inline-block;
+  }
+  li.login {
+    display:inline-block;
+  }
+  .navbar-right {
+    position: relative;
+    left: 5%;
+  }
+
+}
+@media only screen and (min-width: 770px) {
+  .navbar-header {
+    display:block;
+  }
+  li.mobile {
+    display:none;
+  }
+  li.login {
+    display:none;
+  }
+
+}
+@media only screen and (max-width: 320px) {
+
+  li.mobile {
+    display:inline-block;
+  }
+  li.login {
+    display:inline-block;
+  }
+  .navbar-right {
+    top: 50%;
+    position: relative;
+    left: 5%;
+  }
 }
