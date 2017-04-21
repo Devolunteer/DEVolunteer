@@ -119,7 +119,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     $log.debug('devService.rateDev()');
     return authService.getToken()
       .then(token => {
-        let url = `${__API_URL__}/api/dev/`;
+        let url = `${__API_URL__}/api/devList/`;
         let config = {
           headers: {
             Accept: 'application/json',
