@@ -30,6 +30,7 @@
     "babel-preset-es2015": "^6.24.1",
     "bluebird": "^3.5.0",
     "bootstrap-sass": "^3.3.7",
+    "camelcase": "^3.0.0",
     "chai": "^3.5.0",
     "clean-webpack-plugin": "^0.1.16",
     "cloudinary": "^1.8.0",

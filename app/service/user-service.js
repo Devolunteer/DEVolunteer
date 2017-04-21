@@ -15,8 +15,7 @@ function userService($q, $log, $http, authService) {
     .then(token => {
       console.log('GETTING THE TOKEN');
       console.log(token);
-      // let url =`${__API_URL__}/api/user`;//will change this
-      let url = `http://localhost:3000/api/user`;
+      let url =`${__API_URL__}/api/user`;
 
       let config = {
         headers: {
@@ -44,8 +43,7 @@ function userService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then(token => {
-      // let url = `${__API_URL__}/api/user/`;
-      let url = `http://localhost:3000/api/user`
+      let url = `${__API_URL__}/api/user/`;
 
       let config = {
         headers: {
