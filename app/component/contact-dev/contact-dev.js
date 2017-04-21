@@ -16,21 +16,39 @@ function contactDevController($log, $location, devService, userService, authServ
   $log.debug('running contactDevCtrl');
 
   this.nonP = {};
+  this.dev;
+
 
   this.isNPO = false;
+
+  userService.fetchUser()
+  .then(() => {
+    this.nonP.recipient = this.dev.email;
+  })
+  .catch(err => {
+    console.log(err);
+  });
 
   npoService.fetchNpo()
   .then(res => {
     if (res) {
       this.nonP.org = res.data.org;
       this.nonP.email = res.data.email;
-      this.isNPO = true;
     }
     else {
       this.isNewUser = true;
     }
   });
 
+
+  this.sendMail = function(email) {
+    devService.sendMail(email)
+    .then(() => {
+      alert('Message Sent!');
+      $location.url('/');
+    });
+
+  };
 
 
 }

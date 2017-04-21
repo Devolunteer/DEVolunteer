@@ -148,12 +148,31 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
       });
   };
 
+  service.sendMail = function(email) {
+    $log.debug('devService.sendMail()')
 
+    return authService.getToken()
+    .then(token => {
+      let url = `http://localhost:3000/api/dev/contact`
 
-
-
-
-
+    let config = {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      }
+    };
+    return $http.post(url, email, config)
+    .then(res => {
+      console.log('res', res);
+    })
+    .catch(err => {
+      console.log('in the sendMail catch');
+      console.log(err);
+      return $q.reject(err);
+    });
+  });
+};
 
   service.uploadPic = function(file) {
     return Upload.upload({
@@ -251,5 +270,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
       return $q.reject(err);
     });
   };
+
   return service;
 }
