@@ -13,7 +13,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
 
   service.fetchDevs = function() {
     console.log('in the fetchDevs, yo');
-    let url =`${__API_URL__}/api/dev`;
+    let url =`${__API_URL__}/api/devList`;
     console.log('url', url);
 
     return $http.get(url)
