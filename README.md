@@ -18,7 +18,7 @@
 
 ## **Documentation**
 
-### Back-End
+### __Back-End__
 ##### Startup The Servers:
 `mongo` and `node server.js` from the backend directory.
 
@@ -48,7 +48,11 @@ curl -H "Authorization: Bearer <your token>" -H "Content-type: application/json"
 curl -H "Authorization: Bearer <token>" -X DELETE http://localhost:3000/dev || http://localhost:3000/npo
 ```
 
-### Front-End
+### __Front-End__
+![ui_view](https://cloud.githubusercontent.com/assets/18372172/24835193/63efb1c8-1caf-11e7-8d5a-103dfdbbfa5e.png)
+__UI VIEW EXAMPLE__
+
+You can choose to sign up as developer or Non-Profit user, have a profile and be able to recruit that person or organization. It's a Win / Win!
 
 ---
 ### DEVolunteer User Stories:
@@ -75,5 +79,13 @@ curl -H "Authorization: Bearer <token>" -X DELETE http://localhost:3000/dev || h
 
 ##### Stretch Goals
 * Type of Payment(tipping method)
+* Contact Me(linking to email)
 
-##### Resources:
+##### Resources / Testing:
+* [Background Image](https://static.tutsplus.com/assets/learn/wordpress/header-977317a7ec008054916c8fd2e34ab243.jpg)
+
+* Testing Tools
+  * mocha
+  * chai
+  * superagent
+  * karma

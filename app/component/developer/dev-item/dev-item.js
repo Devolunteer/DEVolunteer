@@ -15,6 +15,7 @@ function devItemController($log, $location, devService, userService, Cloudinary)
   this.selectedDev = {};
   this.showDev = false;
   this.showMsg = false;
+  // this.dev.avg;
 
   this.showLess = function() {
     this.showDev = false;
@@ -28,10 +29,10 @@ function devItemController($log, $location, devService, userService, Cloudinary)
       if(!user) {
         this.isUser = false;
       } else {
+        console.log('user', user);
         this.isUser = true;
       }
     });
-
 
   this.showDetailView = function(dev) {
     devService.getDevByID(dev)
@@ -41,9 +42,18 @@ function devItemController($log, $location, devService, userService, Cloudinary)
       this.showDev = true;
       console.log('selectedDev', this.selectedDev);
       console.log('selected Name', this.selectedDev.name);
+      console.log('reviews', this.selectedDev.reviews);
     })
     .catch(() => {
       this.showMsg = true;
     });
   };
+
+
+
+
+
+
+
+
 }

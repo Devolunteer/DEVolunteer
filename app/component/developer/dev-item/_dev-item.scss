@@ -22,13 +22,13 @@
 .devName {
   position: absolute;
   left: 202px;
-  top: 12px;
+  top: 0px;
 }
 
 .detailCity {
   position: absolute;
   left: 202px;
-  top: 58px;
+  top: 42px;
 }
 
 .devEmail {
@@ -41,7 +41,14 @@
 .devExp {
   position: absolute;
   left: 202px;
-  top: 90px;
+  top: 70px;
+}
+
+.devAvgRating {
+  position: absolute;
+  left: 202px;
+  top: 100px;
+  font-weight: bold;
 }
 
 .aboutHead, .langHead {

@@ -3,6 +3,7 @@
 
 <div dev="item" class="devDetails">
 
+
   <h3 class="aboutDetailHead">About Me</h3>
   <p class="aboutDetailDev"> {{ devDetailCtrl.dev.desc }}</p>
 
@@ -36,14 +37,26 @@
   </ul>
 
 
-  <!-- <h3 class="item-label">Available</h3>
-  <input type="checkbox" name="Available" ng-model="devDetailCtrl.dev.available"> -->
-
   <h4 class="webDetailHead">Where You Can Find Me On the Web</h4>
   <a class="webDetailLink" href="{{devDetailCtrl.dev.website}}">{{devDetailCtrl.dev.website}}</a>
 
 
-  <!-- <button ng-if="devDetailCtrl.userAuthenticated" type="button" name="button" ng-click="SOMETHING">Contact Me</button> -->
+  <h3 class="rateHead" ng-if="devDetailCtrl.isNPO">Rate Me!</h3>
+  <form class="rateForm" ng-if="devDetailCtrl.isNPO" ng-submit="devDetailCtrl.addDevRating(devDetailCtrl.rating)" novalidate>
+
+    <label class="rateLabel" for="one"><input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="1" name="radioGroup" required> Bad</label>
+    <label class="rateLabel" for="two"> <input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="2" name="radioGroup" required>Okay</label>
+    <label class="rateLabel" for="one"><input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="3" name="radioGroup" required> Average</label>
+    <label class="rateLabel" for="two"><input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="4" name="radioGroup" required> Above Average </label>
+    <label class="rateLabel" for="two"><input class="rateRadio" type="radio" ng-model="devDetailCtrl.rating" value="5" name="radioGroup" required> The Greatest </label>
+
+    <input type="submit" class="rateBtn btn btn-bm btn-primary" value="Add Your Rating">
+  </form>
+
+<contact-dev
+ dev="devDetailCtrl.dev">
+
+</contact-dev>
 
 
 
