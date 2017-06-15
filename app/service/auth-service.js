@@ -29,9 +29,7 @@ function authService($q, $log, $http, $window){
     };
 
     token = $window.localStorage.getItem('token');
-    console.log('in get token, about to hit the if');
     if (token) return $q.resolve(token);
-    console.log('token is', token);
     return $q.reject(new Error('token not found'));
   };
 
@@ -48,7 +46,6 @@ function authService($q, $log, $http, $window){
 
 //SIGNUP LOGIC
   service.signup = function(user) {
-    console.log('user', user);
     $log.debug('authService.signup()');
     let url = `${__API_URL__}/api/signup`;
 

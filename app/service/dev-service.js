@@ -4,7 +4,6 @@ module.exports = ['$q', '$log', '$http', 'Upload', 'authService', 'Cloudinary', 
 
 function devService($q, $log, $http, Upload, authService, Cloudinary) {
   $log.debug('devService');
-  console.log(Cloudinary);
 
   let service = {};
   service.devList = [];
@@ -12,9 +11,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
   service.currentDev;
 
   service.fetchDevs = function() {
-    console.log('in the fetchDevs, yo');
     let url =`${__API_URL__}/api/devList`;
-    console.log('url', url);
 
     return $http.get(url)
     .then( res => {
@@ -24,7 +21,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
       return service.devList;
     })
     .catch( err => {
-      console.log('in the fetchDevs catch');
       $log.error(err.message);
       return $q.reject(err);
     });
@@ -39,7 +35,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
   };
 
   service.createDev = function(dev) {
-    console.log('trying to create a dev');
     $log.debug('devService.createDev()');
 
     return authService.getToken()
@@ -57,8 +52,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     .then(res => {
       $log.log('dev created');
       let dev = res.data;
-      console.log('LOGGING THE DEV AFTER A POST');
-      console.log(dev);
       service.devList.unshift(dev);
       return dev;
     })
@@ -89,7 +82,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
   };
 
   service.updateDev = function(dev) {
-    console.log('trying to UPDATE a dev');
     $log.debug('devService.updateDev()');
 
     return authService.getToken()
@@ -130,9 +122,7 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
         $log.log('set the headers');
         return $http.put(url, dev, config)
         .then(res => {
-          console.log('res', res);
           let dev = res.data;
-          console.log('returned dev', dev)
           return dev;
         })
         .catch(err => {
@@ -159,7 +149,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
     };
     return $http.post(url, email, config)
     .then(res => {
-      console.log('res', res);
     })
     .catch(err => {
       console.log('in the sendMail catch');
@@ -205,7 +194,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
 
       return $http.get(url, config)
       .then(res => {
-        $log.log('here is a dev, yo', res.data);
         service.dev = res.data;
         return service.dev;
       });
@@ -233,7 +221,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
       .then(res => {
         $log.log('here is a dev, yo', res.data);
         service.currentDev = res.data;
-        console.log('res', res.data);
         return service.currentDev;
       });
     })
@@ -244,7 +231,6 @@ function devService($q, $log, $http, Upload, authService, Cloudinary) {
   };
 
   service.deleteDev = function() {
-    console.log('trying to DELETE a dev');
     $log.debug('devService.deleteDev()');
 
     return authService.getToken()

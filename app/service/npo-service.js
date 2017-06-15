@@ -21,7 +21,6 @@ function npoService($q, $log, $http, Upload, authService) {
       return service.npoList;
     })
     .catch( err => {
-      console.log('in the fetchNpos catch');
       $log.error(err.message);
       return $q.reject(err);
     });
@@ -73,7 +72,6 @@ function npoService($q, $log, $http, Upload, authService) {
     .then(res => {
       $log.log('npo created');
       let npo = res.data;
-      console.log(npo);
       return npo;
     })
     .catch(err => {
@@ -102,7 +100,6 @@ function npoService($q, $log, $http, Upload, authService) {
   };
 
   service.updateNpo = function(npo) {
-    console.log('trying to UPDATE a npo');
     $log.debug('npoService.updateNpo()');
 
     return authService.getToken()
@@ -118,7 +115,6 @@ function npoService($q, $log, $http, Upload, authService) {
         return $http.put(url, npo, config)
         .then(res => {
           let npo = res.data;
-          console.log(npo);
           return npo;
         })
         .catch(err => {
@@ -145,7 +141,6 @@ function npoService($q, $log, $http, Upload, authService) {
   };
 
   service.deleteNpo = function() {
-    console.log('trying to DELETE a npo');
     $log.debug('npoService.deleteNpo()');
 
     return authService.getToken()

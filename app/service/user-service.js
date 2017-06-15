@@ -13,8 +13,6 @@ function userService($q, $log, $http, authService) {
 
     return authService.getToken()
     .then(token => {
-      console.log('GETTING THE TOKEN');
-      console.log(token);
       let url =`${__API_URL__}/api/user`;
 
       let config = {
@@ -26,8 +24,6 @@ function userService($q, $log, $http, authService) {
     })
     .then(res => {
       $log.log('user retrieved');
-      console.log('HERE IS THE RESPONSE DATA');
-      console.log(res.data);
       return res.data;
     })
     .catch(err => {
@@ -38,7 +34,6 @@ function userService($q, $log, $http, authService) {
 
 
   service.deleteUser = function() {
-    console.log('trying to DELETE a user');
     $log.debug('userService.deleteUser()');
 
     return authService.getToken()
